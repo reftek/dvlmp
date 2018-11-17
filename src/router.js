@@ -4,6 +4,9 @@ import Router from 'vue-router';
 import MainSite from './views/MainSite.vue';
 import mainRoutes from './routes/mainRoutes';
 
+import MerchantSite from './views/MerchantSite.vue';
+import merchantRoutes from './routes/merchantRoutes';
+
 Vue.use(Router);
 
 export default new Router({
@@ -12,9 +15,13 @@ export default new Router({
     routes: [
 		{
             path: '/',
-            // name: 'home',
 			component: MainSite,
 			children: mainRoutes,
+        },
+		{
+            path: '/merchant',
+			component: MerchantSite,
+			children: merchantRoutes,
         },
     ]
 });
