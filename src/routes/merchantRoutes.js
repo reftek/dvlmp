@@ -9,31 +9,31 @@ export default [
     {
         path: 'requests',
         name: 'merchants.requests',
-        component: () => import( /* webpackChunkName: "about" */ './../views/merchant/MerchantRequests.vue')
+        component: () => import( /* webpackChunkName: "merchant-requests" */ './../views/merchant/MerchantRequests.vue')
     },
     {
         path: 'orders',
         name: 'merchants.orders',
-        component: () => import( /* webpackChunkName: "about" */ './../views/merchant/MerchantOrders.vue')
+        component: () => import( /* webpackChunkName: "merchant-orders" */ './../views/merchant/MerchantOrders.vue')
     },
     {
         path: 'payments',
         name: 'merchants.payments',
-        component: () => import( /* webpackChunkName: "about" */ './../views/merchant/MerchantPayments.vue')
+        component: () => import( /* webpackChunkName: "merchant-payments" */ './../views/merchant/MerchantPayments.vue')
     },
     {
         path: 'stats',
         name: 'merchants.stats',
-        component: () => import( /* webpackChunkName: "about" */ './../views/merchant/MerchantStats.vue')
+        component: () => import( /* webpackChunkName: "merchant-stats" */ './../views/merchant/MerchantStats.vue')
     },
     {
         path: 'zones',
         name: 'merchants.zones',
-        component: () => import( /* webpackChunkName: "about" */ './../views/merchant/MerchantZones.vue')
+        component: () => import( /* webpackChunkName: "merchant-zones" */ './../views/merchant/MerchantZones.vue')
     },
     {
         path: 'settings',
         name: 'merchants.settings',
-        component: () => import( /* webpackChunkName: "about" */ './../views/merchant/MerchantSettings.vue')
+        component: () => import( /* webpackChunkName: "merchant-settings" */ './../views/merchant/MerchantSettings.vue')
     },
 ];

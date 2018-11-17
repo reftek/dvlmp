@@ -3,7 +3,7 @@
         <sidebar />
 
         <div id="content">
-            <merchant-navbar />
+            <customer-navbar />
             <div class="p-4">
                 <router-view />
             </div>
@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import Sidebar from "./../components/merchant/MerchantSidebar";
-import MerchantNavbar from "./../components/merchant/MerchantNavbar";
+import Sidebar from "./../components/customer/CustomerSidebar";
+import CustomerNavbar from "./../components/customer/CustomerNavbar";
 export default {
     components: {
         Sidebar,
-        MerchantNavbar,
+        CustomerNavbar,
     }
 }
 </script>

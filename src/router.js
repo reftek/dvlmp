@@ -7,6 +7,9 @@ import mainRoutes from './routes/mainRoutes';
 import MerchantSite from './views/MerchantSite.vue';
 import merchantRoutes from './routes/merchantRoutes';
 
+import CustomerSite from './views/CustomerSite.vue';
+import customerRoutes from './routes/customerRoutes';
+
 Vue.use(Router);
 
 export default new Router({
@@ -22,6 +25,11 @@ export default new Router({
             path: '/merchant',
 			component: MerchantSite,
 			children: merchantRoutes,
+        },
+		{
+            path: '/customer',
+			component: CustomerSite,
+			children: customerRoutes,
         },
     ]
 });

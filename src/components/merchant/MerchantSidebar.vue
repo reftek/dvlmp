@@ -1,8 +1,8 @@
 <template>
     <nav id="sidebar" class="bg-dark text-white">
-        <div class="mt-5 fs-13 font-weight-bold pl-4">
+        <router-link tag="div" class="pointer mt-5 fs-13 font-weight-bold pl-4" :to="{name: 'main.home'}">
             DVLMP
-        </div>
+        </router-link>
     
         <div class="mt-5">
             <router-link class="nav-side-link py-3 my-2" active-class="active" exact :to="{name: 'merchants.dashboard'}">
@@ -15,7 +15,7 @@
                 <i class="mdi mdi-package-variant mr-3 fs-1"></i> Order History
             </router-link>
             <router-link class="nav-side-link py-3 my-2" active-class="active" exact :to="{name: 'merchants.payments'}">
-                <i class="mdi mdi-cash-multiple mr-3 fs-1"></i> Payment History
+                <i class="mdi mdi-checkbook mr-3 fs-1"></i> Payment History
             </router-link>
             <router-link class="nav-side-link py-3 my-2" active-class="active" exact :to="{name: 'merchants.stats'}">
                 <i class="mdi mdi-finance mr-3 fs-1"></i> Statistics
