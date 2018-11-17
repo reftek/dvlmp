@@ -1,7 +1,9 @@
 <template>
     <div class="main">
         <navbar />
-        <router-view />
+        <div class="main-container">
+            <router-view />
+        </div>
     </div>
 </template>
 
@@ -16,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .main{
+    .main-container{
         height: calc(100vh - 74px);
     }
 </style>

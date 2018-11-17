@@ -32,6 +32,16 @@ export default [
         component: () => import( /* webpackChunkName: "signup" */ './../views/main/SignUp.vue')
     },
     {
+        path: 'signup/merchant',
+        name: 'main.signup.merchant',
+        component: () => import( /* webpackChunkName: "signup" */ './../views/main/SignUpMerchant.vue')
+    },
+    {
+        path: 'signup/user',
+        name: 'main.signup.user',
+        component: () => import( /* webpackChunkName: "signup" */ './../views/main/SignUpUser.vue')
+    },
+    {
         path: 'login',
         name: 'main.login',
         component: () => import( /* webpackChunkName: "login" */ './../views/main/Login.vue')

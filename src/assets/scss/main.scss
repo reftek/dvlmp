@@ -3,6 +3,7 @@ $primary-color: #3D4EE1;
 
 $theme-colors: (
   "primary": $primary-color,
+  "silver": #F5F5F5,
 );
 
 @import "../node_modules/bootstrap/scss/bootstrap";
@@ -23,4 +24,6 @@ body{
     background-color: #F5F5F5;
 }
 
-@import "./partials//navbar";
+@import "./partials/_navbar";
+@import "./partials/_typography";
+@import "./partials/_helpers";
