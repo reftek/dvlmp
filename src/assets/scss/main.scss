@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css?family=Encode+Sans:100,200,400,600,700");
+$primary-color: #3D4EE1;
+
+$theme-colors: (
+  "primary": $primary-color,
+);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// // Required
+// @import "../node_modules/bootstrap/scss/functions";
+// @import "../node_modules/bootstrap/scss/variables";
+// @import "../node_modules/bootstrap/scss/mixins";
+
+// // Optional
+// @import "../node_modules/bootstrap/scss/reboot";
+// @import "../node_modules/bootstrap/scss/type";
+// @import "../node_modules/bootstrap/scss/images";
+// @import "../node_modules/bootstrap/scss/code";
+// @import "../node_modules/bootstrap/scss/grid";
+
+body{
+    background-color: #F5F5F5;
+}
+
+@import "./partials//navbar";

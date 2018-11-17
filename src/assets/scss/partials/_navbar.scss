@@ -1,0 +1,14 @@
+.navbar-brand{
+    font-weight: bold;
+}
+.nav-item{
+    margin-right: 15px;
+    &.main-button{
+        border: 1px solid $primary-color;
+        color: $primary-color !important;
+        &:hover{
+            background-color: $primary-color;
+            color: white !important;
+        }
+    }
+}
