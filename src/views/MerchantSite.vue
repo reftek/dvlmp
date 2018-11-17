@@ -1,12 +1,12 @@
 <template>
     <div class="wrapper">
-
-        <!-- Sidebar -->
         <sidebar />
 
-        <!-- Page Content -->
         <div id="content">
-            <!-- We'll fill this with dummy content -->
+            <merchant-navbar />
+            <div class="p-4">
+                <router-view />
+            </div>
         </div>
 
     </div>
@@ -14,9 +14,11 @@
 
 <script>
 import Sidebar from "./../components/merchant/Sidebar";
+import MerchantNavbar from "./../components/merchant/MerchantNavbar";
 export default {
     components: {
         Sidebar,
+        MerchantNavbar,
     }
 }
 </script>
@@ -27,6 +29,9 @@ export default {
     display: flex;
     width: 100%;
     align-items: stretch;
+}
+#content{
+    width: 100%;
 }
 </style>
 
