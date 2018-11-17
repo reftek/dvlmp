@@ -6,13 +6,13 @@
         </button>
         <div class="collapse navbar-collapse mr-5" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">About Us</a>
-                <a class="nav-item nav-link" href="#">How It Works</a>
-                <a class="nav-item nav-link" href="#">Merchants</a>
-                <a class="nav-item nav-link" href="#">FAQs</a>
-                <a class="nav-item nav-link main-button px-4" href="#">Login</a>
-                <a class="nav-item nav-link main-button px-4" href="#">Sign Up</a>
+                <router-link class="nav-item nav-link" active-class="active" exact :to="{name: 'main.home'}">Home</router-link>
+                <router-link class="nav-item nav-link" active-class="active" exact :to="{name: 'main.about'}">About Us</router-link>
+                <router-link class="nav-item nav-link" active-class="active" exact :to="{name: 'main.how-it-works'}">How It Works</router-link>
+                <router-link class="nav-item nav-link" active-class="active" exact :to="{name: 'main.merchants'}">Merchants</router-link>
+                <router-link class="nav-item nav-link" active-class="active" exact :to="{name: 'main.faq'}">FAQs</router-link>
+                <router-link class="nav-item nav-link main-button px-4" :to="{name: 'main.login'}">Login</router-link>
+                <router-link class="nav-item nav-link main-button px-4" :to="{name: 'main.signup'}">Sign Up</router-link>
             </div>
         </div>
     </nav>

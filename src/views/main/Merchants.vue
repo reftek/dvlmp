@@ -1,8 +1,8 @@
 <template>
     <div class="container h-100">
         <div class="row justify-content-center align-items-center h-100">
-            <div class="col-md-4 text-center">
-                <h1 class="text-primary">About Us Page</h1>
+            <div class="col-md-3 text-center">
+                <h1 class="text-primary">Merchant Page</h1>
             </div>
         </div>
     </div>
