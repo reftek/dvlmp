@@ -43,7 +43,7 @@
 
         .order-img{
             // align-self: left;
-            background-color: green;
+            background-color: #48C23A;
             height: 50px;
             width: 85%;
             
@@ -60,7 +60,7 @@
         .delivery-status{
             // background-color: green;
             // float: right;
-            background-color: green;
+            background-color: #48C23A;
             color: white;
             font-size: 0.6rem;
             display: inline-block;
