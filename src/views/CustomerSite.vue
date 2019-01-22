@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <sidebar />
+        <sidebar class="d-none d-md-block d-lg-block" />
 
         <div id="content">
             <customer-navbar />
