@@ -1,5 +1,5 @@
 <template>
-    <div class='row'>
+    <div class='row' @click="gotoOrderDetails(orderId)">
         <div class="order-contain p-3 shadow-sm flex col-md-12">
             <div class="row">
                 <div class="col">
@@ -49,7 +49,17 @@ export default {
         'orderDescription',
         'orderDate',
         'image'
-    ]
+    ],
+    methods: {
+        gotoOrderDetails(order_id){
+            this.$router.push({
+                name: 'customers.orders.details', 
+                params: { 
+                    id: order_id
+                }
+            });
+        }
+    }
 }
 </script>
 

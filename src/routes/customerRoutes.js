@@ -17,6 +17,11 @@ export default [
         component: () => import( /* webpackChunkName: "customer-orders" */ './../views/customer/CustomerOrders.vue')
     },
     {
+        path: 'orders/:id',
+        name: 'customers.orders.details',
+        component: () => import( /* webpackChunkName: "customer-orders" */ './../views/customer/CustomerOrdersDetails.vue')
+    },
+    {
         path: 'wallet',
         name: 'customers.wallet',
         component: () => import( /* webpackChunkName: "customer-wallet" */ './../views/customer/CustomerWallet.vue')
