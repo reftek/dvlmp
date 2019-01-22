@@ -1,8 +1,15 @@
 <template>
-    <div>
-        <h2 class="mb-3">Order History</h2>
+    <div >
+        <p class="mb-3">Order History</p>
 
-        <order-item class="mb-3" :orderId="order.id" v-for="order in orders" :key="order.id" />
+        <order-item :orderId="order.id" 
+                    :merchantName="order.merchantName" 
+                    :orderDate="order.date" 
+                    :status="order.status"
+                    :orderDescription="order.description"
+                    :image="order.image"
+                        v-for="order in orders" :key="order.id" class="mb-3"></order-item>
+
     </div>
 </template>
 
@@ -10,7 +17,7 @@
 import OrderItem from "./../../components/orders/OrderItem";
 export default {
     components: {
-        OrderItem
+        OrderItem:OrderItem
     },
     data(){
         return {
@@ -18,10 +25,26 @@ export default {
                 {
                     id: "ORD123",
                     merchantName: 'Reftek',
+                    description: 'Power pack 5000mAh',
+                    date: '3 days ago',
+                    status: 'success',
+                    image: 'http://www.relatedfluidpower.com/wp-content/gallery/mini-power-units/Hydraulic-Power-Pack-Micro90-Gallery.jpg',
                 },
                 {
                     id: "ORD987",
-                    merchantName: 'GodKada',
+                    merchantName: 'Dominos',
+                    description: 'Dominios Pizza',
+                    date: '5 days ago',
+                    status: 'fail',
+                    image: 'https://trademe.tmcdn.co.nz/photoserver/plus/687646665.jpg',
+                },
+                {
+                    id: "ORD744",
+                    merchantName: 'GoKada',
+                    description: 'Samsung S9 Large',
+                    date: '2 days Ago',
+                    status: 'pending',
+                    image: 'https://cdn0.vox-cdn.com/hermano/verge/product/image/8666/akrales_180305_2350_0401_squ.jpg'
                 },
             ]
         }
@@ -30,4 +53,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    p{
+        color: black;
+        font-size: 21px;
+    }
 </style>

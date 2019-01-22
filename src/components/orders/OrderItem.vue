@@ -1,40 +1,62 @@
 <template>
-<div class="order-contain p-3 shadow-sm flex" >
-    <div class="row">
-        <div class="col">
-            <div class="order-item">ORD1234</div>
-        </div>
-        <div class="col date">
-            3 days ago
-        </div>
-    </div>
-    <div class="row align-items-center mt-2">
-        <div class="col-8">
-            <div class="row align-items-center">
-                <div class="col-5">
-                    <div class="order-img"></div>
+    <div class='row'>
+        <div class="order-contain p-3 shadow-sm flex col-md-12">
+            <div class="row">
+                <div class="col">
+                    <div class="order-item">{{orderId}}</div>
                 </div>
-                <div class="col pl-1 order-detail">
-                    <div class="row">Portal Deliveries</div>
-                    <div class="row">Item Description</div>
+                <div class="col date">
+                    {{orderDate}}
                 </div>
             </div>
-        </div>
+            <div class="row align-items-center mt-2">
+                <div class="col-8">
+                    <div class="row align-items-center">
+                        <div class="col-5">
+                            <!-- <div class="order-img"> -->
+                            <img :src="image" alt="orderImage" class="order-img">
+                            <!-- </div> -->
+                        </div>
+                        <div class="col pl-1 order-detail">
+                            <div class="row">{{merchantName}}</div>
+                            <div class="row">{{orderDescription}}</div>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="col-4 text-right">
-            <div class="delivery-status px-2">
-                Delivered
+                <div class="col-4 text-right">
+                    <div class="delivery-status px-2" v-if="status == 'success'">
+                        Delivered
+                    </div>
+                    <div class="delivery-status status-red px-2" v-if="status == 'fail'">
+                        Cancelled
+                    </div>
+                    <div class="delivery-status status-orange px-2" v-if="status == 'pending'">
+                        Pending
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </template>
+
+<script>
+export default {
+    props: [
+        'orderId',
+        'merchantName',
+        'status',
+        'orderDescription',
+        'orderDate',
+        'image'
+    ]
+}
+</script>
 
 <style lang="scss" scoped>
 .order-contain{
         background-color: white;
-        border-radius: 10px;
-        // min-height: 70px;
+        border-radius: 7px;
 
         .date{
             text-align: right;
@@ -42,11 +64,9 @@
         }
 
         .order-img{
-            // align-self: left;
-            background-color: #48C23A;
+            // background-color: #48C23A;
             height: 50px;
             width: 85%;
-            
         }
 
         .order-detail{
@@ -55,22 +75,25 @@
             div:nth-child(1) {
                 color: black;
             }
+            div:nth-child(2){
+                font-size: 0.7rem;
+            }
         }
 
         .delivery-status{
-            // background-color: green;
-            // float: right;
             background-color: #48C23A;
             color: white;
             font-size: 0.6rem;
             display: inline-block;
-            // max-height: 5px;
-            // max-width: 10px;
-        }
-    }
 
-    h2{
-        color: black;
+            &.status-red{
+                background-color: red;
+            }
+
+            &.status-orange{
+                background-color: orange;
+            }
+        }
     }
     .order-item{
         font-size: 0.9rem;
