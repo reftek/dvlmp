@@ -1,24 +1,37 @@
 <template>
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-white py-4 px-4 align-center"> -->
-        
-        <div class="row justify-content-between bg-transparent px-3 py-3 align-items-center">
-            <div class="col">
-                <div class="user-image"></div>
+    <nav class="row justify-content-between bg-transparent px-3 py-3 align-items-center">
+        <div class="col">
+            <div class="user-image" @click="toggleSideBar"></div>
+        </div>
+        <div class="col text-center brand-text text-primary">
+            DVMLP
+        </div>
+        <div class="col text-right">
+            <div class="btn-icon mx-2">
+                <i class="mdi mdi-magnify"></i>
             </div>
-            <div class="col text-center brand-text text-primary">
-                DVMLP
-            </div>
-            <div class="col text-right">
-                <div class="btn-icon mx-2">
-                    <i class="mdi mdi-magnify"></i>
-                </div>
-                <div class="btn-icon mx-2">
-                    <i class="mdi mdi-bell"></i>
-                </div>
+            <div class="btn-icon mx-2">
+                <i class="mdi mdi-bell"></i>
             </div>
         </div>
-    <!-- </nav> -->
+    </nav>
 </template>
+
+<script>
+export default {
+    computed: {
+        sideBarStatus(){
+            return this.$store.getters['getSideBarStatus'];
+        }
+    },
+    methods: {
+        toggleSideBar(){
+            this.$store.commit("toggleSideBar", true);
+        }
+    }
+}
+</script>
+
 
 <style lang="scss" scoped>
 .brand-text{

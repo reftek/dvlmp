@@ -1,14 +1,14 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import MainSite from './views/MainSite.vue';
-import mainRoutes from './routes/mainRoutes';
+import MainSite from './../views/MainSite.vue';
+import mainRoutes from './mainRoutes';
 
-import MerchantSite from './views/MerchantSite.vue';
-import merchantRoutes from './routes/merchantRoutes';
+import MerchantSite from './../views/MerchantSite.vue';
+import merchantRoutes from './merchantRoutes';
 
-import CustomerSite from './views/CustomerSite.vue';
-import customerRoutes from './routes/customerRoutes';
+import CustomerSite from './../views/CustomerSite.vue';
+import customerRoutes from './customerRoutes';
 
 Vue.use(Router);
 

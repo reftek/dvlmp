@@ -11,7 +11,7 @@
             <router-link class="nav-side-link py-3 my-2" active-class="active" exact :to="{name: 'customers.contacts'}">
                 <i class="mdi mdi-contacts mr-3 fs-1"></i> Contacts
             </router-link>
-            <router-link class="nav-side-link py-3 my-2" active-class="active" exact :to="{name: 'customers.orders'}">
+            <router-link class="nav-side-link py-3 my-2" active-class="active" :to="{name: 'customers.orders'}">
                 <i class="mdi mdi-package-variant mr-3 fs-1"></i> Order History
             </router-link>
             <router-link class="nav-side-link py-3 my-2" active-class="active" exact :to="{name: 'customers.wallet'}">
@@ -38,8 +38,10 @@
     
     #sidebar {
         min-width: 290px;
-        max-width: 290px;
+        // max-width: 290px;
         min-height: 100vh;
+        display: flex;
+        flex-direction: column;
         .nav-side-link {
             padding-left: 40px;
             display: block;
