@@ -1,6 +1,13 @@
 <template>
     <div >
-        <p class="mb-3">Order History</p>
+        <div class="row mb-3 align-items-center">
+            <div class="col">
+                <div class="title-head">Order History</div>
+            </div>
+            <div class="col text-right">
+                <button class="btn btn-primary" @click="gotoNewOrder">New Delivery</button>
+            </div>
+        </div>
 
         <order-item :orderId="order.id" 
                     :merchantName="order.merchantName" 
@@ -8,13 +15,13 @@
                     :status="order.status"
                     :orderDescription="order.description"
                     :image="order.image"
-                        v-for="order in orders" :key="order.id" class="mb-3" />
+                        v-for="order in orders" :key="order.id" class="mb-3 pointer" />
 
     </div>
 </template>
 
 <script>
-import OrderItem from "./../../components/orders/OrderItem";
+import OrderItem from "./../../../components/orders/OrderItem";
 export default {
     components: {
         OrderItem
@@ -49,11 +56,16 @@ export default {
             ]
         }
     },
+    methods: {
+        gotoNewOrder(){
+            this.$router.push({name: "customers.orders.new"});
+        }
+    }
 }
 </script>
 
 <style lang="scss" scoped>
-    p{
+    .title-head{
         color: black;
         font-size: 21px;
     }

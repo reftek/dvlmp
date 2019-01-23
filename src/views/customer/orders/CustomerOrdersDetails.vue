@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import OrderDetails from "./../../components/orders/OrderDetails";
-import OrderUpdates from "./../../components/orders/OrderUpdates";
-import OrderRate from "./../../components/orders/OrderRate";
-import OrderItemDetails from "./../../components/orders/OrderItemDetails";
+import OrderDetails from "./../../../components/orders/OrderDetails";
+import OrderUpdates from "./../../../components/orders/OrderUpdates";
+import OrderRate from "./../../../components/orders/OrderRate";
+import OrderItemDetails from "./../../../components/orders/OrderItemDetails";
 export default {
     props: [
         'id'

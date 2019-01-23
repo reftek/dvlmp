@@ -14,12 +14,17 @@ export default [
     {
         path: 'orders',
         name: 'customers.orders',
-        component: () => import( /* webpackChunkName: "customer-orders" */ './../views/customer/CustomerOrders.vue')
+        component: () => import( /* webpackChunkName: "customer-orders" */ './../views/customer/orders/CustomerOrders.vue')
+    },
+    {
+        path: 'orders/new',
+        name: 'customers.orders.new',
+        component: () => import( /* webpackChunkName: "customer-orders-new" */ './../views/customer/orders/CustomerOrdersNew.vue')
     },
     {
         path: 'orders/:id',
         name: 'customers.orders.details',
-        component: () => import( /* webpackChunkName: "customer-orders" */ './../views/customer/CustomerOrdersDetails.vue'),
+        component: () => import( /* webpackChunkName: "customer-orders-details" */ './../views/customer/orders/CustomerOrdersDetails.vue'),
         props: {orders: true}
     },
     {
