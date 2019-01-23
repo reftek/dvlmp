@@ -16,7 +16,7 @@
                 <form class="">
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" id="validationCustom01" placeholder="Item Description" required>
+                            <input type="text" class="form-control" placeholder="Item Description" required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <select name="" class="form-control">
@@ -34,7 +34,7 @@
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Pickup Address" required>
+                            <input type="text" class="form-control"  placeholder="Pickup Address" required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <select name="" class="form-control">
