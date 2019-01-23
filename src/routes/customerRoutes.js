@@ -19,7 +19,8 @@ export default [
     {
         path: 'orders/:id',
         name: 'customers.orders.details',
-        component: () => import( /* webpackChunkName: "customer-orders" */ './../views/customer/CustomerOrdersDetails.vue')
+        component: () => import( /* webpackChunkName: "customer-orders" */ './../views/customer/CustomerOrdersDetails.vue'),
+        props: {orders: true}
     },
     {
         path: 'wallet',

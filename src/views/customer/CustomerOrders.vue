@@ -8,7 +8,7 @@
                     :status="order.status"
                     :orderDescription="order.description"
                     :image="order.image"
-                        v-for="order in orders" :key="order.id" class="mb-3"></order-item>
+                        v-for="order in orders" :key="order.id" class="mb-3" />
 
     </div>
 </template>
@@ -17,7 +17,7 @@
 import OrderItem from "./../../components/orders/OrderItem";
 export default {
     components: {
-        OrderItem:OrderItem
+        OrderItem
     },
     data(){
         return {

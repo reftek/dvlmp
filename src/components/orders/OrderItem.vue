@@ -67,6 +67,7 @@ export default {
 .order-contain{
         background-color: white;
         border-radius: 7px;
+        // border: 0.5px solid rgb(223, 221, 221);
 
         .date{
             text-align: right;
@@ -95,6 +96,7 @@ export default {
             color: white;
             font-size: 0.6rem;
             display: inline-block;
+            border-radius: 2px;
 
             &.status-red{
                 background-color: red;
