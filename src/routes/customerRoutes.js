@@ -25,7 +25,11 @@ export default [
         path: 'orders/:id',
         name: 'customers.orders.details',
         component: () => import( /* webpackChunkName: "customer-orders-details" */ './../views/customer/orders/CustomerOrdersDetails.vue'),
-        props: {orders: true}
+    },
+    {
+        path: 'merchant/:id',
+        name: 'merchant.details',
+        component: () => import( /* webpackChunkName: "customer-orders-details" */ './../views/customer/MerchantPage.vue'),
     },
     {
         path: 'wallet',

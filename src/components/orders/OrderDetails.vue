@@ -1,6 +1,6 @@
 <template>
     <div class='container flex pt-3 first-details align-items-center'>
-        <div class="row align-items-center">
+        <div class="row align-items-center" @click="gotoMerchant(1)">
             <div class="col-4">
                 <div><img :src="image" class="order-img"></div>
             </div>
@@ -43,6 +43,12 @@ export default {
         'image',
         'rating'
     ],
+    methods: {
+        gotoMerchant(merchant_id){
+            console.log(9);
+            this.$router.push({name: 'merchant.details', params: {id:merchant_id}});
+        }
+    }
 }
 </script>
 
