@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-3">
+    <div class="mb-2">
         <div class="row mb-1">
             <div class="col-12">
                 <img :src="orderImage" class="rounded w-100" style="height: 80px">
@@ -45,29 +45,24 @@ export default {
 
     .mdi::before{
         color: blue;
-        font-size: 0.68rem;
+        font-size: 0.8rem;
         position: relative;
-        top: -3.5px;
+        top: -2.5px;
     }
 }
+
 .intl-shipping{
     transform: rotate(45deg);
     .mdi::before{
         font-size: 0.8rem;
+        color: white;
+        background-color: blue;
+        border-radius: 50%;
+        position: relative;
+        top: -6px;
+        right: 3px;
     }
 }
-
-// .intl-shipping{
-//     .mdi::before{
-//         color: blue;
-//         position: relative;
-//         left: -90px;
-//         top: 1px;
-//         font-size: 0.7rem;
-//         display:inline-block;
-//         -webkit-transform: rotate(45deg);
-//     }
-// }
 </style>
 
 
