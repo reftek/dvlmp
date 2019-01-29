@@ -51,7 +51,7 @@ p{
 .my-nav{
     border: 0.5px solid rgb(212, 210, 210);
     color: black;
-    width: 330px;
+    width: 345px;
     height: 30px;
     margin-left: 0px;
     font-size: 0.7rem;

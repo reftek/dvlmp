@@ -29,7 +29,7 @@ export default {
 
 <style lang="scss" scoped>
 .merch{
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     color: black;
 
     .merch-name{
@@ -39,11 +39,11 @@ export default {
 
 .rating{
     color: black;
-    font-size: 0.58rem;
+    font-size: 0.6rem;
 
     .mdi::before{
         color: blue;
-        font-size: 0.65rem;
+        font-size: 0.68rem;
         position: relative;
         top: -3.5px;
     }
