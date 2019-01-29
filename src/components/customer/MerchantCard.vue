@@ -4,7 +4,7 @@
             <div class="row mb-1"><img :src="orderImage" class="rounded" alt="" width="98px" height="95px"></div>
             <div class="row merch mt-1">
                 <div class="col merch-name">{{ merchantName }}</div>
-                <div class="col intl-shipping" v-if="status === intl">
+                <div class="col intl-shipping" v-if="shipping == 'intl'">
                     <i class="mdi mdi-airplane"></i>
                 </div>
             </div>
@@ -22,7 +22,7 @@ export default {
         'orderImage',
         'merchantName',
         'orderRating',
-        'status',
+        'shipping',
     ]
 }
 </script>

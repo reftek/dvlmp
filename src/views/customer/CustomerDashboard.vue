@@ -13,19 +13,19 @@
 
         
         <div class="wrapper rounded mb-3 shadow-sm">
-            <div class="container">
-                <div class="row align-items-center pt-1">
+            <div class="container p-2">
+                <div class="row align-items-center">
                     <div class="col order-id">{{ order.id }}</div>
                     <div class="col order-date text-right">{{ order.date }}</div>
                 </div>
-                <div class="row align-items-center">
+                <div class="row align-items-center my-1">
                     <div class="col-3">
-                        <img :src="order.image" alt="" height="24px" width="26px" class="rounded">
+                        <img :src="order.image" alt="" height="28px" width="30px" class="rounded">
                     </div>
-                    <div class="col ml-2">
+                    <div class="col ml-1">
                         <div class="row order-merch black">{{ order.merchantName }}</div>
                         <div class="row status black">
-                            Order Status: &nbsp; &nbsp;
+                            Order Status: &nbsp;
                                 <div class="delivery-status px-1" v-if="order.status == 'success'">
                                     Delivered
                                 </div>
@@ -38,12 +38,10 @@
                         </div>                    
                     </div>
                 </div> <hr>
-                <div class="col pt-2">
+                <div class="col pt-2 mb-5">
                     <div class="row description">Description</div>
                 </div>
-                <!-- <div class="row"> -->
                 <button type="submit" class="btn btn-block detail-btn py-1 btn-primary active">View Details</button>
-                <!-- </div> -->
         </div>
         </div>
 
@@ -104,43 +102,42 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper{
-    width: 151px;
-    height: 146px;
+    max-width: 170px;
+    min-height: 146px;
     background-color: white;
 
     .order-id{
-        font-size: 0.55rem;
+        font-size: 0.6rem;
         color: black;
     }
 
     .order-date{
-        font-size: 0.4rem;
+        font-size: 0.5rem;
    }
 
    .order-merch{
-       font-size: 0.55rem;
+       font-size: 0.65rem;
    }
 
    .status{
-       font-size: 0.4rem;
+       font-size: 0.6rem;
    }
 
    .description{
-        font-size: 0.55rem;
+        font-size: 0.6rem;
     }
 
     .detail-btn{
-        font-size: 0.5rem;
+        font-size: 0.6rem;
         position: relative;
-        // left: 30%;
-        top: 40px;
+        // top: 100%;
         display: inline-block;
     }
 
 }
 
 .btn-small{
-    font-size: 0.4rem;
+    font-size: 0.5rem;
 }
 
 .order-img{
@@ -151,7 +148,7 @@ export default {
 .delivery-status{
     background-color: #48C23A;
     color: white;
-    font-size: 0.3rem;
+    font-size: 0.5rem;
     display: inline-block;
     border-radius: 2px;
 
@@ -169,11 +166,9 @@ export default {
 }
 
 hr{
-    // margin: 0px;
-    margin-top: 0.1rem;
-    margin-bottom: 0.1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0rem;
     position: relative;
-    top: 6px;
 }
 
 .btn-div{

@@ -13,7 +13,7 @@
         <merchant-card :orderImage="merchant.image"
                         :merchantName="merchant.name"
                         :orderRating="merchant.rating"
-                        :status="merchant.status"/>
+                        :shipping="merchant.shipping"/>
     </div>
 </template>
 
