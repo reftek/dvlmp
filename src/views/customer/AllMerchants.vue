@@ -15,12 +15,6 @@
                                 :orderRating="merchant.rating"
                                 :shipping="merchant.shipping"/>
             </div>
-            <div class="col-4">
-                <merchant-card :orderImage="merchant2.image"
-                                :merchantName="merchant2.name"
-                                :orderRating="merchant2.rating"
-                                :shipping="merchant2.shipping"/>
-            </div>
         </div>
 
     </div>
