@@ -1,14 +1,20 @@
 <template>
-    <div>
-        <div class="container1 mb-3 ml-3">
-            <div class="row mb-1"><img :src="orderImage" class="rounded" alt="" width="98px" height="95px"></div>
-            <div class="row merch mt-1">
-                <div class="col merch-name">{{ merchantName }}</div>
-                <div class="col intl-shipping" v-if="shipping == 'intl'">
+    <div class="mb-3">
+        <div class="row mb-1">
+            <div class="col-12">
+                <img :src="orderImage" class="rounded w-100" style="height: 80px">
+            </div>
+        </div>
+        <div class="row merch mt-1">
+            <div class="col">{{ merchantName }}</div>
+            <div class="col text-right" v-if="shipping == 'intl'">
+                <div class="intl-shipping">
                     <i class="mdi mdi-airplane"></i>
                 </div>
             </div>
-            <div class="row rating">
+        </div>
+        <div class="row rating">
+            <div class="col">
                 <i class="mdi mdi-star icon-blue"></i> &nbsp;
                 {{ orderRating }}
             </div>
@@ -31,10 +37,6 @@ export default {
 .merch{
     font-size: 0.7rem;
     color: black;
-
-    .merch-name{
-        padding-left: 0px;
-    }
 }
 
 .rating{
@@ -48,18 +50,24 @@ export default {
         top: -3.5px;
     }
 }
-
 .intl-shipping{
+    transform: rotate(45deg);
     .mdi::before{
-        color: blue;
-        position: relative;
-        left: -90px;
-        top: 1px;
-        font-size: 0.7rem;
-        display:inline-block;
-        -webkit-transform: rotate(45deg);
+        font-size: 0.8rem;
     }
 }
+
+// .intl-shipping{
+//     .mdi::before{
+//         color: blue;
+//         position: relative;
+//         left: -90px;
+//         top: 1px;
+//         font-size: 0.7rem;
+//         display:inline-block;
+//         -webkit-transform: rotate(45deg);
+//     }
+// }
 </style>
 
 
