@@ -4,12 +4,17 @@ export default [
     {
         path: '/',
         name: 'customers.dashboard',
-        component: CustomerDashboard,
+        component: () => import( /* webpackChunkName: "customer-contacts" */ './../views/customer/CustomerDashboard.vue')
     },
     {
         path: 'contacts',
         name: 'customers.contacts',
         component: () => import( /* webpackChunkName: "customer-contacts" */ './../views/customer/CustomerContacts.vue')
+    },
+    {
+        path: 'contacts/new',
+        name: 'customers.contacts.new',
+        component: () => import( /* webpackChunkName: "customer-contacts" */ './../views/customer/CustomerAddContact.vue')
     },
     {
         path: 'orders',
@@ -30,6 +35,16 @@ export default [
         path: 'merchant/:id',
         name: 'merchant.details',
         component: () => import( /* webpackChunkName: "customer-orders-details" */ './../views/customer/MerchantPage.vue'),
+    },
+    {
+        path: 'merchants',
+        name: 'merchant.all',
+        component: () => import( /* webpackChunkName: "customer-orders-details" */ './../views/customer/AllMerchants.vue'),
+    },
+    {
+        path: 'notifications',
+        name: 'customer.notifications',
+        component: () => import( /* webpackChunkName: "customer-orders-details" */ './../views/customer/Notifications.vue'),
     },
     {
         path: 'wallet',

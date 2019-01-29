@@ -11,7 +11,7 @@
                 <i class="mdi mdi-magnify"></i>
             </div>
             <div class="btn-icon mx-2">
-                <i class="mdi mdi-bell"></i>
+                <i class="mdi mdi-bell" @click="gotoNotifications"></i>
             </div>
         </div>
     </nav>
@@ -27,6 +27,9 @@ export default {
     methods: {
         toggleSideBar(){
             this.$store.commit("toggleSideBar", true);
+        },
+        gotoNotifications(){
+            this.$router.push({name: 'customer.notifications'});
         }
     }
 }

@@ -78,7 +78,7 @@
         </div>
 
         <div class="row button-div mt-3 " >
-            <button type="submit" class="btn py-3 btn-primary btn-block active">Book Delivery</button>
+            <button type="submit" class="btn py-3 btn-primary btn-block active">Book a new delivery</button>
         </div>
 
     </div>
