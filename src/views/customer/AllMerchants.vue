@@ -8,7 +8,7 @@
             <a class="btn btn-light border" href="#" role="button">International</a>
         </div>
 
-        <div class="row wrap ml-1">
+        <div class="row wrap">
             <div class="col-4" v-for="item in 9" :key="item">
                 <merchant-card :orderImage="merchant.image"
                                 :merchantName="merchant.name"

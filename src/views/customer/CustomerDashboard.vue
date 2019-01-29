@@ -1,41 +1,61 @@
 <template>
     <div>
-        <div class="row mt-3 mx-0" >
-            <button type="submit" class="btn btn-div py-3 mb-4 btn-primary btn-block active">Book a new Delivery</button>
+        <div class="row" >
+            <div class="col-12">
+                <div>
+                    <button type="submit" class="btn btn-div py-3 mb-4 btn-primary btn-block active">Book a new Delivery</button>
+                </div>
+            </div>
         </div>
 
         <div class="row mb-3">
-            <div class="col-8 black">Recent Orders</div>
-            <div class="col-4 text-right">
-                <button type="submit" class="btn py-1 btn-small btn-primary active">VIEW ALL</button>
+            <div class="col-8">
+                <div class="black">Recent Orders</div>
+            </div>
+            <div class="col-4">
+                <div class="text-right">
+                    <button type="submit" class="btn py-1 btn-small btn-primary active" @click="gotoAllMerchants">VIEW ALL</button>
+                </div>
             </div>
         </div>
 
         <div class="row scrolling-wrapper-flexbox pl-3">
-            <div class="col-6 mr-3" v-for="item in 5" :key="item">
-                <div class="row rounded order-card mb-3 shadow-sm py-2">
+            <div class="col-6 mr-5" v-for="item in 5" :key="item">
+                <div class="row rounded order-card mb-3 shadow-sm pb-3 pt-2">
                     <div class="col-12">
                         <div class="row align-items-center">
-                            <div class="col order-id">{{ order.id }}</div>
-                            <div class="col order-date text-right">{{ order.date }}</div>
-                        </div>
-                        <div class="row align-items-center my-1">
-                            <div class="col-3">
-                                <img :src="order.image" alt="" height="28px" width="30px" class="rounded">
+                            <div class="col">
+                                <div class="order-id">{{ order.id }}</div>
                             </div>
-                            <div class="col ml-2">
-                                <div class="row order-merch black">{{ order.merchantName }}</div>
-                                <div class="row status black">
-                                    Order Status: &nbsp;
-                                        <div class="delivery-status px-1" v-if="order.status == 'success'">
-                                            Delivered
+                            <div class="col">
+                                <div class="order-date text-right"> {{ order.date }}</div>
+                            </div>
+                        </div>
+                        <div class="row my-1 align-items-center">
+                            <div class="col-2">
+                                 <div class="order-img merch-image rounded" :style="{'background-image': 'url('+order.image+')'}"></div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="order-merch black ml-2">{{ order.merchantName }}</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="status black ml-2">
+                                                Order Status: &nbsp;
+                                                <div class="delivery-status px-1" v-if="order.status == 'success'">
+                                                    Delivered
+                                                </div>
+                                                <div class="delivery-status status-red px-2" v-if="order.status == 'fail'">
+                                                    Cancelled
+                                                </div>
+                                                <div class="delivery-status status-orange px-2" v-if="order.status == 'pending'">
+                                                    Pending
+                                                </div>
                                         </div>
-                                        <div class="delivery-status status-red px-2" v-if="order.status == 'fail'">
-                                            Cancelled
-                                        </div>
-                                        <div class="delivery-status status-orange px-2" v-if="order.status == 'pending'">
-                                            Pending
-                                        </div>
+                                    </div>
                                 </div>                    
                             </div>
                         </div> <hr>
@@ -49,24 +69,34 @@
         </div>    
 
         <div class="row my-3">
-            <div class="col-8 black">Favourite Merchants</div>
-            <div class="col-4 text-right">
-                <button type="submit" class="btn py-1 btn-small btn-primary active" @click="gotoAllMerchants">VIEW ALL</button>
+            <div class="col-8">
+                <div class="black">
+                    Favourite Merchants
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="text-right">
+                    <button type="submit" class="btn py-1 btn-small btn-primary active" @click="gotoAllMerchants">VIEW ALL</button>
+                </div>
             </div>
         </div>
 
-        <div class="row scrolling-wrapper-flexbox pl-3">
+        <div class="row scrolling-wrapper-flexbox">
             <div class="col-4" v-for="item in 5" :key="item">
             <merchant-card :orderImage="order.image"
-                        :merchantName="order.merchantName"
-                        :orderRating="order.rating"/>
+                            :merchantName="order.merchantName"
+                            :orderRating="order.rating"/>
             </div>
         </div>
 
         <div class="row my-3">
-            <div class="col-8 black">Favourite Contacts</div>
-            <div class="col-4 text-right">
-                <button type="submit" class="btn py-1 btn-small btn-primary active">ADD NEW</button>
+            <div class="col-8">
+                <div class="black">Favourite Contacts</div>
+            </div>
+            <div class="col-4">
+                <div class="text-right">
+                     <button type="submit" class="btn py-1 btn-small btn-primary active">ADD NEW</button>
+                </div>
             </div>
         </div>
 
@@ -110,14 +140,10 @@ export default {
   flex-wrap: nowrap;
   overflow-x: auto;
   flex: 0 0 auto;
-
-//   .cardd{
-//       fle
-//   }
 }
 
 .order-card{
-    max-width: 170px;
+    min-width: 195px;
     min-height: 146px;
     background-color: white;
     
@@ -136,6 +162,7 @@ export default {
 
    .status{
        font-size: 0.6rem;
+       display: inline-block;
    }
 
    .description{
@@ -145,7 +172,6 @@ export default {
     .detail-btn{
         font-size: 0.6rem;
         position: relative;
-        // top: 100%;
         display: inline-block;
     }
 
@@ -156,8 +182,10 @@ export default {
 }
 
 .order-img{
-    height: 25px !important;
-    width: 25px !important;
+    height: 35px !important;
+    width: 36px !important;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .delivery-status{
