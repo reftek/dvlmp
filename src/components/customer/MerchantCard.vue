@@ -1,21 +1,20 @@
 <template>
-    <div class="mb-2">
-        <div class="row mb-1">
-            <div class="col-12">
-                <img :src="orderImage" class="rounded w-100" style="height: 80px">
+    <div class="mb-3">
+        <div class="row">
+            <div class="col-11 order-img merch-image rounded" :style="{'background-image': 'url('+orderImage+')'}">
             </div>
         </div>
         <div class="row merch mt-1">
-            <div class="col">{{ merchantName }}</div>
+            <div class="col pl-0">{{ merchantName }}</div>
             <div class="col text-right" v-if="shipping == 'intl'">
                 <div class="intl-shipping">
                     <i class="mdi mdi-airplane"></i>
                 </div>
             </div>
         </div>
-        <div class="row rating">
-            <div class="col">
-                <i class="mdi mdi-star icon-blue"></i> &nbsp;
+        <div class="row">
+            <div class="col rating pl-0">
+                <i class="mdi mdi-star icon-blue"></i>
                 {{ orderRating }}
             </div>
         </div>
@@ -37,6 +36,17 @@ export default {
 .merch{
     font-size: 0.7rem;
     color: black;
+}
+
+.merch-image{
+    height: 98px;
+    // width: 90%;
+}
+
+.order-image{
+  background-position: center, center;
+  background-repeat: no-repeat;
+  background-size: cover;  
 }
 
 .rating{
