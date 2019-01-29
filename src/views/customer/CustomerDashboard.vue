@@ -11,8 +11,8 @@
             </div>
         </div>
 
-        <div class="row scrolling-wrapper-flexbox">
-            <div class="col-6" v-for="item in 5" :key="item">
+        <div class="row scrolling-wrapper-flexbox pl-3">
+            <div class="col-6 mr-3" v-for="item in 5" :key="item">
                 <div class="row rounded order-card mb-3 shadow-sm py-2">
                     <div class="col-12">
                         <div class="row align-items-center">
@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        <div class="row scrolling-wrapper-flexbox">
+        <div class="row scrolling-wrapper-flexbox pl-3">
             <div class="col-4" v-for="item in 5" :key="item">
             <merchant-card :orderImage="order.image"
                         :merchantName="order.merchantName"
