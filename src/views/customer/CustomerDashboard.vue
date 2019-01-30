@@ -81,9 +81,9 @@
             </div>
         </div>
 
-        <div class="row scrolling-wrapper-flexbox">
-            <div class="col-5" v-for="item in 5" :key="item">
-                <div class="ml-4">
+        <div class="row scrolling-wrapper-flexbox pl-4">
+            <div class="col-4" v-for="item in 5" :key="item">
+                <div class="">
                     <merchant-card :orderImage="order.image"
                             :merchantName="order.merchantName"
                             :orderRating="order.rating"/>
@@ -104,7 +104,7 @@
 
         <div class="px-4">
             <contact-card :image="image"
-                      v-for="item in 4" :key="item"/>
+                          v-for="item in 4" :key="item"/>
         </div>
     </div>
 </template>

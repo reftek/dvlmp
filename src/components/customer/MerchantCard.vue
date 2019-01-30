@@ -1,8 +1,8 @@
 <template>
     <div>
         <div class="row">
-            <div class="col-11"> 
-                <div class="order-img merch-image rounded" :style="{'background-image': 'url('+orderImage+')'}"></div>
+            <div class="col"> 
+                <div class="order-img rounded" :style="{'background-image': 'url('+orderImage+')'}"></div>
             </div>
         </div>
         <div class="row">
@@ -45,15 +45,11 @@ export default {
     color: black;
 }
 
-.merch-image{
-    min-height: 98px;
-    min-width: 100px;
-}
-
 .order-img{
-  background-position: center, center;
-  background-repeat: no-repeat;
-  background-size: cover;  
+    min-height: 98px;
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: cover;  
 }
 
 .rating{
