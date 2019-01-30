@@ -2,37 +2,42 @@
     <div>
         <div class="container shadow-sm pt-4 pb-4 rounded">
             <div class="row justify-content-center">
-                <div class="rounded order-img" :style="{'background-image': 'url('+order.image+')'}">
-                </div>
+                <div class="rounded order-img" :style="{'background-image': 'url('+order.image+')'}"></div>
             </div>
-            <div class="row mt-2 merch justify-content-center">
-                <div>
-                  {{ order.merchantName }}
-                </div>
-            </div>
-            <div class="row mt-2 justify-content-center">
-                <div class="col-4 mr-1">
-                    <div class="row">
-                        <div class="rate">
-                            RATING
-                        </div>
-                    </div>
-                    <div class="row align-items-center">
-                        <div class="rating mt-1">
-                            <i class="mdi star-icon mdi-star small icon-blue"></i> &nbsp; {{ order.rating }}
-                        </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="my-2 merch text-center">
+                        {{ order.merchantName }}
                     </div>
                 </div>
-                <div class="col-4 comp-del">
-                   <div class="row rate pt-2 pb-3 pl-1">COMPLETED DELIVERIES</div>
-                    <div class="row rating pb-3">
-                        <i class="mdi mdi-check-circle icon-green"></i> &nbsp; 152
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <div class="red rounded">
+                        <div class="rate mt-2 text-center">
+                            RATE
+                        </div>
+                        <div class="comp-del text-center pt-2">
+                            <i class="mdi mdi-star icon-blue"></i> {{ order.rating }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="red ml-3 rounded">
+                        <div class="rate mt-2 text-center">
+                            COMPLETED DELIVERIES
+                        </div>
+                        <div class="comp-del text-center pt-2">
+                            <i class="mdi mdi-checkbox-marked-circle icon-green"></i> 152
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="lorem px-2 pt-2 mt-2 text-center">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend facilisis mollis. In in dolor sed lectus malesuada hendrerit in ac est. 
+                <div class="col-12">
+                    <div class="lorem pt-2 mt-2 text-center">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend facilisis mollis. In in dolor sed lectus malesuada hendrerit in ac est. 
+                    </div>
                 </div>
             </div>
             <div class="row intl-ship mt-3">
@@ -128,10 +133,6 @@ export default {
         font-size: 0.8rem;
         justify-content: center;
         color: black;
-
-        .icon-green{
-            color: green;
-        }
     }
 
     .merch{
@@ -156,8 +157,8 @@ export default {
     }
 
     .comp-del{
-        font-size: 0.6rem;
-        justify-content: center;
+        font-size: 0.8rem;
+        color: black;
     }
 }
 
@@ -186,5 +187,18 @@ export default {
 
 button{
     font-size: 0.75rem;
+}
+
+.red{
+    background-color: white;
+    height: 60px;
+    width: 150%;
+    position: relative;
+    left: -29px;
+    border: 0.5px solid #C4C4C4;
+}
+
+.icon-green{
+    color: green;
 }
 </style>
