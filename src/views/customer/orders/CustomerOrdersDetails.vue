@@ -80,5 +80,6 @@ export default {
     p{
         color: black;
         font-size: 21px;
+        font-weight: bold;
     }
 </style>

@@ -6,11 +6,21 @@
                 <img :src="image" alt="" class="image rounded">
             </div>
             <div class="col ml-4 align-self-center">
-                <div class="row contact-name pb-1">Alfred Miller</div>
-                <div class="row contact-number"> 07089324817</div>
+                <div class="row">
+                    <div class="contact-name pb-1">
+                        Alfred Miller
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="contact-number">
+                        07089324817
+                    </div>
+                </div>
             </div>
-            <div class="col-1 icon pr-4">
-                <i class="mdi mdi-dots-vertical"></i>
+            <div class="col-1">
+                <div class="icon pr-4">
+                    <i class="mdi mdi-dots-vertical"></i>
+                </div>
             </div>
         </div>
     </div>

@@ -7,7 +7,9 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="merch mt-1">{{ merchantName }}</div>
+                <div class="merch mt-1">
+                    {{ merchantName }}
+                </div>
             </div>
             <div class="col">
                 <div class="intl-shipping text-right"  v-if="shipping == 'intl'">
@@ -45,12 +47,11 @@ export default {
 
 .merch-image{
     min-height: 98px;
-    min-width: 105px;
-    // width: 90%;
+    min-width: 100px;
 }
 
 .order-img{
-//   background-position: center, center;
+  background-position: center, center;
   background-repeat: no-repeat;
   background-size: cover;  
 }

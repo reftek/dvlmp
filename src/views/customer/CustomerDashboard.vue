@@ -3,18 +3,18 @@
         <div class="row" >
             <div class="col-12">
                 <div>
-                    <button type="submit" class="btn btn-div py-3 mb-4 btn-primary btn-block active">Book a new Delivery</button>
+                    <button type="submit" class="btn btn-div py-3 mb-4 btn-primary btn-block active" @click="gotoNewOrder">Book a new Delivery</button>
                 </div>
             </div>
         </div>
 
         <div class="row mb-3">
             <div class="col-8">
-                <div class="black">Recent Orders</div>
+                <div class="black bold">Recent Orders</div>
             </div>
             <div class="col-4">
                 <div class="text-right">
-                    <button type="submit" class="btn py-1 btn-small btn-primary active" @click="gotoAllMerchants">VIEW ALL</button>
+                    <button type="submit" class="btn py-1 btn-small btn-primary active" @click="gotoAllOrders">VIEW ALL</button>
                 </div>
             </div>
         </div>
@@ -70,7 +70,7 @@
 
         <div class="row my-3">
             <div class="col-8">
-                <div class="black">
+                <div class="black bold">
                     Favourite Merchants
                 </div>
             </div>
@@ -91,17 +91,17 @@
 
         <div class="row my-3">
             <div class="col-8">
-                <div class="black">Favourite Contacts</div>
+                <div class="black bold">Favourite Contacts</div>
             </div>
             <div class="col-4">
                 <div class="text-right">
-                     <button type="submit" class="btn py-1 btn-small btn-primary active">ADD NEW</button>
+                     <button type="submit" class="btn py-1 btn-small btn-primary active" @click="gotoNewContact">ADD NEW</button>
                 </div>
             </div>
         </div>
 
         <contact-card :image="image"
-                        v-for="item in 4" :key="item"/>
+                      v-for="item in 4" :key="item"/>
     </div>
 </template>
 
@@ -129,6 +129,15 @@ export default {
     methods: {
         gotoAllMerchants(){
             return this.$router.push({ name: 'merchant.all' });
+        },
+        gotoNewContact(){
+            this.$router.push({name: "customers.contacts.new"});
+        },
+        gotoNewOrder(){
+            this.$router.push({name: "customers.orders.new"});
+        },
+        gotoAllOrders(){
+            this.$router.push({ name: "customers.orders"});
         }
     }
 }
@@ -206,6 +215,10 @@ export default {
 
 .black{
     color: black;
+}
+
+.bold{
+    font-weight: bold;
 }
 
 hr{

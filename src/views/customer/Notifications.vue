@@ -7,8 +7,16 @@
                     <i class="mdi mdi-bell"></i>
                 </div>
                 <div class="col">
-                    <div class="row title-notify mb-2">Portal Deliveries updated your order status</div>
-                    <div class="row detail-notify">Your order has been delivered</div>
+                    <div class="row">
+                        <div class="title-notify mb-2">
+                            Portal Deliveries updated your order status
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="detail-notify">
+                            Your order has been delivered
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -4,8 +4,10 @@
             <div class="col">
                 <div class="title-head">Order History</div>
             </div>
-            <div class="col text-right">
-                <button class="btn btn-primary" @click="gotoNewOrder">New Delivery</button>
+            <div class="col">
+                <div class="text-right">
+                    <button class="btn btn-primary btn-small" @click="gotoNewOrder">New Delivery</button>
+                </div>
             </div>
         </div>
 
@@ -68,5 +70,9 @@ export default {
     .title-head{
         color: black;
         font-size: 21px;
+    }
+
+    .btn-small{
+        font-size: 0.8rem;
     }
 </style>
