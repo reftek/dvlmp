@@ -6,7 +6,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="my-2 merch text-center">
+                    <div class="mt-2 mb-3 merch text-center">
                         {{ order.merchantName }}
                     </div>
                 </div>
@@ -40,17 +40,20 @@
                     </div>
                 </div>
             </div>
-            <div class="row intl-ship mt-3">
-                <div class=" card rounded px-3 py-2">
-                    <i class="mdi int mdi-airplane icon-blue"></i>
-                    <div> &nbsp; &nbsp;&nbsp;&nbsp;  International Shipping</div>
+            <div class="row justify-content-center">
+                <div class="col-8">
+                    <div class="intl-ship mt-3 card rounded px-2 py-2"> 
+                        <div class="text-center"> <i class="mdi int mdi-airplane icon-blue"></i> International Shipping</div>
+                    </div>
                 </div>
             </div>
         </div>
         
         <div class="row" >
             <div class="col-12">
-                <button type="submit" class="btn mt-4 mb-3 py-3 btn-primary btn-block active">Book a new Delivery</button>
+                <div>
+                    <button type="submit" class="btn mt-4 mb-3 py-3 btn-primary btn-block active">Book a new Delivery</button>
+                </div>
             </div>
         </div>
 
@@ -121,7 +124,6 @@ export default {
         &.star-icon{
             top:-0.5px;
         }
-
     }
 
     .rate{
@@ -141,17 +143,10 @@ export default {
     }
 
     .intl-ship{
-        justify-content: center;
         font-size: 0.78rem;
         color: black;
 
-        .int{
-            position: absolute;
-            top: 9px;
-        }
-
         .mdi::before{
-            display:inline-block;
             transform: rotate(45deg); 
         }
     }
@@ -163,9 +158,9 @@ export default {
 }
 
 .rev-title{
-        font-size: 1.1rem;
-        color: black;
-        font-weight: bold;
+    font-size: 1.1rem;
+    color: black;
+    font-weight: bold;
 }
 
 .review{
