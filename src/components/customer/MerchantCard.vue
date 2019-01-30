@@ -6,13 +6,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col-8">
                 <div class="merch mt-1">
                     {{ merchantName }}
                 </div>
             </div>
-            <div class="col">
-                <div class="intl-shipping text-right"  v-if="shipping == 'intl'">
+            <div class="col-4">
+                <div class="intl-shipping text-right mr-3"  v-if="shipping == 'intl'">
                     <i class="mdi mdi-airplane"></i>
                 </div>
             </div>
@@ -76,8 +76,8 @@ export default {
         background-color: blue;
         border-radius: 50%;
         position: relative;
-        top: -6px;
-        right: 3px;
+        top: -10px;
+        // right: -10px;
     }
 }
 </style>
