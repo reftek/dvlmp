@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="row" >
+        <div class="row p-4" >
             <div class="col-12">
                 <div>
                     <button type="submit" class="btn btn-div py-3 mb-4 btn-primary btn-block active" @click="gotoNewOrder">Book a new Delivery</button>
@@ -8,7 +8,7 @@
             </div>
         </div>
 
-        <div class="row mb-3">
+        <div class="row mb-3 px-4">
             <div class="col-8">
                 <div class="black bold">Recent Orders</div>
             </div>
@@ -19,9 +19,9 @@
             </div>
         </div>
 
-        <div class="row scrolling-wrapper-flexbox pl-3">
-            <div class="col-6 mr-5" v-for="item in 5" :key="item">
-                <div class="row rounded order-card mb-3 shadow-sm pb-3 pt-2">
+        <div class="row scrolling-wrapper-flexbox">
+            <div class="col-6 ml-2" v-for="item in 5" :key="item">
+                <div class="row ml-2 rounded order-card mb-3 shadow-sm pb-3 pt-2">
                     <div class="col-12">
                         <div class="row align-items-center">
                             <div class="col">
@@ -68,7 +68,7 @@
             </div>
         </div>    
 
-        <div class="row my-3">
+        <div class="row my-3 px-4">
             <div class="col-8">
                 <div class="black bold">
                     Favourite Merchants
@@ -82,14 +82,16 @@
         </div>
 
         <div class="row scrolling-wrapper-flexbox">
-            <div class="col-4" v-for="item in 5" :key="item">
-            <merchant-card :orderImage="order.image"
+            <div class="col-5" v-for="item in 5" :key="item">
+                <div class="ml-4">
+                    <merchant-card :orderImage="order.image"
                             :merchantName="order.merchantName"
                             :orderRating="order.rating"/>
+                </div>
             </div>
         </div>
 
-        <div class="row my-3">
+        <div class="row my-4 px-4">
             <div class="col-8">
                 <div class="black bold">Favourite Contacts</div>
             </div>
@@ -100,8 +102,10 @@
             </div>
         </div>
 
-        <contact-card :image="image"
+        <div class="px-4">
+            <contact-card :image="image"
                       v-for="item in 4" :key="item"/>
+        </div>
     </div>
 </template>
 

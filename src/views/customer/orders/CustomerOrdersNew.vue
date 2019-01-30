@@ -1,10 +1,11 @@
 <template>
-    <div >
+    <div class="px-4">
         <div class="row mb-3 align-items-center">
             <div class="col">
                 <div class="title-head">New Delivery</div>
             </div>
-
+        </div>
+        <div>
             <new-delivery :orderId="order.id" 
                         :merchantName="order.merchantName" 
                         :orderDate="order.date" 
@@ -13,10 +14,8 @@
                         :orderDescription="order.description"
                         :image="order.image" />
         </div>
-
-       
-
-    </div>
+        
+</div>
 </template>
 
 <script>

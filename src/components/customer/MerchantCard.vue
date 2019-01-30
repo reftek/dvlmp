@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-3">
+    <div>
         <div class="row">
             <div class="col-11"> 
                 <div class="order-img merch-image rounded" :style="{'background-image': 'url('+orderImage+')'}"></div>
@@ -77,7 +77,6 @@ export default {
         border-radius: 50%;
         position: relative;
         top: -10px;
-        // right: -10px;
     }
 }
 </style>

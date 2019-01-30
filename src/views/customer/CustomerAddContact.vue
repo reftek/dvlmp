@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="p-4">
     <p class="black">Add Contact</p>
 
     <div class="container rounded mb-3">

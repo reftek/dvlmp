@@ -1,32 +1,25 @@
 <template>
-    <div>
-        <div class="container rounded mb-3 pt-2 pb-2 pl-2">
+    <div class="container rounded mb-3 pt-2 pb-2">
         <div class="row">
-            <div class="col-2">
-                <img :src="image" alt="" class="image rounded">
+            <div class="col-3">
+                <div class="image rounded" :style="{'background-image': 'url('+image+')'}"></div>
             </div>
-            <div class="col ml-4 align-self-center">
-                <div class="row">
-                    <div class="contact-name pb-1">
-                        Alfred Miller
-                    </div>
+            <div class="col align-self-center">
+                <div class="contact-name pb-1">
+                    Alfred Miller
                 </div>
-                <div class="row">
-                    <div class="contact-number">
-                        07089324817
-                    </div>
+                <div class="contact-number">
+                    07089324817
                 </div>
             </div>
             <div class="col-1">
-                <div class="icon pr-4">
+                <div class="icon">
                     <i class="mdi mdi-dots-vertical"></i>
                 </div>
             </div>
         </div>
     </div>
-    </div>
 </template>
-
 
 <script>
 export default {
@@ -56,12 +49,20 @@ export default {
     }
 
     .image{
-        height: 55px;
+        min-height: 55px;
+        background-position: center, center;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 
     .mdi::before{
         vertical-align: inherit;
     }
+}
+
+.icon{
+    position: relative;
+    right: 8px;
 }
 </style>
 

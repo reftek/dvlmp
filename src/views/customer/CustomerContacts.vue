@@ -1,21 +1,29 @@
 <template>
+    <div class="p-4">
+        <p class="black">Contacts</p>    
 
-    <div>
-    <p class="black">Contacts</p>    
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="rounded py-2 blue text-center" @click="gotoNewContact">Add New Contact</div>
+            </div>
+            <div class="col-6">
+                <div class="rounded grey py-2 text-center">Import Contacts</div>
+            </div>
+        </div>
 
-    <div class="row btn-div">
-        <button class="btn py-2 mr-1 btn-primary active" @click="gotoNewContact">Add New Contact</button>
-        <button class="btn py-2 btn-secondary active">Import Contacts</button>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group has-search mt-3">
+                    <span class="fa fa-search form-control-feedback"></span>
+                    <input type="text" class="form-control" placeholder="Search Contacts">
+                </div>
+            </div>
+        </div>
+       
+        <div class="">
+            <contact-card v-for="item in 8" :key="item"/>
+        </div>
     </div>
-
-    <div class="form-group has-search mt-3">
-        <span class="fa fa-search form-control-feedback"></span>
-        <input type="text" class="form-control" placeholder="Search Contacts">
-    </div>
-
-    <contact-card v-for="item in 8" :key="item"/>
-    </div>
-
 </template>
 
 <style lang="scss" scoped>
@@ -23,10 +31,6 @@
     background-color: white;
     width: 100%;
     border: 0.4px solid #C4C4C4;
-
-    //  .row{
-    //     align-items: center;
-    // }
     
     .contact-name{
         font-size: 0.8rem;
@@ -48,14 +52,11 @@
     }
 }
 
-.btn-div{
-    margin-left: 1.5px;
-}
-
-button{
-    height: 45px;
-    width: 160px;
+.blue{
     font-size: 0.8rem;
+    background-color: blue;
+    color: white;
+    width: 100%;
 }
 
 input{
@@ -65,7 +66,7 @@ input{
 
 .has-search .form-control {
     padding-left: 2.375rem;
-    width: 327px;
+    width: 100%;
 }
 
 .has-search .form-control-feedback {
@@ -80,15 +81,22 @@ input{
     color: rgb(139, 139, 139);
 }
 
-.btn-secondary:not(:disabled):not(.disabled).active{
+.grey{
     background-color: #79818a;
     border-color: #79818a;
+    color: white;
+    font-size: 0.8rem;
+    width: 100%;
 }
 
 .black{
     color: black;
     font-size: 1.5rem;
     font-weight: bold;
+}
+
+.mine{
+    float: right;
 }
 </style>
 

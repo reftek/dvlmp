@@ -1,5 +1,5 @@
 <template>
-    <div >
+    <div class="p-4">
         <div class="row mb-3 align-items-center">
             <div class="col">
                 <div class="title-head">Order History</div>
