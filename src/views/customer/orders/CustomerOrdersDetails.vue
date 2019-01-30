@@ -1,5 +1,5 @@
 <template>
-    <div class="px-4" >
+    <div class="p-4" >
         <p class="mb-3">Order Details</p>
         <order-details  :orderId="order.id" 
                         :merchantName="order.merchantName" 

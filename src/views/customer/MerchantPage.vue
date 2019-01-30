@@ -1,5 +1,5 @@
 <template>
-    <div class="px-4">
+    <div class="p-4">
         <div class="container shadow-sm pt-4 pb-4 rounded">
             <div class="row justify-content-center">
                 <div class="rounded order-img" :style="{'background-image': 'url('+order.image+')'}"></div>
