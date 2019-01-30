@@ -52,7 +52,7 @@
         <div class="row" >
             <div class="col-12">
                 <div>
-                    <button type="submit" class="btn mt-4 mb-3 py-3 btn-primary btn-block active">Book a new Delivery</button>
+                    <button type="submit" class="btn mt-4 mb-3 py-3 btn-primary btn-block active" @click="gotoNewOrder">Book a new Delivery</button>
                 </div>
             </div>
         </div>
@@ -84,6 +84,11 @@
 <script>
 
 export default {
+    methods:{
+        gotoNewOrder(){
+            this.$router.push({name: "customers.orders.new"});
+        }
+    },
     data(){
         return {
             order: {
