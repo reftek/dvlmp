@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="row p-4" >
-            <div class="col-12">
+            <div class="col-12 col-lg-2">
                 <div>
                     <button type="submit" class="btn btn-div py-3 mb-4 btn-primary btn-block active" @click="gotoNewOrder">Book a new Delivery</button>
                 </div>
@@ -20,7 +20,7 @@
         </div>
 
         <div class="row scrolling-wrapper-flexbox">
-            <div class="col-6 ml-2" v-for="item in 5" :key="item">
+            <div class="col-6 col-lg-2 ml-2" v-for="item in 9" :key="item">
                 <div class="row ml-2 rounded order-card mb-3 shadow-sm pb-3 pt-2">
                     <div class="col-12">
                         <div class="row align-items-center">
@@ -82,7 +82,7 @@
         </div>
 
         <div class="row scrolling-wrapper-flexbox pl-4">
-            <div class="col-4" v-for="item in 5" :key="item">
+            <div class="col-4 col-lg-1" v-for="item in 15" :key="item">
                 <div class="">
                     <merchant-card :orderImage="order.image"
                             :merchantName="order.merchantName"
@@ -102,7 +102,7 @@
             </div>
         </div>
 
-        <div class="row wrap px-3">
+        <div class="row wrap px-4">
             <div class="col-12 col-md-3" v-for="item in 4" :key="item">
                 <contact-card :image="image"/>
             </div>
