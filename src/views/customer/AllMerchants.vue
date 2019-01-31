@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="p-4">
         <p>Merchants</p>
 
         <div class="btn-group btn-group-justified mb-4" role="group" aria-label="Justified button group">
@@ -9,7 +9,7 @@
         </div>
 
         <div class="row wrap">
-            <div class="col-4" v-for="item in 9" :key="item">
+            <div class="col-4 col-lg-1 col-md-2" v-for="item in 9" :key="item">
                 <merchant-card :orderImage="merchant.image"
                                 :merchantName="merchant.name"
                                 :orderRating="merchant.rating"
@@ -63,43 +63,29 @@ p{
         background-color: white;
     }
 }
-// .my-nav{
-//     border: 0.5px solid rgb(212, 210, 210);
-//     color: black;
-//     // height: 30px;
-//     margin-left: 0px;
-//     font-size: 0.7rem;
-//     background-color: white;
 
-//     .loc{
-//         border-right: 0.8px solid rgb(226, 226, 226);
-//         border-left: 0.8px solid rgb(226, 226, 226);
-//     }
-
-//     .col{
-//         // width: 100%;
-//         height: 28.5px;
-//     }
-
-//     .col:hover{
-//         background-color: #C4C4C4;
-//     }
-// }
 .btn-group-justified {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-  border-collapse: separate; }
-  .btn-group-justified .btn,
-  .btn-group-justified .btn-group {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate; 
+}
+
+.btn-group-justified .btn,
+.btn-group-justified .btn-group {
     float: none;
     display: table-cell;
-    width: 1%; }
-    .btn-group-justified .btn .btn,
-    .btn-group-justified .btn-group .btn {
-      width: 100%; }
-    .btn-group-justified .btn .dropdown-menu,
-    .btn-group-justified .btn-group .dropdown-menu {
-      left: auto; }
+    width: 1%; 
+}
+
+.btn-group-justified .btn .btn,
+.btn-group-justified .btn-group .btn {
+    width: 100%; 
+}
+
+.btn-group-justified .btn .dropdown-menu,
+.btn-group-justified .btn-group .dropdown-menu {
+    left: auto; 
+}
 </style>
 
