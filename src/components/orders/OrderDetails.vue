@@ -126,5 +126,6 @@ export default {
 
 .param{
     font-size: 0.9rem;
+    color: black;
 }
 </style>
