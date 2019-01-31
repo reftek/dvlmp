@@ -1,6 +1,6 @@
 <template>
     <div class="p-4">
-        <div class="row mb-3 align-items-center">
+        <div class="row mb-4 align-items-center">
             <div class="col">
                 <div class="title-head">Order History</div>
             </div>
@@ -11,13 +11,18 @@
             </div>
         </div>
 
-        <order-item :orderId="order.id" 
+        <div class="row wrap">
+            <div class="col-md-12 col-lg-3 mb-2"  v-for="order in orders" :key="order.id">
+                <order-item :orderId="order.id" 
                     :merchantName="order.merchantName" 
                     :orderDate="order.date" 
                     :status="order.status"
                     :orderDescription="order.description"
                     :image="order.image"
-                        v-for="order in orders" :key="order.id" class="mb-3 pointer" />
+                        class="mb-3 pointer" />
+            </div>
+        </div>
+        
 
     </div>
 </template>
@@ -70,6 +75,7 @@ export default {
     .title-head{
         color: black;
         font-size: 21px;
+        font-weight: bold;
     }
 
     .btn-small{

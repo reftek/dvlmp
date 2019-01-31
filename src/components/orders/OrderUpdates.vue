@@ -1,5 +1,5 @@
 <template>
-    <div class="container mt-4 rounded-top">
+    <div class="main-container mt-4 rounded-top px-3">
         <div class="row">
             <div class="col-12">
                 <div class="py-3 update">Updates:</div>
@@ -10,7 +10,7 @@
 </template>
 
 <style lang="scss" scoped>
-.container{
+.main-container{
         background-color: white;
         border: 0.5px solid rgb(209, 208, 208);
 

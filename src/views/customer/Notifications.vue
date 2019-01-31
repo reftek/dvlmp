@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container" v-for="item in 4" :key="item">
+        <div class="main-container" v-for="item in 4" :key="item">
             <div class="row py-4">
                 <div class="col-1 pr-5">
                     <i class="mdi mdi-bell"></i>
@@ -20,7 +20,7 @@
 
 
 <style lang="scss" scoped>
-.container{
+.main-container{
     border: 0.5px solid #EFEFEF;
     background-color: white;
 }

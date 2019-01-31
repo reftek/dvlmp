@@ -1,10 +1,10 @@
 <template>
     <div class="contact-card rounded mb-3 p-3">
         <div class="row">
-            <div class="col-3">
+            <div class="col-3 col-lg-3">
                 <div class="image rounded" :style="{'background-image': 'url('+image+')'}"></div>
             </div>
-            <div class="col align-self-center">
+            <div class="col col-lg-4 align-self-center">
                 <div class="contact-name pb-1">
                     Alfred Miller
                 </div>
@@ -12,7 +12,7 @@
                     07089324817
                 </div>
             </div>
-            <div class="col-2 text-right">
+            <div class="col-2 col-lg-5 text-right">
                 <div class="text-right">
                     <i class="mdi mdi-dots-vertical"></i>
                 </div>

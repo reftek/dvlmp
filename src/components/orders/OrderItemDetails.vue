@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-4 container rounded pb-4 pt-2">
+    <div class="mt-4 main-container rounded pb-4 pt-2 px-3">
         <div class="row">
             <div class="col">
                 <div class="mb-1 bold">Item:</div>
@@ -38,7 +38,7 @@
 </template>
 
 <style lang="scss" scoped>
-.container{
+.main-container{
     background-color: white;
     border-radius: 0px;
     border: 0.5px solid rgb(209, 208, 208);

@@ -1,7 +1,10 @@
 <template>
     <div class="p-4" >
         <p class="mb-3">Order Details</p>
-        <order-details  :orderId="order.id" 
+
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <order-details  :orderId="order.id" 
                         :merchantName="order.merchantName" 
                         :orderDate="order.date" 
                         :status="order.status"
@@ -9,10 +12,26 @@
                         :orderDescription="order.description"
                         :image="order.image" 
                         />
+            </div>
+        </div>
 
-        <order-item-details />
-        <order-updates />
-        <order-rate />
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                 <order-item-details />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                 <order-updates />
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                 <order-rate />
+            </div>
+        </div>
     </div>
 </template>
 

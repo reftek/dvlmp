@@ -1,6 +1,6 @@
 <template>
     <div class="p-4">
-        <div class="container shadow-sm pt-4 pb-4 rounded">
+        <div class="main-container shadow-sm pt-4 pb-4 rounded">
             <div class="row justify-content-center">
                 <div class="rounded order-img" :style="{'background-image': 'url('+order.image+')'}"></div>
             </div>
@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-4">
+                <div class="col-5 col-lg-2 col-md-3 pr-2">
                     <div class="red rounded">
                         <div class="rate mt-2 text-center">
                             RATE
@@ -22,9 +22,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="red ml-4 rounded">
-                        <div class="rate mt-2 text-center">
+                <div class="col-5 col-lg-2 col-md-3 pl-2">
+                    <div class="red rounded">
+                        <div class="rate text-nowrap mt-2 text-center">
                             COMPLETED DELIVERIES
                         </div>
                         <div class="comp-del text-center pt-2">
@@ -33,15 +33,15 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-4 col-md-8">
                     <div class="lorem pt-2 mt-2 text-center">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend facilisis mollis. In in dolor sed lectus malesuada hendrerit in ac est. 
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-8">
+                <div class="col-8 col-lg-2 col-md-4">
                     <div class="intl-ship mt-3 card rounded px-2 py-2"> 
                         <div class="text-center"> <i class="mdi int mdi-airplane icon-blue"></i> International Shipping</div>
                     </div>
@@ -49,8 +49,8 @@
             </div>
         </div>
         
-        <div class="row" >
-            <div class="col-12">
+        <div class="row justify-content-center" >
+            <div class="col-12 col-lg-2 col-md-4">
                 <div>
                     <button type="submit" class="btn mt-4 mb-3 py-3 btn-primary btn-block active" @click="gotoNewOrder">Book a new Delivery</button>
                 </div>
@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        <div class="container shadow-sm rounded mt-2 mb-3 py-2" v-for="item in 4" :key="item">
+        <div class="main-container shadow-sm rounded mt-2 mb-3 py-2 px-3" v-for="item in 4" :key="item">
             <div class="row">
                 <div class="col-12">
                     <div class="lorem my-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend facilisis mollis. </div>
@@ -106,7 +106,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container{
+.main-container{
     background-color: white;
 
     .order-img{
@@ -192,9 +192,6 @@ button{
 .red{
     background-color: white;
     height: 60px;
-    width: 150%;
-    position: relative;
-    left: -29px;
     border: 0.5px solid #C4C4C4;
 }
 

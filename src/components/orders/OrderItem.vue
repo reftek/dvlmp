@@ -1,6 +1,5 @@
 <template>
-    <div class='row' @click="gotoOrderDetails(orderId)">
-        <div class="order-contain p-3 shadow-sm flex col-md-12">
+        <div class="order-contain p-3 shadow-sm flex" @click="gotoOrderDetails(orderId)">
             <div class="row">
                 <div class="col">
                     <div class="order-item">
@@ -47,7 +46,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </template>
 
 <script>

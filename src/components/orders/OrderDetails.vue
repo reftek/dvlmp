@@ -1,12 +1,12 @@
 <template>
-    <div class='container flex pt-3 first-details align-items-center'>
+    <div class='pt-3 first-details align-items-center px-3'>
         <div class="row align-items-center" @click="gotoMerchant(1)">
-            <div class="col-3">
+            <div class="col-3 col-lg-1">
                 <div class="order-img rounded" :style="{'background-image': 'url('+image+')'}"></div>
             </div>
-            <div class="col">
-                <div class="order-merch ml-2">{{ merchantName }}</div>
-                <div class="rating pt-2 ml-2">
+            <div class="col ml-3">
+                <div class="order-merch">{{ merchantName }}</div>
+                <div class="rating pt-2">
                     <i class="mdi mdi-18px mdi-star icon-blue"></i> 
                     {{ rating }}
                 </div>
@@ -15,23 +15,25 @@
         <hr>
         <div class="row align-items-center">
             <div class="col-12"> 
-                <div class="row mt-1 mb-3 ml-0 align-items-center">
-                    <div class="param">Order Number:</div>  
-                    <div class="ml-4 info">{{ orderId }}</div>
+                <div class="mt-1 mb-3 ml-0 align-items-center">
+                    <span class="param">
+                        Order Number:
+                        <span class="ml-4 info">{{ orderId }}</span>
+                    </span>  
                 </div>
-                <div class="row mt-1 mb-3 ml-0 align-items-center">
-                    <div class="param">Order Status: &nbsp;</div>
-                    <div class="ml-4">
-                        <div class="delivery-status px-2 text-right" v-if="status == 'success'">
+                <div class="mt-1 mb-3 ml-0 align-items-center">
+                    <span class="param">Order Status: &nbsp;</span>
+                    <span class="ml-4">
+                        <span class="delivery-status px-2 text-right" v-if="status == 'success'">
                             Delivered
-                        </div>
+                        </span>
                         <div class="delivery-status text-right status-red px-2" v-if="status == 'fail'">
                             Cancelled
                         </div>
                         <div class="delivery-status text-right status-orange px-2" v-if="status == 'pending'">
                             Pending
                         </div>
-                    </div>
+                    </span>
                 </div>
             </div>
         </div>

@@ -3,16 +3,16 @@
         <p class="black">Contacts</p>    
 
         <div class="row justify-content-center">
-            <div class="col-6 pr-1">
+            <div class="col-6 col-lg-2 col-md-3  pr-1">
                 <div class="rounded py-2 blue text-center" @click="gotoNewContact">Add New Contact</div>
             </div>
-            <div class="col-6 pl-1">
+            <div class="col-6 col-lg-2 col-md-3 pl-1">
                 <div class="rounded grey py-2 text-center">Import Contacts</div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-4 col-md-6">
                 <div class="form-group has-search mt-3">
                     <span class="fa fa-search form-control-feedback"></span>
                     <input type="text" class="form-control" placeholder="Search Contacts">
@@ -20,8 +20,10 @@
             </div>
         </div>
        
-        <div class="">
-            <contact-card v-for="item in 8" :key="item"/>
+        <div class="row wrap">
+            <div class="col-12 col-lg-4 col-md-6" v-for="item in 18" :key="item">
+                <contact-card />
+            </div>
         </div>
     </div>
 </template>

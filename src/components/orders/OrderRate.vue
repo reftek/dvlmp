@@ -1,5 +1,5 @@
 <template>
-    <div class="container mt-4 pt-2 pb-2 rounded">
+    <div class="main-container mt-4 pt-2 pb-2 rounded">
         <div class="row">
             <div class="col">
                 <div class="text-center rate my-2">
@@ -22,7 +22,7 @@
 </template>
 
 <style lang="scss" scoped> 
-.container{
+.main-container{
     background-color: white;
     border: 0.5px solid rgb(209, 208, 208);;
 

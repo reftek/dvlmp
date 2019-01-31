@@ -1,10 +1,6 @@
 <template>
     <div class="p-4">
-        <div class="row mb-3 align-items-center">
-            <div class="col">
-                <div class="title-head">New Delivery</div>
-            </div>
-        </div>
+        <div class="title-head">New Delivery</div>
         <div>
             <new-delivery :orderId="order.id" 
                         :merchantName="order.merchantName" 
@@ -13,9 +9,8 @@
                         :rating="order.rating"
                         :orderDescription="order.description"
                         :image="order.image" />
-        </div>
-        
-</div>
+        </div> 
+    </div>
 </template>
 
 <script>
@@ -43,6 +38,7 @@ export default {
 <style lang="scss" scoped>
     .title-head{
         color: black;
-        font-size: 21px;
+        font-size: 1.5rem;
+        font-weight: bold;
     }
 </style>

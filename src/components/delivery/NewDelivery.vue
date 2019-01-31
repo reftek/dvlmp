@@ -1,106 +1,139 @@
 <template>
-    <div class="main-container">
-        <div class="row order-details shadow-sm mt-2 mb-3 pt-2 pb-1 rounded align-items-center">
-            <div class="col-3">
-                <div class="row pl-3 pt-2 pb-2">
-                    <div class="order-img rounded" :style="{'background-image': 'url('+image+')'}"></div>
-                </div>
+    <div>
+        <div class="row order-details shadow-sm py-3 mx-0 my-4 rounded align-items-center">
+            <div class="col-2 col-md-1">
+                <div class="order-img rounded" :style="{'background-image': 'url('+image+')'}"></div>
             </div>
-            <div class="col pl-1 order-merch">
-                <div class="row pl-1">
-                    <div class="bold-title">
-                        {{ merchantName }}
-                    </div>
+            <div class="col ml-2">
+                <div class="bold-title order-merch">
+                    {{ merchantName }}
                 </div>
-                <div class="row pt-1">
-                    <div class="rating">
-                        <i class="mdi star-icon mdi-star small icon-blue"></i> &nbsp; {{ rating }}
-                    </div>
+                <div class="rating order-merch">
+                    <i class="mdi star-icon mdi-star small icon-blue"></i> 
+                    {{ rating }}
                 </div>
             </div>
         </div>
 
-        <div class="container rounded shadow-sm mb-3">
-            <div class="row form">
-                <div class="title-form mb-2 mt-2">PICKUP INFO</div>
-                <form class="">
-                    <div class="form-row">
-                        <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" placeholder="Item Description" required>
+        <div class="main-container shadow-sm rounded mb-3">
+            <div class="ml-2 title-form pt-2">PICKUP INFO</div>
+            <div class="row justify-content-center p-2 mb-3">
+                <div class="col-12">
+                    <form>
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <input type="email" class="form-control mb-2" id="" placeholder="Item Description" required>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <select class="form-control mb-2" id="" required>
+                                    <option disabled selected>Item Category</option>
+                                    <option>Fragile</option>
+                                    <option>Consumable/Foods</option>
+                                    <option>Electronics</option>
+                                    <option>Silverware</option>
+                                </select>                            
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <select class="form-control mb-2" id="" required>
+                                    <option disabled selected>Item Weight Class</option>
+                                    <option>5-10 Tons</option>
+                                    <option>11-20 Tons</option>
+                                    <option>21-30 Tons</option>
+                                    <option>31-40 Tons</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <select class="form-control mb-2" id="" required>
+                                    <option disabled selected>Pickup Contact</option>
+                                    <option>5-10 Tons</option>
+                                    <option>11-20 Tons</option>
+                                    <option>21-30 Tons</option>
+                                    <option>31-40 Tons</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <input type="email" class="form-control mb-2" id="" placeholder="Pickup Address" required>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <select class="form-control mb-2" id="" required>
+                                    <option disabled selected>Pickup City/Town</option>
+                                    <option>5-10 Tons</option>
+                                    <option>11-20 Tons</option>
+                                    <option>21-30 Tons</option>
+                                    <option>31-40 Tons</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <select name="" class="form-control">
-                                <option>Item Category</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <select name="" class="form-control">
-                                <option>Item Weight Class</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <select name="" class="form-control">
-                                <option>Pickup Contact</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control"  placeholder="Pickup Address" required>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <select name="" class="form-control">
-                                <option>Pickup City/Town</option>
-                            </select>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
 
-        <div class="container rounded shadow-sm">
-            <div class="row form">
-                <div class="title-form mb-2 mt-2">DELIVERY INFO</div>
-                <form class="">
-                    <div class="form-row">
-                        <div class="col-md-4 mb-3">
-                            <select name="" class="form-control">
-                                <option>Delivery Contact</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" placeholder="Delivery Address" value="" required>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <select name="" class="form-control">
-                                <option>Nigeria</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <select name="" class="form-control">
-                                <option>Delivery City/Town</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <textarea class="form-control" rows="5">Delivery Notes</textarea>
-                        </div>
-                    </div>
-                </form>
+        <div class="main-container shadow-sm rounded pb-1 mb-3">
+            <div class="ml-2 title-form pt-2">DELIVERY INFO</div>
+            <div class="row justify-content-center p-2 mb-3">
+                <div class="col-12">
+                    <form>
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <select class="form-control mb-2" id="" required>
+                                    <option disabled selected>Delivery Contact</option>
+                                    <option>Fragile</option>
+                                    <option>Consumable/Foods</option>
+                                    <option>Electronics</option>
+                                    <option>Silverware</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <select class="form-control mb-2" id="" required>
+                                    <option disabled selected>Delivery Contact</option>
+                                    <option>Fragile</option>
+                                    <option>Consumable/Foods</option>
+                                    <option>Electronics</option>
+                                    <option>Silverware</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-12">
+                                <input type="email" class="form-control mb-2" id="" placeholder="Delivery Address" required>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <select class="form-control mb-2" id="" required>
+                                    <option disabled selected>Country</option>
+                                    <option>Nigeria</option>
+                                    <option>Sweden</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <select class="form-control mb-2" id="" required>
+                                    <option disabled selected>Delivery City/Town</option>
+                                    <option>5-10 Tons</option>
+                                    <option>11-20 Tons</option>
+                                    <option>21-30 Tons</option>
+                                    <option>31-40 Tons</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-12">
+                                <textarea class="form-control" id="" rows="5" placeholder="Delivery Notes"></textarea>
+                            </div>
+                        </div>      
+                    </form>
+                </div>
             </div>
         </div>
-
-        <div class="row mt-3">
-            <div class="col-12">
+    
+        <div class="row mt-3 justify-content-center">
+            <div class="col-12 col-md-4 col-lg-4">
                 <div>
                     <button type="submit" class="btn py-3 btn-primary btn-block active">Book a new delivery</button>
                 </div>
             </div>
         </div>
 
-    </div>
+</div>
 </template>
 
 
 <style lang="scss" scoped>
-.main-container{
     .order-img{
         height: 50px;
         width: 55px;
@@ -117,7 +150,7 @@
     .order-merch{
         color: black;
 
-        .rating{
+        &.rating{
             font-size: 0.75rem;
             
             .icon-blue{
@@ -128,12 +161,11 @@
 
     .order-details{
         background-color: white;
-        margin-left: 0.2px;
-        margin-right: 0.2px;
     }
 
     .title-form{
         font-size: 0.68rem;
+        font-weight: bold;
         color: blue;
     }
 
@@ -164,10 +196,10 @@
         font-size: 0.8rem;
     }
 
-    .container{
+    .main-container{
         background-color: white;
     }
-}
+
 </style>
 
 <script>
