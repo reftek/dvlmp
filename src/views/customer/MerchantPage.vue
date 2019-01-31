@@ -1,80 +1,88 @@
 <template>
     <div class="p-4">
-        <div class="main-container shadow-sm pt-4 pb-4 rounded">
-            <div class="row justify-content-center">
-                <div class="rounded order-img" :style="{'background-image': 'url('+order.image+')'}"></div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="mt-2 mb-3 merch text-center">
-                        {{ order.merchantName }}
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-5 col-lg-2 col-md-3 pr-2">
-                    <div class="red rounded">
-                        <div class="rate mt-2 text-center">
-                            RATE
-                        </div>
-                        <div class="comp-del text-center pt-2">
-                            <i class="mdi mdi-star icon-blue"></i> {{ order.rating }}
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+
+                <div class="main-container shadow-sm pt-4 pb-4 rounded">
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center">
+                            <div class="rounded order-img" :style="{'background-image': 'url('+order.image+')'}"></div>
                         </div>
                     </div>
-                </div>
-                <div class="col-5 col-lg-2 col-md-3 pl-2">
-                    <div class="red rounded">
-                        <div class="rate text-nowrap mt-2 text-center">
-                            COMPLETED DELIVERIES
-                        </div>
-                        <div class="comp-del text-center pt-2">
-                            <i class="mdi mdi-checkbox-marked-circle icon-green"></i> 152
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mt-2 mb-3 merch text-center">
+                                {{ order.merchantName }}
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-4 col-md-8">
-                    <div class="lorem pt-2 mt-2 text-center">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend facilisis mollis. In in dolor sed lectus malesuada hendrerit in ac est. 
+                    <div class="row justify-content-center">
+                        <div class="col-5 col-md-4 pr-2">
+                            <div class="red rounded">
+                                <div class="rate mt-2 text-center">
+                                    RATE
+                                </div>
+                                <div class="comp-del text-center pt-2">
+                                    <i class="mdi mdi-star icon-blue"></i> {{ order.rating }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5 col-md-4 pl-2">
+                            <div class="red rounded">
+                                <div class="rate text-nowrap mt-2 text-center">
+                                    COMPLETED DELIVERIES
+                                </div>
+                                <div class="comp-del text-center pt-2">
+                                    <i class="mdi mdi-checkbox-marked-circle icon-green"></i> 152
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-10">
+                            <div class="lorem pt-2 mt-2 text-center">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend facilisis mollis. In in dolor sed lectus malesuada hendrerit in ac est. 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-8 col-md-6">
+                            <div class="intl-ship mt-3 card rounded px-2 py-2"> 
+                                <div class="text-center"> <i class="mdi int mdi-airplane icon-blue"></i> International Shipping</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-8 col-lg-2 col-md-4">
-                    <div class="intl-ship mt-3 card rounded px-2 py-2"> 
-                        <div class="text-center"> <i class="mdi int mdi-airplane icon-blue"></i> International Shipping</div>
-                    </div>
-                </div>
+
             </div>
         </div>
         
         <div class="row justify-content-center" >
-            <div class="col-12 col-lg-2 col-md-4">
+            <div class="col-12 col-md-4">
                 <div>
                     <button type="submit" class="btn mt-4 mb-3 py-3 btn-primary btn-block active" @click="gotoNewOrder">Book a new Delivery</button>
                 </div>
             </div>
         </div>
 
-        <div class="row"> 
-            <div class="col-12">
+        <div class="row justify-content-center"> 
+            <div class="col-12 col-md-10">
                 <div class="rev-title ml-1 mt-4 mb-3">Reviews</div>
-            </div>
-        </div>
-
-        <div class="main-container shadow-sm rounded mt-2 mb-3 py-2 px-3" v-for="item in 4" :key="item">
-            <div class="row">
-                <div class="col-12">
-                    <div class="lorem my-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend facilisis mollis. </div>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-6">
-                    <div class="review">James Bond</div> 
-                </div>
-                <div class="col-6">
-                    <div class="time review">2 days ago</div> 
+           
+                <div class="main-container shadow-sm rounded mt-2 mb-3 py-2 px-3" v-for="item in 4" :key="item">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="lorem my-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend facilisis mollis. </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <div class="review">James Bond</div> 
+                        </div>
+                        <div class="col-6">
+                            <div class="time review">2 days ago</div> 
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -115,11 +123,7 @@ export default {
         background-position: center, center;
         background-size: cover;
         background-repeat: no-repeat;
-    }
-
-    .my-col{
-        width: 125px;
-        height: 60px;
+        margin: auto;
     }
 
     .mdi::before{
