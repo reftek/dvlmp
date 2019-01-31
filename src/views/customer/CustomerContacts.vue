@@ -21,7 +21,7 @@
         </div>
        
         <div class="row wrap">
-            <div class="col-12 col-lg-4 col-md-6" v-for="item in 18" :key="item">
+            <div class="col-12 col-lg-3 col-md-6" v-for="item in 18" :key="item">
                 <contact-card />
             </div>
         </div>
