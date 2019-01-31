@@ -9,7 +9,7 @@
         </div>
 
         <div class="row wrap">
-            <div class="col-4 col-lg-1 col-md-2" v-for="item in 9" :key="item">
+            <div class="col-4 col-md-2 pb-4" v-for="item in 9" :key="item">
                 <merchant-card :orderImage="merchant.image"
                                 :merchantName="merchant.name"
                                 :orderRating="merchant.rating"

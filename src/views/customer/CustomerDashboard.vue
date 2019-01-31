@@ -82,7 +82,7 @@
         </div>
 
         <div class="row scrolling-wrapper-flexbox pl-4">
-            <div class="col-4 col-lg-1 col-md-2" v-for="item in 15" :key="item">
+            <div class="col-4 col-md-2" v-for="item in 15" :key="item">
                 <div class="">
                     <merchant-card :orderImage="order.image"
                             :merchantName="order.merchantName"
