@@ -1,5 +1,5 @@
 <template>
-    <div class="container rounded mb-3 pt-2 pb-2">
+    <div class="contact-card rounded mb-3 p-3">
         <div class="row">
             <div class="col-3">
                 <div class="image rounded" :style="{'background-image': 'url('+image+')'}"></div>
@@ -12,8 +12,8 @@
                     07089324817
                 </div>
             </div>
-            <div class="col-1">
-                <div class="icon">
+            <div class="col-2 text-right">
+                <div class="text-right">
                     <i class="mdi mdi-dots-vertical"></i>
                 </div>
             </div>
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container{
+.contact-card{
     background-color: white;
     width: 100%;
     border: 0.4px solid #C4C4C4;
@@ -58,11 +58,6 @@ export default {
     .mdi::before{
         vertical-align: inherit;
     }
-}
-
-.icon{
-    position: relative;
-    right: 8px;
 }
 </style>
 

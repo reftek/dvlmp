@@ -102,9 +102,10 @@
             </div>
         </div>
 
-        <div class="px-4">
-            <contact-card :image="image"
-                          v-for="item in 4" :key="item"/>
+        <div class="row wrap px-3">
+            <div class="col-12 col-md-3" v-for="item in 4" :key="item">
+                <contact-card :image="image"/>
+            </div>
         </div>
     </div>
 </template>

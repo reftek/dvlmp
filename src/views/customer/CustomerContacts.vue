@@ -3,10 +3,10 @@
         <p class="black">Contacts</p>    
 
         <div class="row justify-content-center">
-            <div class="col-6">
+            <div class="col-6 pr-1">
                 <div class="rounded py-2 blue text-center" @click="gotoNewContact">Add New Contact</div>
             </div>
-            <div class="col-6">
+            <div class="col-6 pl-1">
                 <div class="rounded grey py-2 text-center">Import Contacts</div>
             </div>
         </div>
