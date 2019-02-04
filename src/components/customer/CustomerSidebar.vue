@@ -46,10 +46,11 @@
             padding-left: 40px;
             display: block;
             text-decoration: none;
-            color: white;
+            color: black;
             &:hover,
             &.active {
-                background-color: $dark-color;
+                background-color: #3D4EE1;
+                color: white;
                 cursor: pointer;
             }
         }

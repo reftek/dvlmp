@@ -1,6 +1,6 @@
 <template>
-    <div class="container h-100">
-        <div class="row justify-content-center h-100 pt-5">
+    <div class="container h-100 bg-white">
+        <!-- <div class="row justify-content-center h-100 pt-5">
             <div class="col-md-9">
 
                 <div class="text-center">
@@ -55,6 +55,52 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+        <div class="row align-items-center justify-content-center pt-4 px-3">
+            <div class="col-8">
+                <div class="title-bold">Sign Up</div>
+            </div>
+            <div class="col-4">
+                <div class="user text-center rounded p-1">
+                    MERCHANT
+                </div>
+            </div>
+        </div>
+
+        <div class="row p-3">
+            <div class="col">
+                <div class="info mb-4 mt-2">
+                    Sign up as a merchant to start receiving delivery requests from customers around Nigeria. 
+                </div>
+            </div>
+        </div>
+
+        <div class="row px-3">
+            <div class="col-12 col-lg-12">
+                <input type="text" class="form-control mb-3 py-4" id="" placeholder="Company Name" required>
+            </div>
+            <div class="col-12 col-lg-12">
+                <input type="email" class="form-control mb-3 py-4" id="" placeholder="Company Email Address" required>
+            </div>
+            <div class="col-12 col-lg-12">
+                <input type="" class="form-control mb-3 py-4" id="" placeholder="Phone Number" required>
+            </div>
+            <div class="col-12 col-lg-12">
+                <div class="has-search">
+                    <i class="mdi mdi-eye form-control-feedback"></i>
+                    <input type="text" class="form-control mb-3 py-4" placeholder="Password">
+                </div>
+                
+            </div>
+            <div class="col-12 col-lg-12">
+                <input type="" class="form-control mb-3 py-4" id="" placeholder="Confirm Password" required>
+            </div>
+        </div>
+
+        <div class="row mt-3 p-3">
+            <div class="col ">
+                <button type="submit" class="btn py-3 btn-primary btn-block active">Sign up</button>
+            </div>
         </div>
     </div>
 </template>
@@ -62,5 +108,51 @@
 <style lang="scss" scoped>
 .small-icon{
     height: 30px;
+}
+
+.title-bold{
+    color: blue;
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.user{
+    border: 1px solid blue;
+    color: blue;
+    font-size: 0.7rem;
+}
+
+input{
+    color: black;
+    font-size: 0.8rem;
+}
+
+#password + .mdi {
+   cursor: pointer;
+   pointer-events: all;
+ }
+
+ .info{
+     color: black;
+     font-size: 0.9rem;
+ }
+
+ .has-search .form-control {
+    // padding-left: 2.375rem;
+    width: 100%;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    right: 5%;
+    top: 6%;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: rgb(139, 139, 139);
 }
 </style>

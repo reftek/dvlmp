@@ -1,6 +1,6 @@
 <template>
     <div class="container h-100">
-        <div class="row justify-content-center align-items-center h-100">
+        <!-- <div class="row justify-content-center align-items-center h-100">
             <div class="col-md-6 text-center">
                 <h1 class="display-4 mb-5">Sign Up</h1>
 
@@ -21,7 +21,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+        <div>Sign Up</div>
     </div>
 </template>
 

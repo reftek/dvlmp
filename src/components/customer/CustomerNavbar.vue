@@ -1,5 +1,5 @@
 <template>
-    <nav class="row justify-content-between bg-transparent px-3 py-3 align-items-center">
+    <nav class="row justify-content-between bg-white px-3 py-3 align-items-center">
         <div class="col">
             <div class="user-image" @click="toggleSideBar"></div>
         </div>
