@@ -3,7 +3,7 @@ $silver-color: #F5F5F5;
 $dark-color: #272727;
 
 $theme-colors: (
-  "primary": white,
+  "primary": $primary-color,
   "silver": $silver-color,
   "dark": $dark-color,
 );
