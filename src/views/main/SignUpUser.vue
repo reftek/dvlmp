@@ -96,8 +96,8 @@
             </div>
             <div class="col-12 col-lg-12">
                 <div class="has-eye">
-                    <i class="mdi mdi-eye form-control-feedback"></i>
-                    <input type="text" class="form-control mb-3 py-4" placeholder="Password">
+                    <i class="mdi mdi-eye form-control-feedback" id="eye"></i>
+                    <input type="text" class="form-control mb-3 py-4" id="pwd" placeholder="Password">
                 </div>
             </div>
             <div class="col-12 col-lg-12">
@@ -166,11 +166,17 @@ input{
 </style>
 
 <script>
-export default {
-    methods: {
-        changeClass() {
+var pwd = document.getElementById('pwd');
+var eye = document.getElementById('eye');
 
-        }
-    }
+eye.addEventListener('click', togglePass);
+
+function togglePass(){
+
+    eye.classList.toggle('mdi mdi-eye-off');
+
+    (pwd.type == 'password') ? pwd.type = 'text' :
+    pwd.type = 'password';
+
 }
 </script>
