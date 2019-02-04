@@ -24,10 +24,11 @@
         </div> -->
         <div class="title-bold p-4">Sign Up</div>
         
-        <div class="pb-4 px-3">
+        <div class="pb-4 px-3 pill-border">
             <nav class="nav nav-pills nav-justified">
-  <a class="nav-item nav-link active" href="#">User</a>
-  <a class="nav-item nav-link" href="#">Merchant</a> </nav>
+                <a class="nav-item nav-link active" href="#">User</a>
+                <a class="nav-item nav-link" href="#">Merchant</a> 
+            </nav>
         </div>
         
 
@@ -95,4 +96,5 @@ input{
     color: black;
     font-size: 0.8rem;
 }
+
 </style>
