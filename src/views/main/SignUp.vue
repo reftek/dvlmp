@@ -1,5 +1,5 @@
 <template>
-    <div class="container bg-white">
+    <div class="container bg-white h-100">
         <!-- <div class="row justify-content-center align-items-center h-100">
             <div class="col-md-6 text-center">
                 <h1 class="display-4 mb-5">Sign Up</h1>
@@ -26,16 +26,16 @@
         
         <div class="pb-4 px-3 pill-border">
             <nav class="nav nav-pills nav-justified">
-                <a class="nav-item nav-link active" href="#">User</a>
-                <a class="nav-item nav-link" href="#">Merchant</a> 
+                <a class="nav-item nav-link active" id="user-pill" href="#" @click="statusChangeUser">User</a>
+                <a class="nav-item nav-link" id="merchant-pill" href="#" @click="statusChangeMerchant">Merchant</a> 
             </nav>
         </div>
         
-        <div>
+        <div v-if="status == true">
             <sign-up-user />
         </div>
 
-        <div>
+        <div v-if="status == false">
             <sign-up-merchant />
         </div>
         
@@ -50,7 +50,24 @@ export default {
     components: {
         SignUpUser,
         SignUpMerchant,
-    }
+    },
+    data() {
+        return {
+            status: true,
+        }
+    },
+    methods: {
+        statusChangeUser: function() {
+            document.getElementById('user-pill').classList.add('active');
+            document.getElementById('merchant-pill').classList.remove('active');
+           this.status = true
+        },
+        statusChangeMerchant: function() {
+            document.getElementById('merchant-pill').classList.add('active');
+            document.getElementById('user-pill').classList.remove('active');
+           this.status = false
+        },
+    },
 }
 </script>
 
