@@ -5,7 +5,7 @@
                 <div class="landing-img"></div>
             </div>
         </div>
-        <div class="info-container pb-5">
+        <div class="bg-white h-100 w-100">
             <div class="row">
                 <div class="col-12 px-5 pt-3 pb-2">
                     <div class="title-bold">
