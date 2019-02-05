@@ -1,10 +1,14 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light py-3">
-        <router-link class="navbar-brand text-primary" :to="{name: 'main.home'}">
-            <i class="mdi mdi-apple-keyboard-control"></i>
-        </router-link>
+        <div class="row">
+            <div class="col">
+                <router-link class="navbar-brand text-primary" :to="{name: 'main.home'}" v-if="$route.path !== '/'">
+                    <i class="mdi mdi-apple-keyboard-control"></i>
+                </router-link> 
+            </div>
+        </div>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon text-right"></span>
         </button>
         <div class="collapse navbar-collapse mr-5" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
@@ -24,6 +28,10 @@
 nav{
     background-color: transparent;
     z-index: 100;
+
+    .mdi::before{
+        z-index: 98;
+    }
 }
 .navbar-light .navbar-toggler {
     border: none;
@@ -32,9 +40,17 @@ nav{
 
 .navbar-light .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,225, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+//   position: relative;
+//   left: 330px;
 }
 
 .mdi::before{
     transform: rotate(-90deg);
 }
 </style>
+
+<script>
+export default {
+    
+}
+</script>

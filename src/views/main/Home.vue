@@ -1,13 +1,5 @@
 <template>
     <div class="main-container h-100">
-        <!-- <div class="row justify-content-center align-items-center h-100"> -->
-            <!-- <div class="col-md-8 text-center">
-                <h1 class="text-primary">Home Page</h1>
-                <router-link class="mx-5" :to="{name: 'merchants.dashboard'}">Merchant Dashboard</router-link>
-
-                <router-link class="mx-5" :to="{name: 'customers.dashboard'}">Customer Dashboard</router-link>
-            </div> -->
-        <!-- </div> -->
         <div class="row justify-content-center abss align-items-center pb-0 mb-0">
             <div class="col">
                 <div class="landing-img"></div>
@@ -56,17 +48,12 @@
     background-repeat: no-repeat;
     height: 305px;
     min-width: 100vw;
+    z-index: 120;
 }
 
 .main-container{
     margin-top: -72px;
 }
-
-// .abss{
-//     position: relative;
-//     // transform: translate(0, -20%);
-//     z-index: 0;
-// }
 
 .info-container{
     background-color: white;
