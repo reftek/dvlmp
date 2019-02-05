@@ -96,5 +96,10 @@ input{
 #button-add1{
     border-right: none;
 }
+
+.btn:focus{
+    outline: 0;
+}
+
 </style>
 
