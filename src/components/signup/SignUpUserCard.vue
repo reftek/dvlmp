@@ -17,8 +17,8 @@
 
                     <div class="input-group-append">
                         <button class="btn" type="button" id="button-addon2">
-                            <i v-if="passwordVisible" class="mdi mdi-eye-off form-control-feedback password-eye" @click="passwordVisible = !passwordVisible"></i>
-                            <i v-else class="mdi mdi-eye form-control-feedback password-eye" @click="passwordVisible = !passwordVisible"></i>
+                            <i v-if="passwordVisible" class="mdi mdi-eye-off form-control-feedback" @click="passwordVisible = !passwordVisible"></i>
+                            <i v-else class="mdi mdi-eye form-control-feedback" @click="passwordVisible = !passwordVisible"></i>
                         </button>
                     </div>
                 </div>
@@ -68,30 +68,6 @@ input{
    pointer-events: all;
 }
 
-.has-eye .form-control {
-    width: 100%;
-}
-
-.has-eye .form-control-feedback {
-    position: absolute;
-    right: 5%;
-    top: 6%;
-    z-index: 2;
-    display: block;
-    width: 2.375rem;
-    height: 2.375rem;
-    line-height: 2.375rem;
-    text-align: center;
-    pointer-events: none;
-    color: rgb(139, 139, 139);
-}
-
-.password-eye{
-    position: relative;
-    z-index: 10 !important;
-    cursor: pointer;
-}
-
 #button-addon2{
     height: 50.3px;
     background-color: transparent;
@@ -102,5 +78,11 @@ input{
 
 #button-add1{
     border-right: none;
+}
+
+.btn:focus, .btn.focus {
+    outline: 0; 
+     -webkit-box-shadow: 0 0 0 0 rgba(61, 78, 225, 0.25); 
+     box-shadow: 0 0 0 0 rgba(61, 78, 225, 0.25); 
 }
 </style>
