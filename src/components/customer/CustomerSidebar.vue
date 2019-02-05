@@ -7,7 +7,6 @@
             <div class="row align-items-center">
                 <div class="col-4 ">
                     <div class="profile-pic" :style="{'background-image': 'url('+user.image+')'}">
-
                     </div>
                 </div>
                 <div class="col">
@@ -50,7 +49,8 @@ export default {
                 {
                     id: '1',
                     name: 'Raymond Ativie',
-                    image: './../../assets/images/profile_pic.png',
+                    image: "https://media.licdn.com/dms/image/C5603AQGhKcxOqCjaPQ/profile-displayphoto-shrink_800_800/0?e=1554940800&v=beta&t=qBJskR6Z2ZJP4TC91dlnp-ksy99QrJWBybIFOajWSxU",
+                    // backgroundUrl: require("./../../assets/images/profile_pic.png"),
                 },
         }
     },
