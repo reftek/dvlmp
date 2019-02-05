@@ -1,5 +1,5 @@
 <template>
-    <nav id="sidebar" class="bg-primary text-white">
+    <nav id="sidebar" class="bg-white text-dark">
         <router-link tag="div" class="pointer mt-5 fs-13 font-weight-bold pl-4" :to="{name: 'main.home'}">
             DVLMP
         </router-link>
@@ -38,7 +38,6 @@
     
     #sidebar {
         min-width: 290px;
-        // max-width: 290px;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
@@ -59,4 +58,11 @@
     #sidebar.active {
         margin-left: -250px;
     }
+
+    .bm-item-list>* {
+    display: flex;
+    padding: 0px;
+    text-decoration: none;
+}
+
 </style>
