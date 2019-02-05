@@ -2,22 +2,38 @@
     <div>
         <div class="row px-3">
             <div class="col-12 col-lg-12">
-                <input type="text" class="form-control mb-3 py-4" id="" placeholder="Name" required>
+                <input type="text" class="form-control mb-3 py-4" placeholder="Name" required>
             </div>
             <div class="col-12 col-lg-12">
-                <input type="email" class="form-control mb-3 py-4" id="" placeholder="Email Address" required>
+                <input type="email" class="form-control mb-3 py-4" placeholder="Email Address" required>
             </div>
             <div class="col-12 col-lg-12">
-                <input type="" class="form-control mb-3 py-4" id="" placeholder="Phone Number" required>
+                <input type="" class="form-control mb-3 py-4" placeholder="Phone Number" required>
             </div>
             <div class="col-12 col-lg-12">
                 <div class="has-eye">
-                    <i class="mdi mdi-eye-off form-control-feedback" id="eye"></i>
-                    <input type="text" class="form-control mb-3 py-4" id="pwd" placeholder="Password">
+                    <i v-if="passwordVisible" class="mdi mdi-eye-off form-control-feedback password-eye" @click="passwordVisible = !passwordVisible"></i>
+                    <i v-else class="mdi mdi-eye form-control-feedback password-eye" @click="passwordVisible = !passwordVisible"></i>
+
+                    <input :type="passwordType" class="form-control mb-3 py-4" placeholder="Password">
                 </div>
             </div>
+
+            <div class="col-12">
+                <div class="input-group">
+                    <input :type="passwordType" class="form-control mb-3 py-4" placeholder="Password">
+
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                            <i v-if="passwordVisible" class="mdi mdi-eye-off form-control-feedback password-eye" @click="passwordVisible = !passwordVisible"></i>
+                            <i v-else class="mdi mdi-eye form-control-feedback password-eye" @click="passwordVisible = !passwordVisible"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-12 col-lg-12">
-                <input type="" class="form-control mb-3 py-4" id="" placeholder="Confirm Password" required>
+                <input type="" class="form-control mb-3 py-4" placeholder="Confirm Password" required>
             </div>
         </div>
 
@@ -28,6 +44,26 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    data(){
+        return {
+            passwordVisible: false,
+        }
+    },
+    computed: {
+        passwordType(){
+            if(this.passwordVisible == true){
+                return 'text';
+            }else{
+                return 'password';
+            }
+        }
+    }
+}
+</script>
+
 
 <style lang="scss" scoped>
 input{
@@ -56,5 +92,12 @@ input{
     text-align: center;
     pointer-events: none;
     color: rgb(139, 139, 139);
+}
+
+.password-eye{
+    // border: 1px solid red;
+    position: relative;
+    z-index: 10 !important;
+    cursor: pointer;
 }
 </style>
