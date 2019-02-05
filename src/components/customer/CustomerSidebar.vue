@@ -6,13 +6,13 @@
         <div class="pad-left mt-5 ">
             <div class="row align-items-center">
                 <div class="col-4 ">
-                    <div class="profile-pic">
+                    <div class="profile-pic" :style="{'background-image': 'url('+user.image+')'}">
 
                     </div>
                 </div>
                 <div class="col">
                     <div class="profile-name">
-                    Raymond Ativie 
+                    {{ user.name }} 
                     </div>
                 </div>
             </div>
@@ -42,6 +42,20 @@
     </nav>
 </template>
 
+<script>
+export default {
+    data() {
+        return {
+            user:
+                {
+                    id: '1',
+                    name: 'Raymond Ativie',
+                    image: './../../assets/images/profile_pic.png',
+                },
+        }
+    },
+}
+</script>
 
 <style lang="scss" scoped>
     @import "./../../assets/scss/partials/_colors.scss";
@@ -85,8 +99,8 @@
 }
 
 .profile-pic{
-    background-image: url('./../../assets/images/iStock-1019214052.png');
     background-position: center, center;
+    background-size: cover;
     background-repeat: no-repeat;
     min-height: 60px;
     min-width: 60px;
