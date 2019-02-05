@@ -12,7 +12,7 @@
             </div>
             <div class="col-12 col-lg-12">
                 <div class="has-eye">
-                    <i class="mdi mdi-eye-off form-control-feedback" id="eye" @click="eyeToggle"></i>
+                    <i class="mdi mdi-eye-off form-control-feedback" id="eye"></i>
                     <input type="text" class="form-control mb-3 py-4" id="pwd" placeholder="Password">
                 </div>
             </div>
