@@ -52,7 +52,7 @@
 }
 
 .main-container{
-    margin-top: -72px;
+    margin-top: -70px;
 }
 
 .info-container{
