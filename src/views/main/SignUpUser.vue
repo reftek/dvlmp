@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <sign-up-user />
+        <sign-up-user-card />
     </div>
 </template>
 
@@ -47,32 +47,11 @@
 </style>
 
 <script>
-import SignUpUser from "./../../components/signup/SignUpUser.vue";
-    // var pwd = document.getElementById('pwd');
-    // var eye = document.getElementById('eye');
-
-    // eye.addEventListener('click', togglePass);
-
-    // function togglePass(){
-
-    //     eye.classList.toggle('mdi mdi-eye form-control-feedback');
-
-    //     (pwd.type =='password') ? pwd.type == 'text' : 
-    //     (pwd.type == 'password');
-    // }
-    export default {
-        components: {
-            SignUpUser,
-        }
-    //    data() {
-    //        return {
-    //            eye : eye = document.getElementById('eye'),
-    //        }
-    //    },
-    //     methods: {
-    //         eyeToggle() {
-    //             eye.classList.toggle('mdi mdi-eye form-control-feedback');
-    //         }
-    //     }
+import SignUpUserCard from "./../../components/signup/SignUpUser.vue";
+    
+export default {
+    components: {
+        SignUpUserCard,
     }
+}
 </script>

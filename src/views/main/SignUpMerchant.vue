@@ -75,7 +75,7 @@
             </div>
         </div>
 
-        <sign-up-merchant />
+        <sign-up-merchant-card />
 
         
     </div>
@@ -109,10 +109,10 @@
 </style>
 
 <script>
-import SignUpMerchant from "./../../components/signup/SignUpMerchant.vue";
+import SignUpMerchantCard from "./../../components/signup/SignUpMerchantCard.vue";
 export default {
     components: {
-        SignUpMerchant,
+        SignUpMerchantCard,
     }
 }
 </script>

@@ -32,24 +32,24 @@
         </div>
     
         <div v-if="status == 'user'">
-            <sign-up-user />
+            <sign-up-user-card />
         </div>
     
         <div v-if="status == 'merchant'">
-            <sign-up-merchant />
+            <sign-up-merchant-card />
         </div>
     
     </div>
 </template>
 
 <script>
-    import SignUpUser from "./../../components/signup/SignUpUser";
-    import SignUpMerchant from "./../../components/signup/SignUpMerchant";
+    import SignUpUserCard from "./../../components/signup/SignUpUserCard";
+    import SignUpMerchantCard from "./../../components/signup/SignUpMerchantCard";
     
     export default {
         components: {
-            SignUpUser,
-            SignUpMerchant,
+            SignUpUserCard,
+            SignUpMerchantCard,
         },
         data() {
             return {
