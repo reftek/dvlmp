@@ -5,7 +5,7 @@
         </router-link> -->
         <div class="pad-left mt-5 ">
             <div class="row align-items-center">
-                <div class="col-4 ">
+                <div class="col-3 ">
                     <div class="profile-pic" :style="{'background-image': 'url('+user.image+')'}">
                     </div>
                 </div>
@@ -49,7 +49,8 @@ export default {
                 {
                     id: '1',
                     name: 'Raymond Ativie',
-                    image: "https://media.licdn.com/dms/image/C5603AQGhKcxOqCjaPQ/profile-displayphoto-shrink_800_800/0?e=1554940800&v=beta&t=qBJskR6Z2ZJP4TC91dlnp-ksy99QrJWBybIFOajWSxU",
+                    // image: "https://media.licdn.com/dms/image/C5603AQGhKcxOqCjaPQ/profile-displayphoto-shrink_800_800/0?e=1554940800&v=beta&t=qBJskR6Z2ZJP4TC91dlnp-ksy99QrJWBybIFOajWSxU",
+                    image: "https://www.placehold.it/50x50",
                     // backgroundUrl: require("./../../assets/images/profile_pic.png"),
                 },
         }
@@ -95,15 +96,15 @@ export default {
 }
 
 .pad-left{
-    padding-left: 40px;
+    padding-left: 25px;
 }
 
 .profile-pic{
     background-position: center, center;
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 60px;
-    min-width: 60px;
+    min-height: 50px;
+    min-width: 50px;
     border-radius: 50%;
     position: relative;
     top: 0.3rem;

@@ -45,10 +45,11 @@ export default {
     background-color: transparent;
 }
 .user-image{
-    width: 50px;
-    height: 50px;
-    background-image: url('https://placehold.it/80');
+    width: 35px;
+    height: 35px;
+    background-image: url('https://www.placehold.it/35x35');
     background-position: center center;
+    background-size: cover;
     border-radius: 50%;
 }
 </style>
