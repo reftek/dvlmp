@@ -47,7 +47,7 @@
 </style>
 
 <script>
-import SignUpUserCard from "./../../components/signup/SignUpUser.vue";
+import SignUpUserCard from "./../../components/signup/SignUpUserCard.vue";
     
 export default {
     components: {

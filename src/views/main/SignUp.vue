@@ -24,10 +24,10 @@
             </div> -->
         <div class="title-bold p-4">Sign Up</div>
     
-        <div class="pb-4 px-3 pill-border">
-            <nav class="nav nav-pills nav-justified">
+        <div class="pb-4 px-3 ">
+            <nav class="nav nav-pills nav-justified pill-border rounded">
                 <a class="nav-item nav-link" :class="isActiveStatus('user')" id="user-pill" href="#" @click="status = 'user'">User</a>
-                <a class="nav-item nav-link" :class="isActiveStatus('merchant')" id="merchant-pill" href="#" @click="status = 'merchant'">Merchant</a>
+                <a class="nav-item nav-link mr-0" :class="isActiveStatus('merchant')" id="merchant-pill" href="#" @click="status = 'merchant'">Merchant</a>
             </nav>
         </div>
     
@@ -84,6 +84,10 @@
         // padding-left: 2.375rem;
         width: 100%;
     }
+
+    .pill-border{
+        border: 0.5px solid blue;
+    }
     
     .has-search .form-control-feedback {
         position: absolute;
@@ -99,8 +103,16 @@
         color: rgb(139, 139, 139);
     }
     
-    input {
-        color: black;
-        font-size: 0.8rem;
-    }
+input {
+    color: black;
+    font-size: 0.8rem;
+}
+    
+.nav-pills .nav-link:nth-child(2) {
+    border-radius: 0px 0.25rem 0.25rem 0px;
+}
+
+.nav-pills .nav-link:nth-child(1) {
+    border-radius: 0.25rem 0px 0px 0.25rem;
+}
 </style>
