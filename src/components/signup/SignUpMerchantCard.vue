@@ -10,13 +10,19 @@
             <div class="col-12 col-lg-12">
                 <input type="" class="form-control mb-3 py-4" id="" placeholder="Phone Number" required>
             </div>
-            <div class="col-12 col-lg-12">
-                <div class="has-search">
-                    <i class="mdi mdi-eye form-control-feedback"></i>
-                    <input type="text" class="form-control mb-3 py-4" placeholder="Password">
+            <div class="col-12">
+                <div class="input-group">
+                    <input :type="passwordType" id="button-add1" class="form-control mb-3 py-4" placeholder="Password">
+
+                    <div class="input-group-append">
+                        <button class="btn" type="button" id="button-addon2">
+                            <i v-if="passwordVisible" class="mdi mdi-eye-off form-control-feedback password-eye" @click="passwordVisible = !passwordVisible"></i>
+                            <i v-else class="mdi mdi-eye form-control-feedback password-eye" @click="passwordVisible = !passwordVisible"></i>
+                        </button>
+                    </div>
                 </div>
-                
             </div>
+
             <div class="col-12 col-lg-12">
                 <input type="" class="form-control mb-3 py-4" id="" placeholder="Confirm Password" required>
             </div>
@@ -29,6 +35,26 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    data(){
+        return {
+            passwordVisible: false,
+        }
+    },
+    computed: {
+        passwordType(){
+            if(this.passwordVisible == true){
+                return 'text';
+            }else{
+                return 'password';
+            }
+        }
+    }
+}
+</script>
+
 
 <style lang="scss" scoped>
 input{
@@ -57,6 +83,18 @@ input{
     text-align: center;
     pointer-events: none;
     color: rgb(139, 139, 139);
+}
+
+#button-addon2{
+    height: 50.3px;
+    background-color: transparent;
+    border-top: 1px solid #ced4da;
+    border-bottom: 1px solid #ced4da;
+    border-right: 1px solid #ced4da;
+}
+
+#button-add1{
+    border-right: none;
 }
 </style>
 

@@ -8,23 +8,15 @@
                 <input type="email" class="form-control mb-3 py-4" placeholder="Email Address" required>
             </div>
             <div class="col-12 col-lg-12">
-                <input type="" class="form-control mb-3 py-4" placeholder="Phone Number" required>
+                <input type="text" class="form-control mb-3 py-4" placeholder="Phone Number" required>
             </div>
-            <div class="col-12 col-lg-12">
-                <div class="has-eye">
-                    <i v-if="passwordVisible" class="mdi mdi-eye-off form-control-feedback password-eye" @click="passwordVisible = !passwordVisible"></i>
-                    <i v-else class="mdi mdi-eye form-control-feedback password-eye" @click="passwordVisible = !passwordVisible"></i>
-
-                    <input :type="passwordType" class="form-control mb-3 py-4" placeholder="Password">
-                </div>
-            </div>
-
+            
             <div class="col-12">
                 <div class="input-group">
-                    <input :type="passwordType" class="form-control mb-3 py-4" placeholder="Password">
+                    <input :type="passwordType" id="button-add1" class="form-control mb-3 py-4" placeholder="Password">
 
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                        <button class="btn" type="button" id="button-addon2">
                             <i v-if="passwordVisible" class="mdi mdi-eye-off form-control-feedback password-eye" @click="passwordVisible = !passwordVisible"></i>
                             <i v-else class="mdi mdi-eye form-control-feedback password-eye" @click="passwordVisible = !passwordVisible"></i>
                         </button>
@@ -95,9 +87,20 @@ input{
 }
 
 .password-eye{
-    // border: 1px solid red;
     position: relative;
     z-index: 10 !important;
     cursor: pointer;
+}
+
+#button-addon2{
+    height: 50.3px;
+    background-color: transparent;
+    border-top: 1px solid #ced4da;
+    border-bottom: 1px solid #ced4da;
+    border-right: 1px solid #ced4da;
+}
+
+#button-add1{
+    border-right: none;
 }
 </style>
