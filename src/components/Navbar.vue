@@ -7,8 +7,8 @@
                 </router-link> 
             </div>
         </div>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon text-right"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse mr-5" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
@@ -28,10 +28,6 @@
 nav{
     background-color: transparent;
     z-index: 100;
-
-    .mdi::before{
-        z-index: 98;
-    }
 }
 .navbar-light .navbar-toggler {
     border: none;
