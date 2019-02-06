@@ -115,13 +115,13 @@ export default {
     min-height: 50px;
     min-width: 50px;
     border-radius: 50%;
-    position: relative;
-    top: 0.3rem;
+    
 }
 
 .profile-name{
     position: relative;
     right: 1rem;
     font-weight: bold;
+    font-size: 0.8rem;
 }
 </style>
