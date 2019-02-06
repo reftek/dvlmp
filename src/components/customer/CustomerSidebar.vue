@@ -37,7 +37,7 @@
             <div class="nav-side-link py-3 my-2" @click="isActiveSettings = !isActiveSettings">
                 <i class="mdi mdi-settings-outline mr-3 fs-1"></i> Settings
             </div>
-            <div v-if="isActiveSettings" class="ml-5">
+            <div v-if="isActiveSettings" class="ml-5 font-weight-light">
                 <router-link class="nav-side-link py-3 my-2" exact :to="{name: 'customers.settings'}">
                     Profile & Security
                 </router-link>
