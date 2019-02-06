@@ -34,9 +34,17 @@
             <router-link class="nav-side-link py-3 my-2" active-class="active" exact :to="{name: 'customers.stats'}">
                 <i class="mdi mdi-finance mr-3 fs-1"></i> Statistics
             </router-link>
-            <router-link class="nav-side-link py-3 my-2" active-class="active" exact :to="{name: 'customers.settings'}">
+            <div class="nav-side-link py-3 my-2" @click="isActiveSettings = !isActiveSettings">
                 <i class="mdi mdi-settings-outline mr-3 fs-1"></i> Settings
-            </router-link>
+            </div>
+            <div v-if="isActiveSettings" class="ml-5">
+                <router-link class="nav-side-link py-3 my-2" exact :to="{name: 'customers.settings'}">
+                    Profile & Security
+                </router-link>
+                <router-link class="nav-side-link py-3 my-2" exact :to="{name: 'customers.settings'}">
+                    Payments
+                </router-link>
+            </div>
         </div>
     </nav>
 </template>
@@ -45,6 +53,7 @@
 export default {
     data() {
         return {
+            isActiveSettings: false,
             user:
                 {
                     id: '1',
