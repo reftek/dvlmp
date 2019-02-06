@@ -7,7 +7,7 @@
         </div>
         <div class="row px-3">
             <div class="col-12">
-                <input type="text" class="form-control mb-3 py-4" id="" placeholder="Email" required>
+                <input type="text" class="form-control mb-3 py-4" placeholder="Email" required>
             </div>
             <div class="col-12">
                 <div class="input-group">

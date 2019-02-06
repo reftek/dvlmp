@@ -2,13 +2,13 @@
     <div>
         <div class="row px-3">
             <div class="col-12 col-lg-12">
-                <input type="text" class="form-control mb-3 py-4" id="" placeholder="Company Name" required>
+                <input type="text" class="form-control mb-3 py-4" placeholder="Company Name" required>
             </div>
             <div class="col-12 col-lg-12">
-                <input type="email" class="form-control mb-3 py-4" id="" placeholder="Company Email Address" required>
+                <input type="email" class="form-control mb-3 py-4" placeholder="Company Email Address" required>
             </div>
             <div class="col-12 col-lg-12">
-                <input type="" class="form-control mb-3 py-4" id="" placeholder="Phone Number" required>
+                <input type="" class="form-control mb-3 py-4" placeholder="Phone Number" required>
             </div>
             <div class="col-12">
                 <div class="input-group">
@@ -24,7 +24,7 @@
             </div>
 
             <div class="col-12 col-lg-12">
-                <input type="" class="form-control mb-3 py-4" id="" placeholder="Confirm Password" required>
+                <input type="" class="form-control mb-3 py-4" placeholder="Confirm Password" required>
             </div>
         </div>
 

@@ -20,7 +20,7 @@
                             <input type="text" class="form-control" placeholder="Company" required>
                         </div>
                         <div class="col-12 col-lg-12 mb-3">
-                            <textarea name="" id="" cols="30" rows="4" class="form-control" placeholder="Address"></textarea>
+                            <textarea name="" cols="30" rows="4" class="form-control" placeholder="Address"></textarea>
                         </div>
                     </div>
                 </form>

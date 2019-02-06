@@ -25,10 +25,10 @@
                             <form>
                                 <div class="row">
                                     <div class="col-12 col-lg-6">
-                                        <input type="email" class="form-control mb-2" id="" placeholder="Item Description" required>
+                                        <input type="email" class="form-control mb-2" placeholder="Item Description" required>
                                     </div>
                                     <div class="col-12 col-lg-6">
-                                        <select class="form-control mb-2" id="" required>
+                                        <select class="form-control mb-2" required>
                                             <option disabled selected>Item Category</option>
                                             <option>Fragile</option>
                                             <option>Consumable/Foods</option>
@@ -37,7 +37,7 @@
                                         </select>                            
                                     </div>
                                     <div class="col-12 col-lg-6">
-                                        <select class="form-control mb-2" id="" required>
+                                        <select class="form-control mb-2" required>
                                             <option disabled selected>Item Weight Class</option>
                                             <option>5-10 Tons</option>
                                             <option>11-20 Tons</option>
@@ -46,7 +46,7 @@
                                         </select>
                                     </div>
                                     <div class="col-12 col-lg-6">
-                                        <select class="form-control mb-2" id="" required>
+                                        <select class="form-control mb-2" required>
                                             <option disabled selected>Pickup Contact</option>
                                             <option>5-10 Tons</option>
                                             <option>11-20 Tons</option>
@@ -55,10 +55,10 @@
                                         </select>
                                     </div>
                                     <div class="col-12 col-lg-6">
-                                        <input type="email" class="form-control mb-2" id="" placeholder="Pickup Address" required>
+                                        <input type="email" class="form-control mb-2" placeholder="Pickup Address" required>
                                     </div>
                                     <div class="col-12 col-lg-6">
-                                        <select class="form-control mb-2" id="" required>
+                                        <select class="form-control mb-2" required>
                                             <option disabled selected>Pickup City/Town</option>
                                             <option>5-10 Tons</option>
                                             <option>11-20 Tons</option>
@@ -79,7 +79,7 @@
                             <form>
                                 <div class="row">
                                     <div class="col-12 col-lg-6">
-                                        <select class="form-control mb-2" id="" required>
+                                        <select class="form-control mb-2" required>
                                             <option disabled selected>Delivery Contact</option>
                                             <option>Fragile</option>
                                             <option>Consumable/Foods</option>
@@ -88,7 +88,7 @@
                                         </select>
                                     </div>
                                     <div class="col-12 col-lg-6">
-                                        <select class="form-control mb-2" id="" required>
+                                        <select class="form-control mb-2" required>
                                             <option disabled selected>Delivery Contact</option>
                                             <option>Fragile</option>
                                             <option>Consumable/Foods</option>
@@ -97,17 +97,17 @@
                                         </select>
                                     </div>
                                     <div class="col-12 col-lg-12">
-                                        <input type="email" class="form-control mb-2" id="" placeholder="Delivery Address" required>
+                                        <input type="email" class="form-control mb-2" placeholder="Delivery Address" required>
                                     </div>
                                     <div class="col-12 col-lg-6">
-                                        <select class="form-control mb-2" id="" required>
+                                        <select class="form-control mb-2" required>
                                             <option disabled selected>Country</option>
                                             <option>Nigeria</option>
                                             <option>Sweden</option>
                                         </select>
                                     </div>
                                     <div class="col-12 col-lg-6">
-                                        <select class="form-control mb-2" id="" required>
+                                        <select class="form-control mb-2" required>
                                             <option disabled selected>Delivery City/Town</option>
                                             <option>5-10 Tons</option>
                                             <option>11-20 Tons</option>
@@ -116,7 +116,7 @@
                                         </select>
                                     </div>
                                     <div class="col-12 col-lg-12">
-                                        <textarea class="form-control" id="" rows="5" placeholder="Delivery Notes"></textarea>
+                                        <textarea class="form-control" rows="5" placeholder="Delivery Notes"></textarea>
                                     </div>
                                 </div>      
                             </form>
