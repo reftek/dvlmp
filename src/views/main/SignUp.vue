@@ -4,7 +4,7 @@
     
         <div class="pb-4 px-3 ">
             <nav class="nav nav-pills nav-justified pill-border rounded">
-                <a class="nav-item nav-link" :class="isActiveStatus('user')" id="user-pill" href="#" @click="status = 'user'">User</a>
+                <a class="nav-item nav-link mr-0" :class="isActiveStatus('user')" id="user-pill" href="#" @click="status = 'user'">User</a>
                 <a class="nav-item nav-link mr-0" :class="isActiveStatus('merchant')" id="merchant-pill" href="#" @click="status = 'merchant'">Merchant</a>
             </nav>
         </div>
