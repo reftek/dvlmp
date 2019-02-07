@@ -11,13 +11,13 @@
     
         <div v-if="status == 'user'">
             <sign-up-user-card />
-        </div>
+        </div> 
     
         <div v-if="status == 'merchant'">
             <sign-up-merchant-card />
         </div>
     
-    </div>
+    </div> 
 </template>
 
 <script>
