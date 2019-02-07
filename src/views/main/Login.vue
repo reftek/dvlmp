@@ -7,11 +7,11 @@
         </div>
         <div class="row px-3">
             <div class="col-12">
-                <input type="text" class="form-control mb-3 py-4" placeholder="Email" required>
+                <input type="text" v-model="email" class="form-control mb-3 py-4" placeholder="Email" required>
             </div>
             <div class="col-12">
                 <div class="input-group">
-                    <input :type="passwordType" id="button-add1" class="form-control mb-3 py-4" placeholder="Password">
+                    <input :type="passwordType" v-model="password" id="button-add1" class="form-control mb-3 py-4" placeholder="Password">
 
                     <div class="input-group-append">
                         <button class="btn" type="button" id="button-addon2">
@@ -22,9 +22,16 @@
                 </div>
             </div>
         </div>
+        <div class="row px-3 mt-2" v-if="errorMessage">
+            <div class="col">
+                <div class="alert alert-danger text-center">
+                    {{ errorMessage }}
+                </div>
+            </div>
+        </div>
         <div class="row mt-3 p-3">
             <div class="col">
-                <button type="submit" class="btn py-3 btn-primary btn-block active">Log In</button>
+                <button type="submit" class="btn py-3 btn-primary btn-block active" @click="tryLogin()">Log In</button>
             </div>
         </div>
 
@@ -39,10 +46,14 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     data(){
         return {
+            email: '',
+            password: '',
             passwordVisible: false,
+            errorMessage: '',
         }
     },
     computed: {
@@ -53,7 +64,42 @@ export default {
                 return 'password';
             }
         }
-    }
+    },
+    methods: {
+        tryLogin(){
+            var body = {
+                'email': this.email,
+                'password': this.password,
+            }
+
+            // var headers = {
+            //     'Content-Type': 'application/json',
+            //     'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU0OTU0MjY1MywiZXhwIjoxNTQ5NTQ2MjUzLCJuYmYiOjE1NDk1NDI2NTMsImp0aSI6InlMN1JmY1JRcVhxOWdjQ2EiLCJzdWIiOjE1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.qj_DN8r0yC3l6Nk3Li6oRr4u6_W9sWVCPcnoplTTRB4'
+            // }
+            axios.post('http://127.0.0.1:8000/api/auth/login', body)
+            .then(response => {
+                console.log(response.data)
+                if (response.data.status == true) {
+                    console.log('Welcome')
+                } else {
+                    this.errorMessage = response.data.message
+                    this.password = ''
+                }
+            }
+            )
+            .catch(e => {
+                console.log('sorry')
+            })
+        }
+    },
+    watch: {
+        password(){
+            this.errorMessage = ''
+        },
+        email() {
+            this.errorMessage = ''
+        },
+    },
 }
 </script>
 
