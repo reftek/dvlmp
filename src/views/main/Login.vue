@@ -81,6 +81,7 @@ export default {
                 console.log(response.data)
                 if (response.data.status == true) {
                     console.log('Welcome');
+                    this.$router.push({name: 'customers.dashboard'});
                 } else {
                     this.errorMessage = response.data.message
                     // this.password = ''

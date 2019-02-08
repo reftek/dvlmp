@@ -73,6 +73,11 @@ export default {
     methods: {
         signUpUser() {
             // console.log('hi giddy');
+            (this.name == '' || this.email== '' || this.phoneNumber == '' || this.password == '' ) ?
+                    this.errorMessage = 'Fill in the blank fields': 
+                    this.errorMessage ='';
+            setTimeout(()=>{ this.errorMessage = ''; }, 2000);
+
             var body = {
                 name: this.name,
                 email: this.email,
@@ -80,10 +85,12 @@ export default {
                 password: this.password,
                 confirm_password: this.confirmPassword,
             }
+
             axios.post('http://127.0.0.1:8000/api/signup', body)
             .then(response => {
                 if(response.data.status == true){
-                    console.log('Nice!!! user registered')
+                    console.log('Nice!!! user registered');
+                    this.$router.push({name: 'main.login'});
                 } else {
                     response.data.message = this.errorMessage
                 }

@@ -79,7 +79,8 @@ export default {
             axios.post('http://127.0.0.1:8000/api/signup', body)
             .then(response => {
                 if(response.data.status == true){
-                    console.log('Nice!!! user registered')
+                    console.log('Nice!!! user registered');
+                    this.$router.push({name: 'main.login'});
                 } else {
                     response.data.message = this.errorMessage
                 }
