@@ -88,9 +88,10 @@ export default {
     },
     watch: {
         confirmPassword() {
-            (this.password !== this.confirmPassword) ?
+            (this.password !== this.confirmPassword && this.confirmPassword !=='') ?
                     this.errorMessage = 'Passwords don\'t match' :
-                    this.errorMessage = ''
+                    this.errorMessage = '' ;
+
             },
         
     },
