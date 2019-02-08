@@ -80,10 +80,10 @@ export default {
             .then(response => {
                 console.log(response.data)
                 if (response.data.status == true) {
-                    console.log('Welcome')
+                    console.log('Welcome');
                 } else {
                     this.errorMessage = response.data.message
-                    this.password = ''
+                    // this.password = ''
                 }
             }
             )
