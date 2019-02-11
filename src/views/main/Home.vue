@@ -91,6 +91,6 @@ export default {
         gotoSignUpMerchant() {
             return this.$router.push({name: 'main.signup.merchant'});
         }
-    }
+    },
 }
 </script>

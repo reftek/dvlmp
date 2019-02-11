@@ -72,30 +72,35 @@ export default {
                 'password': this.password,
             }
 
-            // var headers = {
-            //     'Content-Type': 'application/json',
-            //     'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU0OTU0MjY1MywiZXhwIjoxNTQ5NTQ2MjUzLCJuYmYiOjE1NDk1NDI2NTMsImp0aSI6InlMN1JmY1JRcVhxOWdjQ2EiLCJzdWIiOjE1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.qj_DN8r0yC3l6Nk3Li6oRr4u6_W9sWVCPcnoplTTRB4'
-            // }
             axios.post('http://127.0.0.1:8000/api/auth/login', body)
             .then(response => {
                 let result = response.data;
+                console.log(result)
                 
                 if (result.status == true) {
                     console.log('Welcome');
                     console.log(result.data.token);
+                    
                     window.localStorage.setItem("dvlmp-token", result.data.token);
-
-                    axios.defaults.headers.common['Authorization'] = "Bearer "+result.data.token;
+                    window.localStorage.setItem("user-info", JSON.stringify(result.data.user));
+                    
                     this.$router.push({name: 'customers.dashboard'});
                 } else {
                     this.errorMessage = result.message
-                    // this.password = ''
                 }
             }
             )
             .catch(e => {
                 console.log('sorry')
             })
+        }
+    },
+    created() {
+        let token = window.localStorage.getItem('dvlmp-token');
+
+        if(token) {
+            this.$router.push({name: 'customers.dashboard'});
+            console.log('You are already logged in!')
         }
     },
     watch: {

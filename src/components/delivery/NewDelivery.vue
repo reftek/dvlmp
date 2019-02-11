@@ -87,15 +87,6 @@
                                             <option>Silverware</option>
                                         </select>
                                     </div>
-                                    <div class="col-12 col-lg-6">
-                                        <select class="form-control mb-2" required>
-                                            <option disabled selected>Delivery Contact</option>
-                                            <option>Fragile</option>
-                                            <option>Consumable/Foods</option>
-                                            <option>Electronics</option>
-                                            <option>Silverware</option>
-                                        </select>
-                                    </div>
                                     <div class="col-12 col-lg-12">
                                         <input type="email" class="form-control mb-2" placeholder="Delivery Address" required>
                                     </div>

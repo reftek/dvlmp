@@ -75,6 +75,7 @@ export default {
                 phone_number: this.phoneNumber,
                 password: this.password,
                 confirm_password: this.confirmPassword,
+                type: 'merchant',
             }
             axios.post('http://127.0.0.1:8000/api/signup', body)
             .then(response => {

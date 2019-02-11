@@ -103,14 +103,17 @@
         </div>
 
         <div class="row wrap px-4 mb-2">
-            <div class="col-12 col-md-6 col-lg-3" v-for="item in 4" :key="item">
-                <contact-card :image="image"/>
+            <div class="col-12 col-md-6 col-lg-3" v-for="contact in contacts" :key="contact.id">
+                <contact-card :contactName="contact.name"
+                                :contactNumber="contact.number"
+                                :contactImage="image"/>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import axios from 'axios';
 import ContactCard from './../../components/customer/ContactCard';
 import MerchantCard from './../../components/customer/MerchantCard';
 export default {
@@ -128,6 +131,7 @@ export default {
                 rating: 4.72,
                 image: 'https://trademe.tmcdn.co.nz/photoserver/plus/687646665.jpg',
             },
+            contacts: [],
             image: "https://www.beweship.com/wp-content/uploads/2017/04/beweship-contact-placeholder.jpg",
         }
     },
@@ -144,7 +148,22 @@ export default {
         gotoAllOrders(){
             this.$router.push({ name: "customers.orders"});
         }
-    }
+    },
+    mounted(){
+        console.log("customer contact");
+        axios.get('http://127.0.0.1:8000/api/contact')
+            .then(response => {
+                let result = response.data;
+
+                if(result.status === true) {
+                    console.log(result);
+
+                    this.contacts = result.data;
+                    console.log(this.contacts);
+
+                }
+            })
+    },
 }
 </script>
 
