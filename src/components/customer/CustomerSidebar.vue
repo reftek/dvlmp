@@ -45,23 +45,51 @@
                     Payments
                 </router-link>
             </div>
+            <div class="nav-side-link py-3 my-2" @click="logout">
+                <i class="mdi mdi-logout-variant mr-3 fs-1"></i> Log Out
+            </div>
         </div>
     </nav>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     data() {
         return {
+            isLoggedIn: false,
             isActiveSettings: false,
             user:
                 {
-                    id: '1',
-                    name: 'Raymond Ativie',
+                    id: '',
+                    name: '',
                     // image: "https://media.licdn.com/dms/image/C5603AQGhKcxOqCjaPQ/profile-displayphoto-shrink_800_800/0?e=1554940800&v=beta&t=qBJskR6Z2ZJP4TC91dlnp-ksy99QrJWBybIFOajWSxU",
                     image: "https://www.placehold.it/50x50",
                     // backgroundUrl: require("./../../assets/images/profile_pic.png"),
                 },
+        }
+    },
+    created() {
+        let token = window.localStorage.getItem('dvlmp-token');
+
+        axios.get('http://127.0.0.1:8000/api/user', { headers: {"Authorization" : 'Bearer '+token} })
+            .then(response => {
+                let result = response.data;
+                if(result.status === true){
+                    this.$set(this.user, 'name', result.data.name );
+                    this.isLoggedIn = true;
+                    // console.log(this.isLoggedIn)
+                }
+                console.log(result.data.name)
+            } )
+    },
+    methods: {
+        logout() {
+            this.isLoggedIn = !this.isLoggedIn;
+            // console.log(this.isLoggedIn)
+            let token = window.localStorage.removeItem('dvlmp-token');
+            
+            this.$router.push({ name: 'main.home'})
         }
     },
 }

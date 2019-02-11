@@ -78,12 +78,17 @@ export default {
             // }
             axios.post('http://127.0.0.1:8000/api/auth/login', body)
             .then(response => {
-                console.log(response.data)
-                if (response.data.status == true) {
+                let result = response.data;
+                
+                if (result.status == true) {
                     console.log('Welcome');
+                    console.log(result.data.token);
+                    window.localStorage.setItem("dvlmp-token", result.data.token);
+
+                    axios.defaults.headers.common['Authorization'] = "Bearer "+result.data.token;
                     this.$router.push({name: 'customers.dashboard'});
                 } else {
-                    this.errorMessage = response.data.message
+                    this.errorMessage = result.message
                     // this.password = ''
                 }
             }
