@@ -73,6 +73,7 @@ export default {
             console.log(this.isLoggedIn);
 
             window.localStorage.removeItem('dvlmp-token');
+            window.localStorage.removeItem('dvlmp-orders');
             window.localStorage.removeItem('dvlmp-contact');
             window.localStorage.removeItem('dvlmp-merchants');
             window.localStorage.removeItem('dvlmp-user-info');
