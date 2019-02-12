@@ -82,7 +82,7 @@ export default {
                     console.log(result.data.token);
                     
                     window.localStorage.setItem("dvlmp-token", result.data.token);
-                    window.localStorage.setItem("user-info", JSON.stringify(result.data.user));
+                    window.localStorage.setItem("dvlmp-user-info", JSON.stringify(result.data.user));
                     
                     this.$router.push({name: 'customers.dashboard'});
                 } else if(result.status == true && result.data.user.type == 'merchant'){
@@ -90,7 +90,7 @@ export default {
                     console.log(result.data.token);
                     
                     window.localStorage.setItem("dvlmp-token", result.data.token);
-                    window.localStorage.setItem("user-info", JSON.stringify(result.data.user));
+                    window.localStorage.setItem("dvlmp-user-info", JSON.stringify(result.data.user));
 
                     this.$router.push({name: 'merchants.dashboard'});
                 } else {

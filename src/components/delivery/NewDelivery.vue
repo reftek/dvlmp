@@ -45,10 +45,7 @@
                         <div class="col-12 col-lg-6">
                             <select class="form-control mb-2" v-model="pickupContact" required>
                                 <option disabled value>Pickup Contact</option>
-                                <option>5-10 Tons</option>
-                                <option>11-20 Tons</option>
-                                <option>21-30 Tons</option>
-                                <option>31-40 Tons</option>
+                                <option v-for="contact in contacts" :key="contact.id">{{ contact.name }}</option>
                             </select>
                         </div>
                         <div class="col-12 col-lg-6">
@@ -57,10 +54,10 @@
                         <div class="col-12 col-lg-6">
                             <select class="form-control mb-2" v-model="pickupCity" required>
                                 <option disabled value>Pickup City/Town</option>
-                                <option>5-10 Tons</option>
-                                <option>11-20 Tons</option>
-                                <option>21-30 Tons</option>
-                                <option>31-40 Tons</option>
+                                <option>Ikeja</option>
+                                <option>Festac</option>
+                                <option>Ikoyi</option>
+                                <option>Gbagada</option>
                             </select>
                         </div>
                     </div>
@@ -72,10 +69,7 @@
                         <div class="col-12 col-lg-6">
                             <select class="form-control mb-2" v-model="deliveryContact" required>
                                 <option disabled value>Delivery Contact</option>
-                                <option>Fragile</option>
-                                <option>Consumable/Foods</option>
-                                <option>Electronics</option>
-                                <option>Silverware</option>
+                                <option v-for="contact in contacts" :key="contact.id">{{ contact.name }}</option>
                             </select>
                         </div>
                         <div class="col-12 col-lg-12">
@@ -91,10 +85,10 @@
                         <div class="col-12 col-lg-6">
                             <select class="form-control mb-2" v-model="deliveryCity" required>
                                 <option disabled value>Delivery City/Town</option>
-                                <option>5-10 Tons</option>
-                                <option>11-20 Tons</option>
-                                <option>21-30 Tons</option>
-                                <option>31-40 Tons</option>
+                                <option>Ikeja</option>
+                                <option>Festac</option>
+                                <option>Ikoyi</option>
+                                <option>Gbagada</option>
                             </select>
                         </div>
                         <div class="col-12 col-lg-12">
@@ -148,7 +142,7 @@ export default {
             deliveryNotes: '',
             merchantId: '',
             merchants: [],
-            
+            contacts: [],            
         }
     },
     methods: {
@@ -175,14 +169,18 @@ export default {
                     if(result.status == true) {
                         console.log('new order made');
                         console.log(result.data);
+
+                        this.$router.push({ name: 'customers.orders'});
                     }
                 })
         }
     },
     mounted() {
         let merchants = JSON.parse(window.localStorage.getItem('dvlmp-merchants'));
-
         this.merchants = merchants;
+
+        let contacts = JSON.parse(window.localStorage.getItem('dvlmp-contacts'));
+        this.contacts = contacts;
     },
 
 }

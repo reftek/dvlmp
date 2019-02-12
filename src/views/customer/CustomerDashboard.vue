@@ -20,25 +20,25 @@
         </div>
 
         <div class="row scrolling-wrapper-flexbox">
-            <div class="col-6 col-lg-2 col-md-3 ml-2" v-for="item in 9" :key="item">
+            <div class="col-6 col-lg-2 col-md-3 ml-2" v-for="order in orders" :key="order.id">
                 <div class="row ml-2 rounded order-card mb-3 shadow-sm pb-3 pt-2">
                     <div class="col-12">
                         <div class="row align-items-center">
                             <div class="col">
-                                <div class="order-id">{{ order.id }}</div>
+                                <div class="order-id">{{ dummy.id }}</div>
                             </div>
                             <div class="col">
-                                <div class="order-date text-right"> {{ order.date }}</div>
+                                <div class="order-date text-right"> {{ dummy.date }}</div>
                             </div>
                         </div>
                         <div class="row my-1 align-items-center">
                             <div class="col-2">
-                                 <div class="order-img merch-image rounded" :style="{'background-image': 'url('+order.image+')'}"></div>
+                                 <div class="order-img merch-image rounded" :style="{'background-image': 'url('+dummy.image+')'}"></div>
                             </div>
                             <div class="col">
                                 <div class="row">
                                     <div class="col">
-                                        <div class="order-merch black ml-2">{{ order.merchantName }}</div>
+                                        <div class="order-merch black ml-2">{{ dummy.merchantName }}</div>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -61,6 +61,7 @@
                         </div> <hr>
                         <div class="col pt-2 mb-5">
                             <div class="row description">Description</div>
+                            <div class="row description__content">{{ order.item_description }}</div>
                         </div>
                         <button type="submit" class="btn btn-block detail-btn py-1 btn-primary active">View Details</button>
                     </div>
@@ -82,11 +83,11 @@
         </div>
 
         <div class="row scrolling-wrapper-flexbox pl-4">
-            <div class="col-4 col-md-2" v-for="item in 15" :key="item">
+            <div class="col-4 col-md-2" v-for="merchant in merchants" :key="merchant.id">
                 <div class="">
-                    <merchant-card :orderImage="order.image"
-                            :merchantName="order.merchantName"
-                            :orderRating="order.rating"/>
+                    <merchant-card :orderImage="dummy.image"
+                            :merchantName="merchant.company_name"
+                            :orderRating="dummy.rating"/>
                 </div>
             </div>
         </div>
@@ -123,7 +124,7 @@ export default {
     },
     data() {
         return {
-            order: {
+            dummy: {
                 id: 'ORD123',
                 merchantName: 'Reftek',
                 status: 'success',
@@ -131,6 +132,7 @@ export default {
                 rating: 4.72,
                 image: 'https://trademe.tmcdn.co.nz/photoserver/plus/687646665.jpg',
             },
+            orders: [],
             contacts: [],
             merchants: [],
             image: "https://www.beweship.com/wp-content/uploads/2017/04/beweship-contact-placeholder.jpg",
@@ -151,15 +153,21 @@ export default {
         }
     },
     mounted(){
-        console.log("customer contact");
+        let token = window.localStorage.getItem('dvlmp-token');
+        if(token){
+        axios.defaults.headers.common['Authorization'] = "Bearer "+token;
+        }
+
         axios.get('http://127.0.0.1:8000/api/contact')
             .then(response => {
                 let result = response.data;
 
                 if(result.status === true) {
-                    console.log(result);
+                    window.localStorage.setItem('dvlmp-contacts', JSON.stringify(result.data));
+                    let contacts = JSON.parse(window.localStorage.getItem('dvlmp-contacts'));
+                    console.log(contacts);
 
-                    this.contacts = result.data;
+                    this.contacts =contacts;
                     console.log(this.contacts);
 
                 }
@@ -172,8 +180,22 @@ export default {
                 if(result.status == true){
                     window.localStorage.setItem('dvlmp-merchants', JSON.stringify(result.data));
                     let merchants = JSON.parse(window.localStorage.getItem('dvlmp-merchants'));
+                    console.log(merchants)
 
                     this.merchants = merchants;
+                }
+            })
+
+        axios.get('http://127.0.0.1:8000/api/orders')
+            .then(response => {
+                let result = response.data;
+
+                if(result.status == true){
+                    window.localStorage.setItem('dvlmp-orders', JSON.stringify(result.data));
+                    let orders = JSON.parse(window.localStorage.getItem('dvlmp-orders'));
+                    console.log(orders)
+
+                    this.orders = orders;
                 }
             })
     },
@@ -213,6 +235,10 @@ export default {
 
    .description{
         font-size: 0.6rem;
+
+        &__content{
+            font-size: 0.55rem;
+        }
     }
 
     .detail-btn{

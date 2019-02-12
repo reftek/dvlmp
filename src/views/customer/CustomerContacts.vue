@@ -51,18 +51,9 @@ export default {
     }, 
     mounted(){
         console.log("customer contact");
-        axios.get('http://127.0.0.1:8000/api/contact')
-            .then(response => {
-                let result = response.data;
+        let contacts = JSON.parse(window.localStorage.getItem('dvlmp-contacts'));
 
-                if(result.status === true) {
-                    console.log(result);
-
-                    this.contacts = result.data;
-                    console.log(this.contacts);
-
-                }
-            })
+        this.contacts = contacts;
     }
 }
 </script>

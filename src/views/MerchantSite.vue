@@ -33,7 +33,7 @@ export default {
     },
     mounted() {
         let token = window.localStorage.getItem('dvlmp-token');
-        let userInfo = JSON.parse(window.localStorage.getItem('user-info'));
+        let userInfo = JSON.parse(window.localStorage.getItem('dvlmp-user-info'));
 
         if(userInfo.type == 'customer') {
             console.log('You cannot be here');

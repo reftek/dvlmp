@@ -55,23 +55,20 @@ export default {
         }
     },
     mounted() {
+        let userInfo = JSON.parse(window.localStorage.getItem('dvlmp-user-info'));
+
         let token = window.localStorage.getItem('dvlmp-token');
-        let userInfo = JSON.parse(window.localStorage.getItem('user-info'));
-
-        if(userInfo.type == 'merchant') {
-            console.log('You cannot be here')
-            this.$router.push({ name: 'merchants.dashboard'});
-        }
-
-        console.log(userInfo);
-
-        this.user = userInfo;
-        
         if(!token) {
             this.$router.push({ name: 'main.login'});
+        } else if(userInfo.type == 'merchant') {
+            console.log('You cannot be here');
+            this.$router.push({ name: 'merchants.dashboard'});
         } else {
             this.isLoggedIn == true;
         }
+
+        console.log(userInfo);
+        this.user = userInfo;
     }
 }
 </script>

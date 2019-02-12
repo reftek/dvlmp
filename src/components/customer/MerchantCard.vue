@@ -7,7 +7,7 @@
         </div>
         <div class="row">
             <div class="col-8">
-                <div class="merch mt-1">
+                <div class="merch mt-1 text-capitalize">
                     {{ merchantName }}
                 </div>
             </div>
