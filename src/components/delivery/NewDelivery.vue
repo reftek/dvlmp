@@ -3,7 +3,7 @@
         <div class="row align-items-center">
             <div class="col-12 col-md-6">
                 
-                <div class="row order-details shadow-sm py-3 mx-0 mt-4 mb-2 rounded align-items-center">
+                <div class="row order-details shadow-sm py-3 mx-0 mt-4 mb-3 rounded align-items-center">
                     <div class="col-2 col-md-1">
                         <div class="order-img rounded" :style="{'background-image': 'url('+image+')'}"></div>
                     </div>
@@ -17,14 +17,17 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-6">
+                
+                <div class="main-container shadow-sm rounded mb-3">
+                    <div class="ml-2 title-form py-2">SELECT A MERCHANT</div>
+                    <div class="row px-2">
+                        <div class="col-12">
                             <select class="form-control mb-3" v-model="isSelectedMerchant" required>
                                 <option disabled value>Select Merchant</option>
                                 <option v-for="merchant in merchants" :key="merchant.id" class="text-capitalize">{{ merchant.company_name }}</option>
                             </select>                    
-                    </div>
+                        </div>
+                    </div>  
                 </div>
                 
                 <div class="main-container shadow-sm rounded mb-3">

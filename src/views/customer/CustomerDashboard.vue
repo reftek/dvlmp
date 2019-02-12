@@ -20,6 +20,11 @@
         </div>
 
         <div class="row scrolling-wrapper-flexbox">
+            <div class="col-12" v-if="orders.length < 1">
+                <div class="ml-4 mb-4">
+                    No recent orders
+                </div>
+            </div>
             <div class="col-6 col-lg-2 col-md-3 ml-2" v-for="order in orders" :key="order.id" @click="gotoOrder(order.id)" >
                 <div class="row ml-2 rounded order-card mb-3 shadow-sm pb-3 pt-2">
                     <div class="col-12">
