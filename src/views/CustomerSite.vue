@@ -58,6 +58,11 @@ export default {
         let token = window.localStorage.getItem('dvlmp-token');
         let userInfo = JSON.parse(window.localStorage.getItem('user-info'));
 
+        if(userInfo.type == 'merchant') {
+            console.log('You cannot be here')
+            this.$router.push({ name: 'merchants.dashboard'});
+        }
+
         console.log(userInfo);
 
         this.user = userInfo;
@@ -66,10 +71,6 @@ export default {
             this.$router.push({ name: 'main.login'});
         } else {
             this.isLoggedIn == true;
-            console.log("i am setting token ooo - "+token);
-            axios.defaults.headers.common['Authorization'] = "Bearer "+token;
-
-            console.log(axios.defaults);
         }
     }
 }

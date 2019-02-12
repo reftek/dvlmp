@@ -77,14 +77,22 @@ export default {
                 let result = response.data;
                 console.log(result)
                 
-                if (result.status == true) {
-                    console.log('Welcome');
+                if (result.status == true && result.data.user.type == 'customer') {
+                    console.log('Welcome Customer');
                     console.log(result.data.token);
                     
                     window.localStorage.setItem("dvlmp-token", result.data.token);
                     window.localStorage.setItem("user-info", JSON.stringify(result.data.user));
                     
                     this.$router.push({name: 'customers.dashboard'});
+                } else if(result.status == true && result.data.user.type == 'merchant'){
+                    console.log('Welcome Merchant');
+                    console.log(result.data.token);
+                    
+                    window.localStorage.setItem("dvlmp-token", result.data.token);
+                    window.localStorage.setItem("user-info", JSON.stringify(result.data.user));
+
+                    this.$router.push({name: 'merchants.dashboard'});
                 } else {
                     this.errorMessage = result.message
                 }

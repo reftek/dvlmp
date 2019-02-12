@@ -70,8 +70,8 @@ export default {
         signUpMerchant() {
             // console.log('hi giddy');
             var body = {
-                name: this.name,
-                email: this.email,
+                company_name: this.name,
+                company_email: this.email,
                 phone_number: this.phoneNumber,
                 password: this.password,
                 confirm_password: this.confirmPassword,
@@ -79,11 +79,13 @@ export default {
             }
             axios.post('http://127.0.0.1:8000/api/signup', body)
             .then(response => {
-                if(response.data.status == true){
-                    console.log('Nice!!! user registered');
+                let result = response.data;
+
+                if(result.status == true){
+                    console.log('Nice!!! merchant registered');
                     this.$router.push({name: 'main.login'});
                 } else {
-                    response.data.message = this.errorMessage
+                    result.message = this.errorMessage
                 }
             })
         }

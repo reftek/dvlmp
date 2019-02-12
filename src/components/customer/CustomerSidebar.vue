@@ -69,13 +69,13 @@ export default {
     methods: {
         logout() {
             this.isLoggedIn = !this.isLoggedIn;
-            console.log(this.isLoggedIn)
+
+            console.log(this.isLoggedIn);
+
             window.localStorage.removeItem('dvlmp-token');
             window.localStorage.removeItem('user-info');
 
             this.$router.push({ name: 'main.home'});
-            // let userInfo = JSON.parse(window.localStorage.getItem('user-info'));
-            // console.log(userInfo)
         }
     },
     watch: {

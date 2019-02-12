@@ -132,6 +132,7 @@ export default {
                 image: 'https://trademe.tmcdn.co.nz/photoserver/plus/687646665.jpg',
             },
             contacts: [],
+            merchants: [],
             image: "https://www.beweship.com/wp-content/uploads/2017/04/beweship-contact-placeholder.jpg",
         }
     },
@@ -161,6 +162,18 @@ export default {
                     this.contacts = result.data;
                     console.log(this.contacts);
 
+                }
+            })
+
+        axios.get('http://127.0.0.1:8000/api/merchant')
+            .then(response => {
+                let result = response.data;
+
+                if(result.status == true){
+                    window.localStorage.setItem('dvlmp-merchants', JSON.stringify(result.data));
+                    let merchants = JSON.parse(window.localStorage.getItem('dvlmp-merchants'));
+
+                    this.merchants = merchants;
                 }
             })
     },
