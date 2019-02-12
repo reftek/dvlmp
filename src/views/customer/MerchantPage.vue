@@ -11,8 +11,8 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <div class="mt-2 mb-3 merch text-center">
-                                {{ order.merchantName }}
+                            <div class="mt-2 mb-3 merch text-center text-capitalize">
+                                {{ merchant.company_name }}
                             </div>
                         </div>
                     </div>

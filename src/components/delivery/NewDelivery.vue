@@ -3,18 +3,27 @@
         <div class="row align-items-center">
             <div class="col-12 col-md-6">
                 
-                <div class="row order-details shadow-sm py-3 mx-0 my-4 rounded align-items-center">
+                <div class="row order-details shadow-sm py-3 mx-0 mt-4 mb-2 rounded align-items-center">
                     <div class="col-2 col-md-1">
                         <div class="order-img rounded" :style="{'background-image': 'url('+image+')'}"></div>
                     </div>
                     <div class="col ml-2">
-                        <div class="bold-title order-merch">
-                            {{ merchantName }}
+                        <div class="bold-title order-merch text-capitalize">
+                            {{ merchant.company_name }}
                         </div>
                         <div class="rating order-merch">
                             <i class="mdi star-icon mdi-star small icon-blue"></i> 
                             {{ rating }}
                         </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                            <select class="form-control mb-3" v-model="isSelectedMerchant" required>
+                                <option disabled value>Select Merchant</option>
+                                <option v-for="merchant in merchants" :key="merchant.id" class="text-capitalize">{{ merchant.company_name }}</option>
+                            </select>                    
                     </div>
                 </div>
                 
@@ -141,8 +150,10 @@ export default {
             deliveryCity: '',
             deliveryNotes: '',
             merchantId: '',
+            merchant: {},
             merchants: [],
-            contacts: [],            
+            contacts: [],   
+            isSelectedMerchant: '',         
         }
     },
     methods: {
@@ -182,6 +193,15 @@ export default {
         let contacts = JSON.parse(window.localStorage.getItem('dvlmp-contacts'));
         this.contacts = contacts;
     },
+    watch: {
+        isSelectedMerchant() {
+
+            let selectedMerchant = this.merchants.filter(a => a.company_name == this.isSelectedMerchant);
+            
+            this.merchant = selectedMerchant[0];
+            console.log(this.merchant);
+        },
+    }
 
 }
 </script>

@@ -76,6 +76,7 @@ export default {
             window.localStorage.removeItem('dvlmp-orders');
             window.localStorage.removeItem('dvlmp-contact');
             window.localStorage.removeItem('dvlmp-merchants');
+            window.localStorage.removeItem('dvlmp-merchants-item');
             window.localStorage.removeItem('dvlmp-user-info');
 
             this.$router.push({ name: 'main.home'});

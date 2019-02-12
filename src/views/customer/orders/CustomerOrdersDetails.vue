@@ -3,7 +3,7 @@
         <p class="mb-3">Order Details</p>
 
         <div class='pt-3 first-details align-items-center px-3'>
-            <div class="row align-items-center" @click="gotoMerchant(merchant_id)">
+            <div class="row align-items-center" @click="gotoMerchant()">
                 <div class="col-3 col-lg-1">
                     <div class="order-img rounded" :style="{'background-image': 'url('+orderdummy.image+')'}"></div>
                 </div>
@@ -115,9 +115,6 @@
 import axios from 'axios';
 
 export default {
-    props: [
-        // 'orderId'
-    ],
     data(){
         return {
             order: [],
@@ -133,8 +130,8 @@ export default {
         }
     },
     methods: {
-        gotoMerchant(merchant_id) {
-            merchant_id = this.order.merchant_id;
+        gotoMerchant() {
+            let merchant_id = this.order.merchant_id;
             let url = 'http://127.0.0.1:8000/api/merchant/' + merchant_id ;
 
             axios.get(url)

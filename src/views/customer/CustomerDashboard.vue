@@ -3,7 +3,7 @@
         <div class="row p-4" >
             <div class="col-12 col-lg-2 col-md-3">
                 <div>
-                    <button type="submit" class="btn btn-div py-3 mb-4 btn-primary btn-block active" @click="gotoNewOrder">Book a new Delivery</button>
+                    <button type="submit" class="btn btn-div py-3 mb-4 btn-primary btn-block active" @click="gotoNewOrder()">Book a new Delivery</button>
                 </div>
             </div>
         </div>
@@ -20,7 +20,7 @@
         </div>
 
         <div class="row scrolling-wrapper-flexbox">
-            <div class="col-6 col-lg-2 col-md-3 ml-2" v-for="order in orders" :key="order.id">
+            <div class="col-6 col-lg-2 col-md-3 ml-2" v-for="order in orders" :key="order.id" @click="gotoOrder(order.id)" >
                 <div class="row ml-2 rounded order-card mb-3 shadow-sm pb-3 pt-2">
                     <div class="col-12">
                         <div class="row align-items-center">
@@ -63,7 +63,7 @@
                             <div class="row description">Description</div>
                             <div class="row description__content">{{ order.item_description }}</div>
                         </div>
-                        <button type="submit" class="btn btn-block detail-btn py-1 btn-primary active">View Details</button>
+                        <button type="submit" class="btn btn-block detail-btn py-1 btn-primary active" @click="gotoOrder(order.id)">View Details</button>
                     </div>
                 </div>      
             </div>
@@ -84,7 +84,7 @@
 
         <div class="row scrolling-wrapper-flexbox pl-4">
             <div class="col-4 col-md-2" v-for="merchant in merchants" :key="merchant.id">
-                <div class="">
+                <div class="" @click="gotoMerchant(merchant.id)">
                     <merchant-card :orderImage="dummy.image"
                             :merchantName="merchant.company_name"
                             :orderRating="dummy.rating"/>
@@ -142,8 +142,38 @@ export default {
         gotoAllMerchants(){
             return this.$router.push({ name: 'merchant.all' });
         },
+        gotoMerchant(merchant_id){
+            let url = 'http://127.0.0.1:8000/api/merchant/' + merchant_id ;
+
+            axios.get(url)
+                .then(response => {
+                    let result = response.data;
+
+                    if(result.status == true){
+                        window.localStorage.setItem('dvlmp-merchant', JSON.stringify(result.data));
+                        this.$router.push({name: 'merchant.details', params: {id:merchant_id}});
+                    }
+                })
+        },
         gotoNewContact(){
             this.$router.push({name: "customers.contacts.new"});
+        },
+        gotoOrder(order_id){
+            let url = 'http://127.0.0.1:8000/api/delivery/' + order_id;
+            
+            axios.get(url)
+                .then(response => {
+                    let result = response.data;
+
+                    window.localStorage.setItem('dvlmp-orders-item', JSON.stringify(result.data));
+
+                    this.$router.push({
+                        name: 'customers.orders.details', 
+                        params: { 
+                            id: order_id
+                        }
+                    });
+                })
         },
         gotoNewOrder(){
             this.$router.push({name: "customers.orders.new"});
