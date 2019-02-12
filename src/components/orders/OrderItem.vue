@@ -3,7 +3,7 @@
             <div class="row">
                 <div class="col">
                     <div class="order-item">
-                        {{orderId}}
+                        ORD{{orderId}}
                     </div>
                 </div>
                 <div class="col">
@@ -49,6 +49,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     props: [
         'orderId',
@@ -60,12 +62,21 @@ export default {
     ],
     methods: {
         gotoOrderDetails(order_id){
-            this.$router.push({
-                name: 'customers.orders.details', 
-                params: { 
-                    id: order_id
-                }
-            });
+            let url = 'http://127.0.0.1:8000/api/delivery/' + order_id;
+            
+            axios.get(url)
+                .then(response => {
+                    let result = response.data;
+
+                    window.localStorage.setItem('dvlmp-orders-item', JSON.stringify(result.data));
+
+                    this.$router.push({
+                        name: 'customers.orders.details', 
+                        params: { 
+                            id: order_id
+                        }
+                    });
+                })
         }
     }
 }

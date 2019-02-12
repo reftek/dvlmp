@@ -2,14 +2,14 @@
     <div class="contact-card rounded mb-3 p-3">
         <div class="row">
             <div class="col-3 col-lg-3">
-                <div class="image rounded" :style="{'background-image': 'url('+image+')'}"></div>
+                <div class="image rounded" :style="{'background-image': 'url('+contactImage+')'}"></div>
             </div>
             <div class="col col-lg-4 align-self-center">
                 <div class="contact-name pb-1">
-                    Alfred Miller
+                    {{contactName}}
                 </div>
                 <div class="contact-number">
-                    07089324817
+                    {{contactNumber}}
                 </div>
             </div>
             <div class="col-2 col-lg-5 text-right">
@@ -22,12 +22,25 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
+    props: [
+        'contactName',
+        'contactNumber',
+        'contactImage'
+    ],
     data() {
         return {
-            image: "https://www.beweship.com/wp-content/uploads/2017/04/beweship-contact-placeholder.jpg",
+            // image: "https://www.beweship.com/wp-content/uploads/2017/04/beweship-contact-placeholder.jpg",
         }
     },
+    mounted(){
+        let contactInfo = JSON.parse(window.localStorage.getItem('contact-info'));
+        console.log(contactInfo);
+        // this.contact = contactInfo;
+    }
+    
 }
 </script>
 

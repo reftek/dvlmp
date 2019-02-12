@@ -1,6 +1,8 @@
 <template>
     <div class="wrapper">
-        <sidebar />
+        <sidebar :userImage="image"
+                        :userName="merchant.name"
+                        :isActive="isActiveSettings"/>
 
         <div id="content">
             <merchant-navbar />
@@ -15,10 +17,38 @@
 <script>
 import Sidebar from "./../components/merchant/MerchantSidebar";
 import MerchantNavbar from "./../components/merchant/MerchantNavbar";
+
 export default {
+    data() {
+        return {
+            isLoggedIn: false,
+            isActiveSettings: false,
+            image: "https://www.placehold.it/50x50",
+            merchant: {},
+        }
+    },
     components: {
         Sidebar,
         MerchantNavbar,
+    },
+    mounted() {
+        let token = window.localStorage.getItem('dvlmp-token');
+        let userInfo = JSON.parse(window.localStorage.getItem('dvlmp-user-info'));
+
+        if(userInfo.type == 'customer') {
+            console.log('You cannot be here');
+            this.$router.push({ name: 'customers.dashboard'});
+        }
+
+        console.log(userInfo);
+
+        this.merchant = userInfo;
+        
+        if(!token) {
+            this.$router.push({ name: 'main.login'});
+        } else {
+            this.isLoggedIn == true;
+        }
     }
 }
 </script>

@@ -15,18 +15,72 @@
             <div class="col-12 col-lg-4 col-md-6">
                 <div class="form-group has-search mt-3">
                     <span class="fa fa-search form-control-feedback"></span>
-                    <input type="text" class="form-control" placeholder="Search Contacts">
+                    <input type="text" class="form-control" placeholder="Search Contacts" v-model="searchInput">
                 </div>
             </div>
         </div>
        
         <div class="row wrap">
-            <div class="col-12 col-lg-3 col-md-6" v-for="item in 18" :key="item">
-                <contact-card />
+            <div class="col-12 col-lg-3 col-md-6" v-for="contact in contacts" :key="contact.id">
+                <contact-card :contactName="contact.name"
+                                :contactNumber="contact.number"
+                                :contactImage="image"/>
             </div>
         </div>
     </div>
 </template>
+
+<script>
+import axios from 'axios';
+import ContactCard from "./../../components/customer/ContactCard";
+export default {
+    components: {
+        ContactCard
+    },
+    data() {
+        return {
+            searchInput: '',
+           image: "https://www.beweship.com/wp-content/uploads/2017/04/beweship-contact-placeholder.jpg",
+           search: "https://storage.googleapis.com/spec-host-backup/mio-design%2Fassets%2F0B4tcF52UnWX4bU9iODkyWXIwN3c%2Fusability-bidirectionality-guidelines-whennot5.png",
+           contacts: [],
+        }
+    },
+    methods: {
+        gotoNewContact(){
+            this.$router.push({name: "customers.contacts.new"});
+        }
+    }, 
+    mounted(){
+        console.log("customer contact");
+        axios.get('http://127.0.0.1:8000/api/contact')
+            .then(response => {
+                let result = response.data;
+
+                if(result.status === true) {
+                    window.localStorage.setItem('dvlmp-contacts', JSON.stringify(result.data));
+                    let contacts = JSON.parse(window.localStorage.getItem('dvlmp-contacts'));
+                    console.log(contacts);
+
+                    this.contacts =contacts;
+                    console.log(this.contacts);
+
+                }
+            })
+    },
+    watch: {
+        // searchInput() {
+        //     if(this.searchInput) {
+        //         let contact = () => {
+        //             this.contacts.filter(a => a.name == this.contact.name)
+        //         }
+        //         this.contacts = contact[0]
+        //     }else {
+        //         this.searchInput = ''
+        //     }
+        // }
+    },
+}
+</script>
 
 <style lang="scss" scoped>
 .container{
@@ -102,24 +156,6 @@ input{
 }
 </style>
 
-<script>
-import ContactCard from "./../../components/customer/ContactCard";
-export default {
-    components: {
-        ContactCard
-    },
-    data() {
-        return {
-           image: "https://www.beweship.com/wp-content/uploads/2017/04/beweship-contact-placeholder.jpg",
-           search: "https://storage.googleapis.com/spec-host-backup/mio-design%2Fassets%2F0B4tcF52UnWX4bU9iODkyWXIwN3c%2Fusability-bidirectionality-guidelines-whennot5.png"
-        }
-    },
-    methods: {
-        gotoNewContact(){
-            this.$router.push({name: "customers.contacts.new"});
-        }
-    }
-}
-</script>
+
 
 

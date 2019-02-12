@@ -1,7 +1,10 @@
 <template>
     <div class="wrapper" id="app">
         <slide class="bb" :burgerIcon="false" :crossIcon="false" :isOpen="sideBarOpen" @closeMenu="handleCloseSidebar">
-            <sidebar />
+            <sidebar :userImage="image"
+                        :userName="user.name"
+                        :isActive="isActiveSettings"
+                        />
         </slide>
 
         <div id="page-wrap">
@@ -18,8 +21,24 @@
 import { Reveal } from 'vue-burger-menu';
 import Sidebar from "./../components/customer/CustomerSidebar";
 import CustomerNavbar from "./../components/customer/CustomerNavbar";
+import axios from 'axios';
 
 export default {
+    data() {
+        return {
+            isLoggedIn: false,
+            isActiveSettings: false,
+            image: "https://www.placehold.it/50x50",
+            user:
+                {
+                    id: '',
+                    name: '',
+                    // image: "https://media.licdn.com/dms/image/C5603AQGhKcxOqCjaPQ/profile-displayphoto-shrink_800_800/0?e=1554940800&v=beta&t=qBJskR6Z2ZJP4TC91dlnp-ksy99QrJWBybIFOajWSxU",
+                    image: "https://www.placehold.it/50x50",
+                    // backgroundUrl: require("./../../assets/images/profile_pic.png"),
+                },
+        }
+    },
     components: {
         Sidebar,
         CustomerNavbar,
@@ -34,6 +53,22 @@ export default {
         handleCloseSidebar(){
             this.$store.commit("toggleSideBar", false);
         }
+    },
+    mounted() {
+        let userInfo = JSON.parse(window.localStorage.getItem('dvlmp-user-info'));
+
+        let token = window.localStorage.getItem('dvlmp-token');
+        if(!token) {
+            this.$router.push({ name: 'main.login'});
+        } else if(userInfo.type == 'merchant') {
+            console.log('You cannot be here');
+            this.$router.push({ name: 'merchants.dashboard'});
+        } else {
+            this.isLoggedIn == true;
+        }
+
+        console.log(userInfo);
+        this.user = userInfo;
     }
 }
 </script>

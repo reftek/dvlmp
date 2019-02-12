@@ -7,11 +7,11 @@
         </div>
         <div class="row px-3">
             <div class="col-12">
-                <input type="text" class="form-control mb-3 py-4" placeholder="Email" required>
+                <input type="text" v-model="email" class="form-control mb-3 py-4" placeholder="Email" required>
             </div>
             <div class="col-12">
                 <div class="input-group">
-                    <input :type="passwordType" id="button-add1" class="form-control mb-3 py-4" placeholder="Password">
+                    <input :type="passwordType" v-model="password" id="button-add1" class="form-control mb-3 py-4" placeholder="Password">
 
                     <div class="input-group-append">
                         <button class="btn" type="button" id="button-addon2">
@@ -22,9 +22,16 @@
                 </div>
             </div>
         </div>
+        <div class="row px-3 mt-2" v-if="errorMessage">
+            <div class="col">
+                <div class="alert alert-danger text-center">
+                    {{ errorMessage }}
+                </div>
+            </div>
+        </div>
         <div class="row mt-3 p-3">
             <div class="col">
-                <button type="submit" class="btn py-3 btn-primary btn-block active">Log In</button>
+                <button type="submit" class="btn py-3 btn-primary btn-block active" @click="tryLogin()">Log In</button>
             </div>
         </div>
 
@@ -39,10 +46,14 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     data(){
         return {
+            email: '',
+            password: '',
             passwordVisible: false,
+            errorMessage: '',
         }
     },
     computed: {
@@ -53,7 +64,61 @@ export default {
                 return 'password';
             }
         }
-    }
+    },
+    methods: {
+        tryLogin(){
+            var body = {
+                'email': this.email,
+                'password': this.password,
+            }
+
+            axios.post('http://127.0.0.1:8000/api/auth/login', body)
+            .then(response => {
+                let result = response.data;
+                console.log(result)
+                
+                if (result.status == true && result.data.user.type == 'customer') {
+                    console.log('Welcome Customer');
+                    console.log(result.data.token);
+                    
+                    window.localStorage.setItem("dvlmp-token", result.data.token);
+                    window.localStorage.setItem("dvlmp-user-info", JSON.stringify(result.data.user));
+                    
+                    this.$router.push({name: 'customers.dashboard'});
+                } else if(result.status == true && result.data.user.type == 'merchant'){
+                    console.log('Welcome Merchant');
+                    console.log(result.data.token);
+                    
+                    window.localStorage.setItem("dvlmp-token", result.data.token);
+                    window.localStorage.setItem("dvlmp-user-info", JSON.stringify(result.data.user));
+
+                    this.$router.push({name: 'merchants.dashboard'});
+                } else {
+                    this.errorMessage = result.message
+                }
+            }
+            )
+            .catch(e => {
+                console.log('sorry')
+            })
+        }
+    },
+    created() {
+        let token = window.localStorage.getItem('dvlmp-token');
+
+        if(token) {
+            this.$router.push({name: 'customers.dashboard'});
+            console.log('You are already logged in!')
+        }
+    },
+    watch: {
+        password(){
+            this.errorMessage = ''
+        },
+        email() {
+            this.errorMessage = ''
+        },
+    },
 }
 </script>
 

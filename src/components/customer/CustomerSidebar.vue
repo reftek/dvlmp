@@ -6,12 +6,12 @@
         <div class="pad-left mt-5 ">
             <div class="row align-items-center">
                 <div class="col-3 ">
-                    <div class="profile-pic" :style="{'background-image': 'url('+user.image+')'}">
+                    <div class="profile-pic" :style="{'background-image': 'url('+userImage+')'}">
                     </div>
                 </div>
                 <div class="col">
                     <div class="profile-name">
-                    {{ user.name }} 
+                    {{ userName }} 
                     </div>
                 </div>
             </div>
@@ -34,10 +34,10 @@
             <router-link class="nav-side-link py-3 my-2" active-class="active" exact :to="{name: 'customers.stats'}">
                 <i class="mdi mdi-finance mr-3 fs-1"></i> Statistics
             </router-link>
-            <div class="nav-side-link py-3 my-2" @click="isActiveSettings = !isActiveSettings">
+            <div class="nav-side-link py-3 my-2" @click="isActive = !isActive">
                 <i class="mdi mdi-settings-outline mr-3 fs-1"></i> Settings
             </div>
-            <div v-if="isActiveSettings" class="ml-5 font-weight-light">
+            <div v-if="isActive" class="ml-5 font-weight-light">
                 <router-link class="nav-side-link py-3 my-2" exact :to="{name: 'customers.settings'}">
                     Profile & Security
                 </router-link>
@@ -45,25 +45,48 @@
                     Payments
                 </router-link>
             </div>
+            <div class="nav-side-link py-3 my-2" @click="logout">
+                <i class="mdi mdi-logout-variant mr-3 fs-1"></i> Log Out
+            </div>
         </div>
     </nav>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
+    props: [
+        'userImage',
+        'userName',
+        'isActive',
+       
+    ],
     data() {
         return {
-            isActiveSettings: false,
-            user:
-                {
-                    id: '1',
-                    name: 'Raymond Ativie',
-                    // image: "https://media.licdn.com/dms/image/C5603AQGhKcxOqCjaPQ/profile-displayphoto-shrink_800_800/0?e=1554940800&v=beta&t=qBJskR6Z2ZJP4TC91dlnp-ksy99QrJWBybIFOajWSxU",
-                    image: "https://www.placehold.it/50x50",
-                    // backgroundUrl: require("./../../assets/images/profile_pic.png"),
-                },
+            isLoggedIn: false,
         }
     },
+    methods: {
+        logout() {
+            this.isLoggedIn = !this.isLoggedIn;
+
+            console.log(this.isLoggedIn);
+
+            window.localStorage.removeItem('dvlmp-token');
+            window.localStorage.removeItem('dvlmp-orders');
+            window.localStorage.removeItem('dvlmp-contact');
+            window.localStorage.removeItem('dvlmp-merchants');
+            window.localStorage.removeItem('dvlmp-merchants-item');
+            window.localStorage.removeItem('dvlmp-user-info');
+
+            this.$router.push({ name: 'main.home'});
+        }
+    },
+    watch: {
+        isLoggedIn() {
+            (this.isLoggedIn === true) ? console.log('still logged in') : this.$router.push({ name: 'main.home'})
+        }
+    }
 }
 </script>
 

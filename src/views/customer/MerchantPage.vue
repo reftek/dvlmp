@@ -6,13 +6,13 @@
                 <div class="main-container shadow-sm pt-4 pb-4 rounded">
                     <div class="row justify-content-center">
                         <div class="col-12 text-center">
-                            <div class="rounded order-img" :style="{'background-image': 'url('+order.image+')'}"></div>
+                            <div class="rounded order-img" :style="{'background-image': 'url('+image+')'}"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <div class="mt-2 mb-3 merch text-center">
-                                {{ order.merchantName }}
+                            <div class="mt-2 mb-3 merch text-center text-capitalize">
+                                {{ merchant.company_name }}
                             </div>
                         </div>
                     </div>
@@ -99,6 +99,8 @@ export default {
     },
     data(){
         return {
+            merchant: {},
+            image: 'https://media.licdn.com/dms/image/C4E0BAQFZdNRgLdvvCA/company-logo_400_400/0?e=1557964800&v=beta&t=2Bl5jaVt7hSGE1mE56-ANr3l4_AwhzdDNSz0BFUnh9U',
             order: {
                 id: "ORD123",
                 merchantName: 'Reftek',
@@ -109,6 +111,10 @@ export default {
                 image: 'https://images.techhive.com/images/article/2016/10/scalable_design_left2x-100690324-large.jpg',
             },
         }
+    },
+    mounted() {
+        let merchant = JSON.parse(window.localStorage.getItem('dvlmp-merchant'));
+        this.merchant = merchant;
     },
 }
 </script>

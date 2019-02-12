@@ -13,7 +13,14 @@ import Navbar from "./../components/Navbar";
 export default {
     components: {
         Navbar,
-    }    
+    },
+    mounted() {
+        let token = window.localStorage.getItem('dvlmp-token');
+
+        if(token) {
+            this.$router.push({name: 'customers.dashboard'})
+        }
+    },  
 }
 </script>
 

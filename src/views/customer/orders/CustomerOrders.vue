@@ -14,11 +14,11 @@
         <div class="row wrap">
             <div class="col-md-12 col-lg-3 mb-2"  v-for="order in orders" :key="order.id">
                 <order-item :orderId="order.id" 
-                    :merchantName="order.merchantName" 
-                    :orderDate="order.date" 
+                    :merchantName="merchantName" 
+                    :orderDate="order.created_at" 
                     :status="order.status"
-                    :orderDescription="order.description"
-                    :image="order.image"
+                    :orderDescription="order.item_description"
+                    :image="image"
                         class="mb-3 pointer" />
             </div>
         </div>
@@ -35,7 +35,10 @@ export default {
     },
     data(){
         return {
-            orders: [
+            image: 'https://trademe.tmcdn.co.nz/photoserver/plus/687646665.jpg',
+            orders: [],
+            merchantName: 'Reftek',
+            ordersdummy: [
                 {
                     id: "ORD123",
                     merchantName: 'Reftek',
@@ -67,7 +70,12 @@ export default {
         gotoNewOrder(){
             this.$router.push({name: "customers.orders.new"});
         }
-    }
+    },
+    mounted() {
+        let orders = JSON.parse(window.localStorage.getItem('dvlmp-orders'));
+        this.orders = orders;
+        console.log(this.orders)
+    },
 }
 </script>
 

@@ -9,11 +9,11 @@
         </div>
 
         <div class="row wrap">
-            <div class="col-4 col-md-2 pb-4" v-for="item in 9" :key="item">
-                <merchant-card :orderImage="merchant.image"
-                                :merchantName="merchant.name"
-                                :orderRating="merchant.rating"
-                                :shipping="merchant.shipping"/>
+            <div class="col-4 col-md-2 pb-4" v-for="merchant in merchants" :key="merchant.id">
+                <merchant-card :orderImage="merchantdummy.image"
+                                :merchantName="merchant.company_name"
+                                :orderRating="merchantdummy.rating"
+                                :shipping="merchantdummy.shipping"/>
             </div>
         </div>
 
@@ -22,6 +22,8 @@
 
 <script>
 import MerchantCard from "./../../components/customer/MerchantCard.vue";
+import axios from 'axios';
+
 export default {
     components: {
         MerchantCard
@@ -31,22 +33,21 @@ export default {
     },
     data() {
         return {
-            merchant: {
+            merchantdummy: {
                 id: "ORD123",
                 name: 'Reftek',
                 shipping: 'intl',
                 rating: 4.72,
                 image: 'https://trademe.tmcdn.co.nz/photoserver/plus/687646665.jpg',
             },
-            merchant2: {
-                id: "ORD123",
-                name: 'GEMS',
-                shipping: 'intl',
-                rating: 3.72,
-                image: 'https://placehold.it/300x100',
-            },
+            merchants: [],
         }
     },
+    mounted() {
+        let merchants = JSON.parse(window.localStorage.getItem('dvlmp-merchants'));
+
+        this.merchants = merchants;
+    }
 }
 </script>
 
