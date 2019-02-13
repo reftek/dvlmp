@@ -1,118 +1,124 @@
 <template>
     <div>
-        <div class="row p-4" >
-            <div class="col-12 col-lg-2 col-md-3">
-                <div>
-                    <button type="submit" class="btn btn-div py-3 mb-4 btn-primary btn-block active" @click="gotoNewOrder()">Book a new Delivery</button>
-                </div>
-            </div>
+        <div v-if="isLoading" class="loader">
+            <tile :loading="isLoading"></tile>
         </div>
 
-        <div class="row mb-3 px-4">
-            <div class="col-8">
-                <div class="black bold">Recent Orders</div>
-            </div>
-            <div class="col-4">
-                <div class="text-right">
-                    <button type="submit" class="btn py-1 btn-small btn-primary active" @click="gotoAllOrders">VIEW ALL</button>
+        <div v-if="!isLoading"> 
+            <div class="row p-4" >
+                <div class="col-12 col-lg-2 col-md-3">
+                    <div>
+                        <button type="submit" class="btn btn-div py-3 mb-4 btn-primary btn-block active" @click="gotoNewOrder()">Book a new Delivery</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row scrolling-wrapper-flexbox">
-            <div class="col-12" v-if="orders.length < 1">
-                <div class="ml-4 mb-4">
-                    No recent orders
+            <div class="row mb-3 px-4">
+                <div class="col-8">
+                    <div class="black bold">Recent Orders</div>
+                </div>
+                <div class="col-4">
+                    <div class="text-right">
+                        <button type="submit" class="btn py-1 btn-small btn-primary active" @click="gotoAllOrders">VIEW ALL</button>
+                    </div>
                 </div>
             </div>
-            <div class="col-6 col-lg-2 col-md-3 ml-2" v-for="order in orders" :key="order.id" @click="gotoOrder(order.id)" >
-                <div class="row ml-2 rounded order-card mb-3 shadow-sm pb-3 pt-2">
-                    <div class="col-12">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <div class="order-id">{{ dummy.id }}</div>
-                            </div>
-                            <div class="col">
-                                <div class="order-date text-right"> {{ dummy.date }}</div>
-                            </div>
-                        </div>
-                        <div class="row my-1 align-items-center">
-                            <div class="col-2">
-                                 <div class="order-img merch-image rounded" :style="{'background-image': 'url('+dummy.image+')'}"></div>
-                            </div>
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="order-merch black ml-2">{{ dummy.merchantName }}</div>
-                                    </div>
+
+            <div class="row scrolling-wrapper-flexbox">
+                <div class="col-12" v-if="orders.length < 1">
+                    <div class="ml-4 mb-4">
+                        No recent orders
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2 col-md-3 ml-2" v-for="order in orders" :key="order.id" @click="gotoOrder(order.id)" >
+                    <div class="row ml-2 rounded order-card mb-3 shadow-sm pb-3 pt-2">
+                        <div class="col-12">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <div class="order-id">{{ dummy.id }}</div>
                                 </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="status black ml-2">
-                                                Order Status: &nbsp;
-                                                <div class="delivery-status px-1" v-if="order.status == 'success'">
-                                                    Delivered
-                                                </div>
-                                                <div class="delivery-status status-red px-2" v-if="order.status == 'fail'">
-                                                    Cancelled
-                                                </div>
-                                                <div class="delivery-status status-orange px-2" v-if="order.status == 'pending'">
-                                                    Pending
-                                                </div>
+                                <div class="col">
+                                    <div class="order-date text-right"> {{ dummy.date }}</div>
+                                </div>
+                            </div>
+                            <div class="row my-1 align-items-center">
+                                <div class="col-2">
+                                    <div class="order-img merch-image rounded" :style="{'background-image': 'url('+dummy.image+')'}"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="order-merch black ml-2">{{ dummy.merchantName }}</div>
                                         </div>
                                     </div>
-                                </div>                    
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="status black ml-2">
+                                                    Order Status: &nbsp;
+                                                    <div class="delivery-status px-1" v-if="order.status == 'success'">
+                                                        Delivered
+                                                    </div>
+                                                    <div class="delivery-status status-red px-2" v-if="order.status == 'fail'">
+                                                        Cancelled
+                                                    </div>
+                                                    <div class="delivery-status status-orange px-2" v-if="order.status == 'pending'">
+                                                        Pending
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>                    
+                                </div>
+                            </div> <hr>
+                            <div class="col pt-2 mb-5">
+                                <div class="row description">Description</div>
+                                <div class="row description__content">{{ order.item_description }}</div>
                             </div>
-                        </div> <hr>
-                        <div class="col pt-2 mb-5">
-                            <div class="row description">Description</div>
-                            <div class="row description__content">{{ order.item_description }}</div>
+                            <button type="submit" class="btn btn-block detail-btn py-1 btn-primary active" @click="gotoOrder(order.id)">View Details</button>
                         </div>
-                        <button type="submit" class="btn btn-block detail-btn py-1 btn-primary active" @click="gotoOrder(order.id)">View Details</button>
+                    </div>      
+                </div>
+            </div>    
+
+            <div class="row my-3 px-4">
+                <div class="col-8">
+                    <div class="black bold">
+                        Favourite Merchants
                     </div>
-                </div>      
-            </div>
-        </div>    
-
-        <div class="row my-3 px-4">
-            <div class="col-8">
-                <div class="black bold">
-                    Favourite Merchants
+                </div>
+                <div class="col-4">
+                    <div class="text-right">
+                        <button type="submit" class="btn py-1 btn-small btn-primary active" @click="gotoAllMerchants">VIEW ALL</button>
+                    </div>
                 </div>
             </div>
-            <div class="col-4">
-                <div class="text-right">
-                    <button type="submit" class="btn py-1 btn-small btn-primary active" @click="gotoAllMerchants">VIEW ALL</button>
+
+            <div class="row scrolling-wrapper-flexbox pl-4">
+                <div class="col-4 col-md-2" v-for="merchant in merchants" :key="merchant.id">
+                    <div class="" @click="gotoMerchant(merchant.id)">
+                        <merchant-card :orderImage="dummy.image"
+                                :merchantName="merchant.company_name"
+                                :orderRating="dummy.rating"/>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row scrolling-wrapper-flexbox pl-4">
-            <div class="col-4 col-md-2" v-for="merchant in merchants" :key="merchant.id">
-                <div class="" @click="gotoMerchant(merchant.id)">
-                    <merchant-card :orderImage="dummy.image"
-                            :merchantName="merchant.company_name"
-                            :orderRating="dummy.rating"/>
+            <div class="row my-4 px-4">
+                <div class="col-8">
+                    <div class="black bold">Favourite Contacts</div>
+                </div>
+                <div class="col-4">
+                    <div class="text-right">
+                        <button type="submit" class="btn py-1 btn-small btn-primary active" @click="gotoNewContact">ADD NEW</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row my-4 px-4">
-            <div class="col-8">
-                <div class="black bold">Favourite Contacts</div>
-            </div>
-            <div class="col-4">
-                <div class="text-right">
-                     <button type="submit" class="btn py-1 btn-small btn-primary active" @click="gotoNewContact">ADD NEW</button>
+            <div class="row wrap px-4 mb-2">
+                <div class="col-12 col-md-6 col-lg-3" v-for="contact in contacts" :key="contact.id">
+                    <contact-card :contactName="contact.name"
+                                    :contactNumber="contact.number"
+                                    :contactImage="image"/>
                 </div>
-            </div>
-        </div>
-
-        <div class="row wrap px-4 mb-2">
-            <div class="col-12 col-md-6 col-lg-3" v-for="contact in contacts" :key="contact.id">
-                <contact-card :contactName="contact.name"
-                                :contactNumber="contact.number"
-                                :contactImage="image"/>
             </div>
         </div>
     </div>
@@ -120,8 +126,10 @@
 
 <script>
 import axios from 'axios';
+import VueSpinners from 'vue-spinners';
 import ContactCard from './../../components/customer/ContactCard';
 import MerchantCard from './../../components/customer/MerchantCard';
+
 export default {
     components: {
         ContactCard,
@@ -137,6 +145,7 @@ export default {
                 rating: 4.72,
                 image: 'https://trademe.tmcdn.co.nz/photoserver/plus/687646665.jpg',
             },
+            isLoading: true,
             orders: [],
             contacts: [],
             merchants: [],
@@ -192,7 +201,7 @@ export default {
         if(token){
         axios.defaults.headers.common['Authorization'] = "Bearer "+token;
         }
-
+   
         axios.get('http://127.0.0.1:8000/api/contact')
             .then(response => {
                 let result = response.data;
@@ -231,6 +240,7 @@ export default {
                     console.log(orders)
 
                     this.orders = orders;
+                    this.isLoading = !this.isLoading;
                 }
             })
     },
@@ -238,6 +248,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.loader{
+    position : absolute;
+    left: 45vw;
+    top: 20vh;
+    
+}
+
 .scrolling-wrapper-flexbox {
   display: flex;
   flex-wrap: nowrap;

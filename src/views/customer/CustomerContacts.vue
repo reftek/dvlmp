@@ -19,8 +19,20 @@
                 </div>
             </div>
         </div>
+
+        <div v-if="isLoading">
+            <tile :loading="isLoading"></tile>
+        </div>
+
+        <div v-if="isEmpty" class="">
+            No contacts yet!
+        </div>
+
+        <div v-if="isSearchEmpty">
+            Contact not found.
+        </div>
        
-        <div class="row wrap">
+        <div class="row wrap" v-if="!isLoading">
             <div class="col-12 col-lg-3 col-md-6" v-for="contact in searchedContacts" :key="contact.id">
                 <contact-card :contactName="contact.name"
                                 :contactNumber="contact.number"
@@ -32,7 +44,9 @@
 
 <script>
 import axios from 'axios';
+import VueSpinners from 'vue-spinners';
 import ContactCard from "./../../components/customer/ContactCard";
+
 export default {
     components: {
         ContactCard
@@ -43,6 +57,9 @@ export default {
            image: "https://www.beweship.com/wp-content/uploads/2017/04/beweship-contact-placeholder.jpg",
            search: "https://storage.googleapis.com/spec-host-backup/mio-design%2Fassets%2F0B4tcF52UnWX4bU9iODkyWXIwN3c%2Fusability-bidirectionality-guidelines-whennot5.png",
            contacts: [],
+           isLoading: true,
+           isEmpty: true,
+           isSearchEmpty: false,
         }
     },
     computed: {
@@ -58,7 +75,10 @@ export default {
                 let input = this.searchInput.toLowerCase();
 
                 if(name.search(input) > -1){
+                    this.isSearchEmpty = !this.isSearchEmpty;
                     matchedContacts.push(contact);
+                } else { 
+                    return this.isSearchEmpty = !this.isSearchEmpty;
                 }
             });
 
@@ -83,21 +103,13 @@ export default {
 
                     this.contacts =contacts;
                     console.log(this.contacts);
-
+                    this.isLoading = !this.isLoading;
                 }
             })
-    },
-    watch: {
-        // searchInput() {
-        //     if(this.searchInput) {
-        //         let contact = () => {
-        //             this.contacts.filter(a => a.name == this.contact.name)
-        //         }
-        //         this.contacts = contact[0]
-        //     }else {
-        //         this.searchInput = ''
-        //     }
-        // }
+
+            if(this.contacts) {
+                this.isEmpty = !this.isEmpty;
+            }
     },
 }
 </script>

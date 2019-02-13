@@ -47,6 +47,8 @@
 
 <script>
 import axios from 'axios';
+import Toasted from 'vue-toasted';
+
 export default {
     data(){
         return {
@@ -83,8 +85,15 @@ export default {
                     
                     window.localStorage.setItem("dvlmp-token", result.data.token);
                     window.localStorage.setItem("dvlmp-user-info", JSON.stringify(result.data.user));
+                    let user = JSON.parse(window.localStorage.getItem('dvlmp-user-info'));
                     
                     this.$router.push({name: 'customers.dashboard'});
+
+                    let toast = this.$toasted.show(`Welcome ${user.name}!`, { 
+                            theme: "toasted-primary", 
+                            position: "top-right", 
+                            duration : 5000
+                    });
                 } else if(result.status == true && result.data.user.type == 'merchant'){
                     console.log('Welcome Merchant');
                     console.log(result.data.token);

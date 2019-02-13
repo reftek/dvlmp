@@ -54,6 +54,8 @@
 
 <script>
 import axios from 'axios';
+import Toasted from 'vue-toasted';
+
 export default {
     props: [
         'userImage',
@@ -80,6 +82,12 @@ export default {
             window.localStorage.removeItem('dvlmp-user-info');
 
             this.$router.push({ name: 'main.home'});
+
+            let toast = this.$toasted.show("Logged out Successfully!", { 
+                            theme: "toasted-primary", 
+                            position: "bottom-center", 
+                            duration : 5000
+            });
         }
     },
     watch: {
