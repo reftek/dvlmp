@@ -12,6 +12,11 @@
         </div>
 
         <div class="row wrap">
+            <div class="col-12" v-if="!orders">
+                <div class="mb-4">
+                    No recent orders
+                </div>
+            </div>
             <div class="col-md-12 col-lg-3 mb-2"  v-for="order in orders" :key="order.id">
                 <order-item :orderId="order.id" 
                     :merchantName="merchantName" 
@@ -36,7 +41,6 @@ export default {
     data(){
         return {
             image: 'https://trademe.tmcdn.co.nz/photoserver/plus/687646665.jpg',
-            orders: [],
             merchantName: 'Reftek',
             ordersdummy: [
                 {
@@ -66,16 +70,19 @@ export default {
             ]
         }
     },
+    computed: {
+        orders() {
+            return this.$store.getters.getDeliveries;
+        }
+    },
     methods: {
         gotoNewOrder(){
             this.$router.push({name: "customers.orders.new"});
         }
     },
     mounted() {
-        let orders = JSON.parse(window.localStorage.getItem('dvlmp-orders'));
-        this.orders = orders;
-        console.log(this.orders)
-    },
+        this.$store.dispatch('retrieveDeliveries');
+    }
 }
 </script>
 

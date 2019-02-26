@@ -24,9 +24,9 @@
                 </div>
             </div>
 
-            <div class="row scrolling-wrapper-flexbox">
-                <div class="col-12" v-if="orders.length < 1">
-                    <div class="ml-4 mb-4">
+            <div class="row scrolling-wrapper-flexbox pl-4">
+                <div class="col-12" v-if="!orders">
+                    <div class="mb-4">
                         No recent orders
                     </div>
                 </div>
@@ -93,6 +93,11 @@
             </div>
 
             <div class="row scrolling-wrapper-flexbox pl-4">
+                <div class="col-12" v-if="!merchants">
+                    <div class=" mb-4">
+                        No recent Merchants
+                    </div>
+                </div>
                 <div class="col-4 col-md-2" v-for="merchant in merchants" :key="merchant.id">
                     <div class="" @click="gotoMerchant(merchant.id)">
                         <merchant-card :orderImage="dummy.image"
@@ -114,8 +119,14 @@
             </div>
 
             <div class="row wrap px-4 mb-2">
+                <div class="col-12" v-if="!contacts">
+                    <div class="mb-4">
+                        No recent contacts
+                    </div>
+                </div>
                 <div class="col-12 col-md-6 col-lg-3" v-for="contact in contacts" :key="contact.id">
                     <contact-card :contactName="contact.name"
+                                    :contactId="contact.id"
                                     :contactNumber="contact.number"
                                     :contactImage="image"/>
                 </div>
@@ -145,11 +156,21 @@ export default {
                 rating: 4.72,
                 image: 'https://trademe.tmcdn.co.nz/photoserver/plus/687646665.jpg',
             },
-            isLoading: true,
-            orders: [],
-            contacts: [],
-            merchants: [],
             image: "https://www.beweship.com/wp-content/uploads/2017/04/beweship-contact-placeholder.jpg",
+        }
+    },
+    computed: {
+        isLoading() {
+            return this.$store.getters.getIsLoadingStatus;
+        },
+        contacts() {
+            return this.$store.getters.getContacts;
+        },
+        merchants() {
+            return this.$store.getters.getMerchants;
+        },
+        orders() {
+            return this.$store.getters.getDeliveries;
         }
     },
     methods: {
@@ -202,47 +223,13 @@ export default {
         axios.defaults.headers.common['Authorization'] = "Bearer "+token;
         }
    
-        axios.get('http://127.0.0.1:8000/api/contact')
-            .then(response => {
-                let result = response.data;
+        this.$store.dispatch('retrieveContacts');
 
-                if(result.status === true) {
-                    window.localStorage.setItem('dvlmp-contacts', JSON.stringify(result.data));
-                    let contacts = JSON.parse(window.localStorage.getItem('dvlmp-contacts'));
-                    console.log(contacts);
+        this.$store.dispatch('retrieveMerchants');
 
-                    this.contacts =contacts;
-                    console.log(this.contacts);
+        this.$store.dispatch('retrieveDeliveries');
 
-                }
-            })
-
-        axios.get('http://127.0.0.1:8000/api/merchant')
-            .then(response => {
-                let result = response.data;
-
-                if(result.status == true){
-                    window.localStorage.setItem('dvlmp-merchants', JSON.stringify(result.data));
-                    let merchants = JSON.parse(window.localStorage.getItem('dvlmp-merchants'));
-                    console.log(merchants)
-
-                    this.merchants = merchants;
-                }
-            })
-
-        axios.get('http://127.0.0.1:8000/api/orders')
-            .then(response => {
-                let result = response.data;
-
-                if(result.status == true){
-                    window.localStorage.setItem('dvlmp-orders', JSON.stringify(result.data));
-                    let orders = JSON.parse(window.localStorage.getItem('dvlmp-orders'));
-                    console.log(orders)
-
-                    this.orders = orders;
-                    this.isLoading = !this.isLoading;
-                }
-            })
+        // this.isLoading = !this.isLoading
     },
 }
 </script>

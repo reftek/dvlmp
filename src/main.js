@@ -8,9 +8,6 @@ import axios from 'axios';
 import VueSpinners from 'vue-spinners';
 import Toasted from 'vue-toasted';
 
-//npm install --save vue-spinners
-//npm install vue-toasted --save
-
 Vue.use(Toasted);
 Vue.use(VueSpinners);
 

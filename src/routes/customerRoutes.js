@@ -12,6 +12,11 @@ export default [
         component: () => import( /* webpackChunkName: "customer-contacts" */ './../views/customer/CustomerContacts.vue')
     },
     {
+        path: 'contacts/:id',
+        name: 'customers.contacts.detail',
+        component: () => import( /* webpackChunkName: "customer-contacts" */ './../views/customer/CustomerContactDetail.vue')
+    },
+    {
         path: 'contacts/new',
         name: 'customers.contacts.new',
         component: () => import( /* webpackChunkName: "customer-contacts" */ './../views/customer/CustomerAddContact.vue')

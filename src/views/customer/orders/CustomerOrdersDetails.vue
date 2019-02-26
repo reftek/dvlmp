@@ -3,7 +3,7 @@
         <p class="mb-3">Order Details</p>
 
         <div class='pt-3 first-details align-items-center px-3'>
-            <div class="row align-items-center" @click="gotoMerchant()">
+            <div class="row align-items-center" @click="gotoMerchant">
                 <div class="col-3 col-lg-1">
                     <div class="order-img rounded" :style="{'background-image': 'url('+orderdummy.image+')'}"></div>
                 </div>
@@ -117,7 +117,6 @@ import axios from 'axios';
 export default {
     data(){
         return {
-            order: [],
             orderdummy: {
                 id: "ORD123",
                 merchantName: 'Reftek',
@@ -129,28 +128,20 @@ export default {
             },
         }
     },
+    computed: {
+        order() {
+            return this.$store.getters.getThisDelivery;
+        } 
+    },
     methods: {
         gotoMerchant() {
-            let merchant_id = this.order.merchant_id;
-            let url = 'http://127.0.0.1:8000/api/merchant/' + merchant_id ;
-
-            axios.get(url)
-                .then(response => {
-                    let result = response.data;
-
-                    if(result.status == true){
-                        window.localStorage.setItem('dvlmp-merchant', JSON.stringify(result.data));
-                        this.$router.push({name: 'merchant.details', params: {id:merchant_id}});
-                    }
-                })
-            
-            
+            let merchantId = this.order.merchant_id;
+            this.$router.push({name: 'merchant.details', params: {id:merchantId}});
         }
     },
     mounted() {
-        let order = JSON.parse(window.localStorage.getItem('dvlmp-orders-item'));
-        this.order = order;
-        console.log(this.order);
+        let id = this.$route.params.id;
+        this.$store.dispatch('retrieveThisDelivery', id);
     }
 }
 </script>

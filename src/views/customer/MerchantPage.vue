@@ -99,7 +99,6 @@ export default {
     },
     data(){
         return {
-            merchant: {},
             image: 'https://media.licdn.com/dms/image/C4E0BAQFZdNRgLdvvCA/company-logo_400_400/0?e=1557964800&v=beta&t=2Bl5jaVt7hSGE1mE56-ANr3l4_AwhzdDNSz0BFUnh9U',
             order: {
                 id: "ORD123",
@@ -112,9 +111,14 @@ export default {
             },
         }
     },
+    computed: {
+        merchant() {
+            return this.$store.getters.getThisMerchant;
+        }
+    },
     mounted() {
-        let merchant = JSON.parse(window.localStorage.getItem('dvlmp-merchant'));
-        this.merchant = merchant;
+        let id = this.$route.params.id
+        this.$store.dispatch('retrieveThisMerchant', id);
     },
 }
 </script>

@@ -61,22 +61,8 @@ export default {
         'image'
     ],
     methods: {
-        gotoOrderDetails(order_id){
-            let url = 'http://127.0.0.1:8000/api/delivery/' + order_id;
-            
-            axios.get(url)
-                .then(response => {
-                    let result = response.data;
-
-                    window.localStorage.setItem('dvlmp-orders-item', JSON.stringify(result.data));
-
-                    this.$router.push({
-                        name: 'customers.orders.details', 
-                        params: { 
-                            id: order_id
-                        }
-                    });
-                })
+        gotoOrderDetails(orderId){   
+            this.$router.push({name: 'customers.orders.details', params: {id:orderId}});
         }
     }
 }

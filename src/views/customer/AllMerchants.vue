@@ -40,13 +40,15 @@ export default {
                 rating: 4.72,
                 image: 'https://trademe.tmcdn.co.nz/photoserver/plus/687646665.jpg',
             },
-            merchants: [],
         }
     },
+    computed: {
+        merchants() {
+            return this.$store.getters.getMerchants;
+        },
+    },
     mounted() {
-        let merchants = JSON.parse(window.localStorage.getItem('dvlmp-merchants'));
-
-        this.merchants = merchants;
+        this.$store.dispatch('retrieveMerchants');
     }
 }
 </script>

@@ -20,21 +20,23 @@
             </div>
         </div>
 
+        <div v-if="!contacts" class="empty-array">
+            No contacts yet!
+        </div>
+
         <div v-if="isLoading">
             <tile :loading="isLoading"></tile>
         </div>
 
-        <div v-if="isEmpty" class="">
-            No contacts yet!
-        </div>
 
-        <div v-if="isSearchEmpty">
+        <div v-if="!searchedContacts">
             Contact not found.
         </div>
        
         <div class="row wrap" v-if="!isLoading">
             <div class="col-12 col-lg-3 col-md-6" v-for="contact in searchedContacts" :key="contact.id">
                 <contact-card :contactName="contact.name"
+                                :contactId="contact.id"
                                 :contactNumber="contact.number"
                                 :contactImage="image"/>
             </div>
@@ -56,15 +58,19 @@ export default {
             searchInput: '',
            image: "https://www.beweship.com/wp-content/uploads/2017/04/beweship-contact-placeholder.jpg",
            search: "https://storage.googleapis.com/spec-host-backup/mio-design%2Fassets%2F0B4tcF52UnWX4bU9iODkyWXIwN3c%2Fusability-bidirectionality-guidelines-whennot5.png",
-           contacts: [],
-           isLoading: true,
-           isEmpty: true,
            isSearchEmpty: false,
         }
     },
     computed: {
+        isLoading() {
+            return this.$store.getters.getIsLoadingStatus;
+        },
+        contacts() {
+            return this.$store.getters.getContacts;
+        },
         searchedContacts(){
             if(this.searchInput == ''){
+                this.isSearchEmpty =false;
                 return this.contacts;
             }
 
@@ -75,7 +81,7 @@ export default {
                 let input = this.searchInput.toLowerCase();
 
                 if(name.search(input) > -1){
-                    this.isSearchEmpty = !this.isSearchEmpty;
+                    // this.isSearchEmpty = !this.isSearchEmpty;
                     matchedContacts.push(contact);
                 } else { 
                     return this.isSearchEmpty = !this.isSearchEmpty;
@@ -89,27 +95,14 @@ export default {
         gotoNewContact(){
             this.$router.push({name: "customers.contacts.new"});
         }
-    }, 
+    },
+    watch: {
+        searchedContacts(){
+            
+        }
+    },
     mounted(){
-        console.log("customer contact");
-        axios.get('http://127.0.0.1:8000/api/contact')
-            .then(response => {
-                let result = response.data;
-
-                if(result.status === true) {
-                    window.localStorage.setItem('dvlmp-contacts', JSON.stringify(result.data));
-                    let contacts = JSON.parse(window.localStorage.getItem('dvlmp-contacts'));
-                    console.log(contacts);
-
-                    this.contacts =contacts;
-                    console.log(this.contacts);
-                    this.isLoading = !this.isLoading;
-                }
-            })
-
-            if(this.contacts) {
-                this.isEmpty = !this.isEmpty;
-            }
+        this.$store.dispatch('retrieveContacts');
     },
 }
 </script>
@@ -185,6 +178,11 @@ input{
 
 .mine{
     float: right;
+}
+
+.empty-array{
+    font-size: 1rem;
+    color: black;
 }
 </style>
 
