@@ -13,7 +13,7 @@ Vue.use(VueSpinners);
 
 Vue.config.productionTip = false;
 
-let token = window.localStorage.getItem('dvlmp-token');
+let token = store.getters.getToken;
 if(token){
   axios.defaults.headers.common['Authorization'] = "Bearer "+token;
 }

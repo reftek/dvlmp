@@ -1,8 +1,5 @@
 <template>
     <nav id="sidebar" class="bg-white text-dark">
-        <!-- <router-link tag="div" class="pointer mt-5 fs-13 font-weight-bold pl-4" :to="{name: 'main.home'}">
-            DVLMP
-        </router-link> -->
         <div class="pad-left mt-5 ">
             <div class="row align-items-center">
                 <div class="col-3 ">
@@ -63,36 +60,34 @@ export default {
         'isActive',
        
     ],
-    data() {
-        return {
-            isLoggedIn: false,
+    computed: {
+        isLoggedIn() {
+            return this.$store.getters.getIsLoggedInStatus;
         }
     },
     methods: {
         logout() {
-            this.isLoggedIn = !this.isLoggedIn;
+            this.$store.dispatch('logoutUser')
+            .then((data) => {
+                console.log(this.isLoggedIn);
 
-            console.log(this.isLoggedIn);
+                // window.localStorage.removeItem('dvlmp-token');
 
-            window.localStorage.removeItem('dvlmp-token');
-            window.localStorage.removeItem('dvlmp-orders');
-            window.localStorage.removeItem('dvlmp-contact');
-            window.localStorage.removeItem('dvlmp-merchants');
-            window.localStorage.removeItem('dvlmp-merchants-item');
-            window.localStorage.removeItem('dvlmp-user-info');
+                this.$router.push({ name: 'main.home'});
 
-            this.$router.push({ name: 'main.home'});
-
-            let toast = this.$toasted.show("Logged out Successfully!", { 
-                            theme: "toasted-primary", 
-                            position: "bottom-center", 
-                            duration : 5000
-            });
+                let toast = this.$toasted.show("Logged out Successfully!", { 
+                                theme: "toasted-primary", 
+                                position: "bottom-center", 
+                                duration : 2000
+                });
+            }).catch(e => {
+                console.log('OOOOOOOOOOOOOoooooooooooppppppssssssss')
+            })
         }
     },
     watch: {
         isLoggedIn() {
-            (this.isLoggedIn === true) ? console.log('still logged in') : this.$router.push({ name: 'main.home'})
+            (this.isLoggedIn) ? console.log('still logged in') : this.$router.push({ name: 'main.home'})
         }
     }
 }

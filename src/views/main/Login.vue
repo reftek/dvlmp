@@ -29,9 +29,9 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-3 p-3">
+        <div class="row px-3">
             <div class="col">
-                <button type="submit" class="btn py-3 btn-primary btn-block active" @click="tryLogin()">Log In</button>
+                <button type="submit" class="btn mt-3 p-3 py-3 btn-primary btn-block active" @click="tryLogin">Log In</button>
             </div>
         </div>
 
@@ -65,6 +65,9 @@ export default {
             }else{
                 return 'password';
             }
+        },
+        isLoggedIn() {
+            return this.$store.getters.getIsLoggedInStatus;
         }
     },
     methods: {
@@ -74,46 +77,33 @@ export default {
                 'password': this.password,
             }
 
-            axios.post('http://127.0.0.1:8000/api/auth/login', body)
-            .then(response => {
-                let result = response.data;
-                console.log(result)
-                
-                if (result.status == true && result.data.user.type == 'customer') {
-                    console.log('Welcome Customer');
-                    console.log(result.data.token);
-                    
-                    window.localStorage.setItem("dvlmp-token", result.data.token);
-                    window.localStorage.setItem("dvlmp-user-info", JSON.stringify(result.data.user));
-                    let user = JSON.parse(window.localStorage.getItem('dvlmp-user-info'));
-                    
-                    this.$router.push({name: 'customers.dashboard'});
-
-                    let toast = this.$toasted.show(`Welcome ${user.name}!`, { 
-                            theme: "toasted-primary", 
-                            position: "top-right", 
-                            duration : 5000
-                    });
-                } else if(result.status == true && result.data.user.type == 'merchant'){
-                    console.log('Welcome Merchant');
-                    console.log(result.data.token);
-                    
-                    window.localStorage.setItem("dvlmp-token", result.data.token);
-                    window.localStorage.setItem("dvlmp-user-info", JSON.stringify(result.data.user));
-
-                    this.$router.push({name: 'merchants.dashboard'});
-                } else {
-                    this.errorMessage = result.message
+            if ((this.email || this.password) == "" ) {
+                    this.errorMessage = "Please provide valid login information";
                 }
-            }
-            )
-            .catch(e => {
-                console.log('sorry')
+
+            this.$store.dispatch('loginUser', body)
+            .then((data) => {
+                let user = this.$store.getters.getCurrentUser;
+
+                if(user.type == 'customer') {
+                    this.$router.push({name: 'customers.dashboard'});
+                } else if (user.type == 'merchant') {
+                    this.$router.push({name: 'merchants.dashboard'});
+                } 
+
+                console.log("i am done dispatching");
+                let toast = this.$toasted.show(`Welcome ${user.name}!`, { 
+                        theme: "toasted-primary", 
+                        position: "bottom-center", 
+                        duration : 2000
+                });
+            }).catch(err => {
+                console.log(err)
             })
         }
     },
-    created() {
-        let token = window.localStorage.getItem('dvlmp-token');
+    beforeCreate() {
+        let token = this.$store.getters.getToken;
 
         if(token) {
             this.$router.push({name: 'customers.dashboard'});

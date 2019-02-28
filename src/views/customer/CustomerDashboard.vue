@@ -25,8 +25,8 @@
             </div>
 
             <div class="row scrolling-wrapper-flexbox pl-4">
-                <div class="col-12" v-if="!orders">
-                    <div class="mb-4">
+                <div class="col-12" v-if="orders.length === 0">
+                    <div class="mb-5">
                         No recent orders
                     </div>
                 </div>
@@ -93,8 +93,8 @@
             </div>
 
             <div class="row scrolling-wrapper-flexbox pl-4">
-                <div class="col-12" v-if="!merchants">
-                    <div class=" mb-4">
+                <div class="col-12" v-if="merchants.length === 0">
+                    <div class=" mb-5">
                         No recent Merchants
                     </div>
                 </div>
@@ -119,8 +119,8 @@
             </div>
 
             <div class="row wrap px-4 mb-2">
-                <div class="col-12" v-if="!contacts">
-                    <div class="mb-4">
+                <div class="col-12" v-if="contacts.length === 0">
+                    <div class="mb-5">
                         No recent contacts
                     </div>
                 </div>
@@ -218,7 +218,8 @@ export default {
         }
     },
     mounted(){
-        let token = window.localStorage.getItem('dvlmp-token');
+        let token = this.$store.getters.getToken;
+
         if(token){
         axios.defaults.headers.common['Authorization'] = "Bearer "+token;
         }

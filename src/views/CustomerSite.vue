@@ -26,17 +26,8 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            isLoggedIn: false,
             isActiveSettings: false,
             image: "https://www.placehold.it/50x50",
-            user:
-                {
-                    id: '',
-                    name: '',
-                    // image: "https://media.licdn.com/dms/image/C5603AQGhKcxOqCjaPQ/profile-displayphoto-shrink_800_800/0?e=1554940800&v=beta&t=qBJskR6Z2ZJP4TC91dlnp-ksy99QrJWBybIFOajWSxU",
-                    image: "https://www.placehold.it/50x50",
-                    // backgroundUrl: require("./../../assets/images/profile_pic.png"),
-                },
         }
     },
     components: {
@@ -47,28 +38,36 @@ export default {
     computed: {
         sideBarOpen(){
             return this.$store.getters['getSideBarStatus'];
-        }
+        },
+        isLoggedIn() {
+            return this.$store.getters.getIsLoggedInStatus;
+        },
+        user(){
+            return this.$store.getters.getCurrentUser;
+        },
     },
     methods: {
         handleCloseSidebar(){
             this.$store.commit("toggleSideBar", false);
         }
     },
-    mounted() {
-        let userInfo = JSON.parse(window.localStorage.getItem('dvlmp-user-info'));
-
-        let token = window.localStorage.getItem('dvlmp-token');
-        if(!token) {
+    beforeCreate() {
+        let token = this.$store.getters.getToken;
+        if(token){
+            axios.defaults.headers.common['Authorization'] = "Bearer "+token;
+        } else if(!token) {
             this.$router.push({ name: 'main.login'});
-        } else if(userInfo.type == 'merchant') {
+        } else if(this.user.type == 'merchant') {
             console.log('You cannot be here');
             this.$router.push({ name: 'merchants.dashboard'});
-        } else {
-            this.isLoggedIn == true;
         }
-
-        console.log(userInfo);
-        this.user = userInfo;
+    },
+    mounted() {
+        // let token = this.$store.getters.getToken;
+        
+        console.log('hey');
+        // console.log(this.$store.getters.getToken)
+        // console.log(this.$store.getters.getCurrentUser)
     }
 }
 </script>
@@ -82,6 +81,7 @@ export default {
 #page-wrap{
     width: 100%;
     min-height: 100vh;
+    // z-index: 200;
 }
 </style>
 
